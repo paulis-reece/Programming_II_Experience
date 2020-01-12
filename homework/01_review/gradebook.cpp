@@ -37,11 +37,9 @@ void displayGrades(string names[], char homeworkScores[][NUMBER_OF_SCORES],
   cout << "Student Grades" << endl;
   for (int row = 0; row < size; row++) {
     cout << names[row] << "\t";
-    for (int col = 0; col < NUMBER_OF_SCORES; col++) {
-      cout << homeworkScores[row][col];
+      cout << homeworkScores[row];
     }
     cout << endl;
-  }
 }
 
 // Function: displaySuggestedResubmissions
@@ -175,6 +173,7 @@ int main() {
     // TODO Check for invalid menu input.
     if (menu == cin.fail()) {
       cin.clear();
+      cin.ignore(100, '\n');
     }
     // menu options
     switch (menu) {
