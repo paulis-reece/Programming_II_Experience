@@ -21,9 +21,8 @@ int main() {
    const int MAX_RECTANGLES = 100;
    Rectangle myRects[MAX_RECTANGLES];
    
-   
    /* create a rectangle at point (1,1) with width 2 and height 3 */
-   if( myRects[0].init(1,1,2,3) ) {
+   if( myRects[0].init(1,1,-5,3) ) {
       
      /* move this rectangle up 2 and over 1 */
      myRects[0].move(1,2);

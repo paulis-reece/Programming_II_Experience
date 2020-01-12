@@ -3,7 +3,7 @@
  * Checkpoint Assignment: Building a Gradebook for CPTR142
  *
  * File Name:       gradebook.cpp
- * Name:            ?
+ * Name:            reklre
  * Course:          CPTR 142
  * Date:            January 9, 2020
  *
@@ -33,7 +33,16 @@ void displayGradebook(string names[], long ids[],
 // Postcondition: Prints a each students name and their grade to the console.
 //                No return value.
 void displayGrades(string names[], char homeworkScores[][NUMBER_OF_SCORES],
-                   int size);
+                   int size) {
+  cout << "Student Grades" << endl;
+  for (int row = 0; row < size; row++) {
+    cout << names[row] << "\t";
+    for (int col = 0; col < NUMBER_OF_SCORES; col++) {
+      cout << homeworkScores[row][col];
+    }
+    cout << endl;
+  }
+}
 
 // Function: displaySuggestedResubmissions
 // Precondition:  names is an array of length size and
@@ -42,7 +51,19 @@ void displayGrades(string names[], char homeworkScores[][NUMBER_OF_SCORES],
 //                they should resubmit next. No return value.
 void displaySuggestedResubmissions(string names[],
                                    char homeworkScores[][NUMBER_OF_SCORES],
-                                   int size);
+                                   int size) {
+  for (int row = 0; row < size; row++) {
+    for (int col = 0; col < NUMBER_OF_SCORES; col++) {
+      if (homeworkScores[row][col] == 'E' || -1) {
+        cout << names[row] << " has no homework to resubmit.";
+      } else {
+        cout << names[row] << " should resubmit homework "
+             << homeworkScores[row][col];
+      }
+    }
+    cout << endl;
+  }
+}
 
 // Function: getGradeTotals
 // Precondition:  homeworkScores is an array of length size and
@@ -53,14 +74,45 @@ void displaySuggestedResubmissions(string names[],
 //                The result is passed back using pass-by-reference variables.
 //                No return value.
 void getGradeTotals(char homeworkScores[], int size, int &eTotal, int &mTotal,
-                    int &rTotal, int &nTotal);
+                    int &rTotal, int &nTotal) {
+  for (int row = 0; row < size; row++) {
+    switch (homeworkScores[row]) {
+    case 'E':
+      eTotal++;
+      break;
+    case 'M':
+      mTotal++;
+      break;
+    case 'R':
+      rTotal++;
+      break;
+    case 'N':
+      nTotal++;
+      break;
+    }
+  }
+}
 
 // Function: getHomeworkGrade
 // Precondition:  eTotal, mTotal, rTotal, and nTotal represent the number of
 //                scores for each grade metric.
 // Postcondition: Return the letter grade for the homework category based on
 //                the CPTR142 syllabus.
-char getHomeworkGrade(int eTotal, int mTotal, int rTotal, int nTotal);
+char getHomeworkGrade(int eTotal, int mTotal, int rTotal, int nTotal) {
+  int emTotal = eTotal + mTotal;
+  int rnTotal = rTotal + nTotal;
+  if (emTotal == 14 && rnTotal == 0 && eTotal >= 10) {
+    return 'A';
+  } else if (emTotal >= 13 && eTotal >= 5) {
+    return 'B';
+  } else if (emTotal >= 11) {
+    return 'C';
+  } else if (emTotal >= 8) {
+    return 'D';
+  } else {
+    return 'F';
+  }
+}
 
 // Function: getNextResubmission
 // Precondition:  homeworkScores is an array of length size
@@ -70,7 +122,18 @@ char getHomeworkGrade(int eTotal, int mTotal, int rTotal, int nTotal);
 //                If all homework has an M or E, then the suggested homework
 //                should be the first M.
 //                If the student has all E's, then return -1.
-int getNextResubmission(char homeworkScores[], int size);
+int getNextResubmission(char homeworkScores[], int size) {
+  for (int i = 0; i < size; i++) {
+    if (homeworkScores[i] == 'N') {
+      return homeworkScores[i];
+    } else if (homeworkScores[i] == 'R') {
+      return homeworkScores[i];
+    } else if (homeworkScores[i] == 'M') {
+      return homeworkScores[i];
+    }
+  }
+  return -1;
+}
 
 /*====================================================================
  * Main program
@@ -110,7 +173,9 @@ int main() {
     cin >> menu;
 
     // TODO Check for invalid menu input.
-
+    if (menu == cin.fail()) {
+      cin.clear();
+    }
     // menu options
     switch (menu) {
     case 1:
