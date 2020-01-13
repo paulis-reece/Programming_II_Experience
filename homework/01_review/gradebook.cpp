@@ -33,16 +33,7 @@ void displayGradebook(string names[], long ids[],
 // Postcondition: Prints a each students name and their grade to the console.
 //                No return value.
 void displayGrades(string names[], char homeworkScores[][NUMBER_OF_SCORES],
-                   int size) {
-  cout << "Student Grades" << endl;
-  for (int row = 0; row < size; row++) {
-    cout << names[row] << "\t";
-    for (int col = 0; col < NUMBER_OF_SCORES; col++) {
-      cout << homeworkScores[row];
-    }
-    cout << endl;
-  }
-}
+                   int size);
 
 // Function: displaySuggestedResubmissions
 // Precondition:  names is an array of length size and
@@ -51,19 +42,7 @@ void displayGrades(string names[], char homeworkScores[][NUMBER_OF_SCORES],
 //                they should resubmit next. No return value.
 void displaySuggestedResubmissions(string names[],
                                    char homeworkScores[][NUMBER_OF_SCORES],
-                                   int size) {
-  for (int row = 0; row < size; row++) {
-    for (int col = 0; col < NUMBER_OF_SCORES; col++) {
-      if (homeworkScores[row][col] == 'E' || -1) {
-        cout << names[row] << " has no homework to resubmit.";
-      } else {
-        cout << names[row] << " should resubmit homework "
-             << homeworkScores[row][col];
-      }
-    }
-    cout << endl;
-  }
-}
+                                   int size);
 
 // Function: getGradeTotals
 // Precondition:  homeworkScores is an array of length size and
@@ -74,45 +53,14 @@ void displaySuggestedResubmissions(string names[],
 //                The result is passed back using pass-by-reference variables.
 //                No return value.
 void getGradeTotals(char homeworkScores[], int size, int &eTotal, int &mTotal,
-                    int &rTotal, int &nTotal) {
-  for (int row = 0; row < size; row++) {
-    switch (homeworkScores[row]) {
-    case 'E':
-      eTotal++;
-      break;
-    case 'M':
-      mTotal++;
-      break;
-    case 'R':
-      rTotal++;
-      break;
-    case 'N':
-      nTotal++;
-      break;
-    }
-  }
-}
+                    int &rTotal, int &nTotal);
 
 // Function: getHomeworkGrade
 // Precondition:  eTotal, mTotal, rTotal, and nTotal represent the number of
 //                scores for each grade metric.
 // Postcondition: Return the letter grade for the homework category based on
 //                the CPTR142 syllabus.
-char getHomeworkGrade(int eTotal, int mTotal, int rTotal, int nTotal) {
-  int emTotal = eTotal + mTotal;
-  int rnTotal = rTotal + nTotal;
-  if (emTotal == 14 && rnTotal == 0 && eTotal >= 10) {
-    return 'A';
-  } else if (emTotal >= 13 && eTotal >= 5) {
-    return 'B';
-  } else if (emTotal >= 11) {
-    return 'C';
-  } else if (emTotal >= 8) {
-    return 'D';
-  } else {
-    return 'F';
-  }
-}
+char getHomeworkGrade(int eTotal, int mTotal, int rTotal, int nTotal);
 
 // Function: getNextResubmission
 // Precondition:  homeworkScores is an array of length size
@@ -122,18 +70,7 @@ char getHomeworkGrade(int eTotal, int mTotal, int rTotal, int nTotal) {
 //                If all homework has an M or E, then the suggested homework
 //                should be the first M.
 //                If the student has all E's, then return -1.
-int getNextResubmission(char homeworkScores[], int size) {
-  for (int i = 0; i < size; i++) {
-    if (homeworkScores[i] == 'N') {
-      return homeworkScores[i];
-    } else if (homeworkScores[i] == 'R') {
-      return homeworkScores[i];
-    } else if (homeworkScores[i] == 'M') {
-      return homeworkScores[i];
-    }
-  }
-  return -1;
-}
+int getNextResubmission(char homeworkScores[], int size);
 
 /*====================================================================
  * Main program
@@ -173,7 +110,7 @@ int main() {
     cin >> menu;
 
     // TODO Check for invalid menu input.
-    if (menu == cin.fail()) {
+    if (cin.fail()) {
       cin.clear();
       cin.ignore(100, '\n');
     }
@@ -211,5 +148,88 @@ void displayGradebook(string names[], long ids[],
       cout << homeworkScores[row][col] << " ";
     }
     cout << "\n";
+  }
+}
+
+void displayGrades(string names[], char homeworkScores[][NUMBER_OF_SCORES],
+                   int size) {
+  int e = 0;
+  int m = 0;
+  int r = 0;
+  int n = 0;
+  getGradeTotals(homeworkScores[size], NUMBER_OF_SCORES, e, m, r, n);
+  cout << "Student Grades" << endl;
+  for (int row = 0; row < size; row++) {
+    cout << names[row] << "\t" << getHomeworkGrade(e, m, r, n);
+    cout << endl;
+  }
+}
+void displaySuggestedResubmissions(string names[],
+                                   char homeworkScores[][NUMBER_OF_SCORES],
+                                   int size) {
+  for (int row = 0; row < size; row++) {
+    cout << names[row];
+    if (getNextResubmission(homeworkScores[CLASS_SIZE], NUMBER_OF_SCORES) ==
+        -1) {
+      cout << " has no homework to resubmit.";
+    } else {
+      cout << " should resubmit homework "
+           << getNextResubmission(homeworkScores[CLASS_SIZE], NUMBER_OF_SCORES);
+    }
+    cout << endl;
+  }
+}
+void getGradeTotals(char homeworkScores[], int size, int &e, int &m, int &r,
+                    int &n) {
+  for (int row = 0; row < size; row++) {
+    switch (homeworkScores[row]) {
+    case 'E':
+      e++;
+      break;
+    case 'M':
+      m++;
+      break;
+    case 'R':
+      r++;
+      break;
+    case 'N':
+      n++;
+      break;
+    }
+  }
+}
+char getHomeworkGrade(int e, int m, int r, int n) {
+  int emTotal = e + m;
+  int rnTotal = r + n;
+  if (emTotal == 14 && rnTotal == 0 && e >= 10) {
+    return 'A';
+  } else if (emTotal >= 13 && e >= 5) {
+    return 'B';
+  } else if (emTotal >= 11) {
+    return 'C';
+  } else if (emTotal >= 8) {
+    return 'D';
+  } else {
+    return 'F';
+  }
+}
+int getNextResubmission(char homeworkScores[], int size) {
+  int temp = 0;
+  int eTotal = 0;
+  for (int i = 0; i < size; i++) {
+    if (homeworkScores[i] == 'N' || 'R') {
+      temp = i;
+      return temp;
+    } else if (homeworkScores[i] == 'M') {
+      temp = i;
+      return temp;
+    } else if (homeworkScores[i] == 'E') {
+      eTotal++;
+    }
+  }
+  if (eTotal == size) {
+    return -1;
+  } else {
+    return temp + 1;
   }
 }
