@@ -8,10 +8,10 @@
  * Date:            January 9, 2020
  *
  */
-
+ 
 #include <cassert>  // for assert
 #include <iostream> // for cin and cout
-#include <stdlib.h> // for exit
+#include <cstdlib>  // for exit
 using namespace std;
 
 // sizes of arrays
@@ -123,11 +123,11 @@ int main() {
       displaySuggestedResubmissions(names, homeworkScores, CLASS_SIZE);
       break;
     case 4:
-      cout << "Goodbye.";
+      cout << "Goodbye." << endl;
       exit(0);
       break; //	included for consistency; never executed!
     default:
-      cerr << "Invalid choice.";
+      cerr << "Invalid choice." << endl;
       break; //	included for consistency; redundant since at end anyway!
     }
   }
@@ -146,4 +146,36 @@ void displayGradebook(string names[], long ids[],
     }
     cout << "\n";
   }
+}
+
+void displayGrades(
+    string names[], 
+    char homeworkScores[][NUMBER_OF_SCORES],
+    int size) {
+        cout << "displayGrades" << endl;
+}
+
+void displaySuggestedResubmissions(
+    string names[],
+    char homeworkScores[][NUMBER_OF_SCORES],
+    int size) {
+        cout << "displaySuggestedResubmissions" << endl;
+}
+
+void getGradeTotals(
+    char homeworkScores[], 
+    int size, 
+    int &eTotal, 
+    int &mTotal,
+    int &rTotal, 
+    int &nTotal) {
+
+}
+
+char getHomeworkGrade(int eTotal, int mTotal, int rTotal, int nTotal) {
+    return 'A';
+}
+
+int getNextResubmission(char homeworkScores[], int size) {
+    return 0;
 }
