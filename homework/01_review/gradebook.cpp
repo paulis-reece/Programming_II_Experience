@@ -113,6 +113,7 @@ int main() {
     if (cin.fail()) {
       cin.clear();
       cin.ignore(100, '\n');
+      cout << "Invalid choice.";
     } else {
       // menu options
       switch (menu) {
