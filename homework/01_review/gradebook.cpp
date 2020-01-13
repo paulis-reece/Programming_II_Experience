@@ -101,18 +101,17 @@ int main() {
 
     // prompt for search term
     int menu;
-    cout << "Gradebook Menu" << endl;
-    cout << "  1: Display Gradebook" << endl;
-    cout << "  2: Display Grades" << endl;
-    cout << "  3: Show Next Resubmission for Student" << endl;
-    cout << "  4: Quit" << endl;
+    cout << "Gradebook Menu " << endl;
+    cout << "  1: Display Gradebook " << endl;
+    cout << "  2: Display Grades " << endl;
+    cout << "  3: Show Next Resubmission for Student " << endl;
+    cout << "  4: Quit " << endl;
     cout << "Enter selection: ";
     cin >> menu;
 
     // TODO Check for invalid menu input.
     if (cin.fail()) {
       cin.clear();
-      cin.ignore(100, '\n');
     }
     // menu options
     switch (menu) {
