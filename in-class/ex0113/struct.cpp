@@ -3,7 +3,7 @@
  * In-Class Exercise: Structures
  *
  * File Name: struct.cpp
- * Username:  ?
+ * Username:  reklre
  * Username:  ?
  * Course:    CPTR 142
  */
@@ -14,22 +14,24 @@
 using namespace std;
 
 // TODO: define a struct named Point that contains two integer data members, x and y.
-
+struct Point{
+int x;
+int y;
+};
 // main entry point
 int main() {
 	// use the new struct
 	Point source = { 0, 0 };
 	Point target;
 	double distance;	// sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2))
-
 	// ask for coordinates
 	cout << "Enter x coordinate: ";
-	cin >> /* TODO: replace me */ ;
+	cin >> target.x;
 	cout << "Enter y coordinate: ";
-	cin >> /* TODO: replace me */ ;
+	cin >> target.y ;
 
 	// TODO: calculate distance
-	distance = 0;
+	distance = sqrt(pow(target.x, 2) + pow(target.y, 2));
 
 	cout << "Distance from source to target is " << distance << endl;
 

@@ -11,7 +11,7 @@
 
 #include <cassert>  // for assert
 #include <iostream> // for cin and cout
-#include <stdlib.h> // for exit
+#include <cstdlib> // for exit
 using namespace std;
 
 // sizes of arrays
@@ -159,9 +159,9 @@ void displayGrades(string names[], char homeworkScores[][NUMBER_OF_SCORES],
   int m = 0;
   int r = 0;
   int n = 0;
-  getGradeTotals(homeworkScores[size], NUMBER_OF_SCORES, e, m, r, n);
   cout << "Student Grades" << endl;
   for (int row = 0; row < size; row++) {
+    getGradeTotals(homeworkScores[row], NUMBER_OF_SCORES, e, m, r, n);
     cout << names[row] << "\t" << getHomeworkGrade(e, m, r, n);
     cout << endl;
   }
