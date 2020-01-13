@@ -112,25 +112,27 @@ int main() {
     // TODO Check for invalid menu input.
     if (cin.fail()) {
       cin.clear();
-    }
-    // menu options
-    switch (menu) {
-    case 1:
-      displayGradebook(names, ids, homeworkScores, CLASS_SIZE);
-      break;
-    case 2:
-      displayGrades(names, homeworkScores, CLASS_SIZE);
-      break;
-    case 3:
-      displaySuggestedResubmissions(names, homeworkScores, CLASS_SIZE);
-      break;
-    case 4:
-      cout << "Goodbye.";
-      exit(0);
-      break; //	included for consistency; never executed!
-    default:
-      cerr << "Invalid choice.";
-      break; //	included for consistency; redundant since at end anyway!
+      cin.ignore(100, '\n');
+    } else {
+      // menu options
+      switch (menu) {
+      case 1:
+        displayGradebook(names, ids, homeworkScores, CLASS_SIZE);
+        break;
+      case 2:
+        displayGrades(names, homeworkScores, CLASS_SIZE);
+        break;
+      case 3:
+        displaySuggestedResubmissions(names, homeworkScores, CLASS_SIZE);
+        break;
+      case 4:
+        cout << "Goodbye.";
+        exit(0);
+        break; //	included for consistency; never executed!
+      default:
+        cerr << "Invalid choice.";
+        break; //	included for consistency; redundant since at end anyway!
+      }
     }
   }
 
