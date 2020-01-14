@@ -26,7 +26,7 @@ int main() {
 	char firstName[20], lastName[20], lastCommaFirst[40];
 	int size;
 	bool flag;
-
+ 
 	// collect user input
 	cout << "Enter your first and last name separated by a space: ";
 	cin >> firstName >> lastName;
@@ -34,17 +34,19 @@ int main() {
 	cout << "Last name is:  " << lastName << endl;
 
 	// TODO: combine into new variable as "Last, First"
-
+    strcpy(lastCommaFirst, lastName);
+    strcat(lastCommaFirst, ", ");
+    strcat(lastCommaFirst, firstName);
 	cout << "Full name is:  " << lastCommaFirst << endl;
 
 
 	// TODO: calculate name length
-
+    size = strlen(lastCommaFirst);
 	cout << "Name size is:  " << size << endl;
 
 
 	// TODO: compare first and last names for being the same
-
+    flag = strcmp(firstName, lastName) == 0;
 	if (flag) {
 		cout << "What were your parents thinking!?" << endl;
 	} else {
@@ -59,6 +61,7 @@ int main() {
 	char theString[] = "The 33rd was crazy, man!";
 
 	// TODO: call function to count things
+    countThings(theString, letters, digits, punctuation);
 
 	cout << endl << "SECOND EXERCISE" << endl;
 	cout << "The string has " << letters << " letters." << endl;
@@ -70,3 +73,6 @@ int main() {
 
 // TODO: Define (implement) the countThings() function
 
+void countThings(char cString[], int &alphaCount, int &digitCount, int &punctCount) {
+    alphaCount++;
+}
