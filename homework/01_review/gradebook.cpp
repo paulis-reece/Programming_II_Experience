@@ -155,10 +155,6 @@ void displayGradebook(string names[], long ids[],
 
 void displayGrades(string names[], char homeworkScores[][NUMBER_OF_SCORES],
                    int size) {
-  int e = 0;
-  int m = 0;
-  int r = 0;
-  int n = 0;
   cout << "Student Grades" << endl;
   cout << "Ava" << '\t' << "D" << endl;
   cout << "Brook" << '\t' << "F" << endl;
@@ -198,20 +194,17 @@ void getGradeTotals(char homeworkScores[], int size, int &e, int &m, int &r,
 }
 char getHomeworkGrade(int e, int m, int r, int n) {
   int emTotal = e + m;
-  int rnTotal = r + n;
-  char grade;
   if (emTotal == 14 && e >= 10) {
-    grade = 'A';
+    return 'A';
   } else if (emTotal >= 13 && e >= 5) {
-    grade = 'B';
+    return 'B';
   } else if (emTotal >= 11) {
-    grade = 'C';
+    return 'C';
   } else if (emTotal >= 8) {
-    grade = 'D';
-  } else if (emTotal <= 7) {
-    grade = 'F';
+    return 'D';
+  } else {
+    return 'F';
   }
-  return grade;
 }
 int getNextResubmission(char homeworkScores[], int size) {
   int indexVal = 0;
