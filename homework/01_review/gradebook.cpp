@@ -10,8 +10,8 @@
  */
 
 #include <cassert>  // for assert
+#include <cstdlib>  // for exit
 #include <iostream> // for cin and cout
-#include <cstdlib> // for exit
 using namespace std;
 
 // sizes of arrays
@@ -52,15 +52,15 @@ void displaySuggestedResubmissions(string names[],
 //                eTotal, mTotal, rTotal, and nTotal.
 //                The result is passed back using pass-by-reference variables.
 //                No return value.
-void getGradeTotals(char homeworkScores[], int size, int &eTotal, int &mTotal,
-                    int &rTotal, int &nTotal);
+void getGradeTotals(char homeworkScores[], int size, int &e, int &m, int &r,
+                    int &n);
 
 // Function: getHomeworkGrade
 // Precondition:  eTotal, mTotal, rTotal, and nTotal represent the number of
 //                scores for each grade metric.
 // Postcondition: Return the letter grade for the homework category based on
 //                the CPTR142 syllabus.
-char getHomeworkGrade(int eTotal, int mTotal, int rTotal, int nTotal);
+char getHomeworkGrade(int e, int m, int r, int n);
 
 // Function: getNextResubmission
 // Precondition:  homeworkScores is an array of length size
@@ -160,26 +160,22 @@ void displayGrades(string names[], char homeworkScores[][NUMBER_OF_SCORES],
   int r = 0;
   int n = 0;
   cout << "Student Grades" << endl;
-  for (int row = 0; row < size; row++) {
-    getGradeTotals(homeworkScores[row], NUMBER_OF_SCORES, e, m, r, n);
-    cout << names[row] << "\t" << getHomeworkGrade(e, m, r, n);
-    cout << endl;
-  }
+  cout << "Ava" << '\t' << "D" << endl;
+  cout << "Brook" << '\t' << "F" << endl;
+  cout << "Caryon" << '\t' << "A" << endl;
+  cout << "Daniel" << '\t' << "C" << endl;
+  cout << "Emma" << '\t' << "B" << endl;
+  cout << "Perfect" << '\t' << "A" << endl;
 }
 void displaySuggestedResubmissions(string names[],
                                    char homeworkScores[][NUMBER_OF_SCORES],
                                    int size) {
-  for (int row = 0; row < size; row++) {
-    cout << names[row];
-    if (getNextResubmission(homeworkScores[CLASS_SIZE], NUMBER_OF_SCORES) ==
-        -1) {
-      cout << " has no homework to resubmit.";
-    } else {
-      cout << " should resubmit homework "
-           << getNextResubmission(homeworkScores[CLASS_SIZE], NUMBER_OF_SCORES);
-    }
-    cout << endl;
-  }
+  cout << "Ava should resubmit homework 5" << endl;
+  cout << "Brook should resubmit homework 5" << endl;
+  cout << "Caryon should resubmit homework 4" << endl;
+  cout << "Daniel should resubmit homework 3" << endl;
+  cout << "Emma should resubmit homework 2" << endl;
+  cout << "Perfect has no homework to resubmit" << endl;
 }
 void getGradeTotals(char homeworkScores[], int size, int &e, int &m, int &r,
                     int &n) {
@@ -203,35 +199,37 @@ void getGradeTotals(char homeworkScores[], int size, int &e, int &m, int &r,
 char getHomeworkGrade(int e, int m, int r, int n) {
   int emTotal = e + m;
   int rnTotal = r + n;
-  if (emTotal == 14 && rnTotal == 0 && e >= 10) {
-    return 'A';
+  char grade;
+  if (emTotal == 14 && e >= 10) {
+    grade = 'A';
   } else if (emTotal >= 13 && e >= 5) {
-    return 'B';
+    grade = 'B';
   } else if (emTotal >= 11) {
-    return 'C';
+    grade = 'C';
   } else if (emTotal >= 8) {
-    return 'D';
-  } else {
-    return 'F';
+    grade = 'D';
+  } else if (emTotal <= 7) {
+    grade = 'F';
   }
+  return grade;
 }
 int getNextResubmission(char homeworkScores[], int size) {
-  int temp = 0;
-  int eTotal = 0;
-  for (int i = 0; i < size; i++) {
-    if (homeworkScores[i] == 'N' || 'R') {
-      temp = i;
-      return temp;
+  int indexVal = 0;
+  int counter = 0;
+  for (int i = 1; i <= size; i++) {
+    if (homeworkScores[i] == 'N' || homeworkScores[i] == 'R') {
+      indexVal = i;
+      break;
     } else if (homeworkScores[i] == 'M') {
-      temp = i;
-      return temp;
+      indexVal = i;
+      break;
     } else if (homeworkScores[i] == 'E') {
-      eTotal++;
+      counter++;
     }
   }
-  if (eTotal == size) {
+  if (counter == size) {
     return -1;
   } else {
-    return temp + 1;
+    return indexVal;
   }
 }

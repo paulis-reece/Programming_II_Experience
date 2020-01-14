@@ -31,7 +31,7 @@ int main() {
 	cin >> target.y ;
 
 	// TODO: calculate distance
-	distance = sqrt(pow(target.x, 2) + pow(target.y, 2));
+	distance = sqrt(pow(target.x, source.x) + pow(target.y, source.y));
 
 	cout << "Distance from source to target is " << distance << endl;
 
