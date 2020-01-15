@@ -156,22 +156,29 @@ void displayGradebook(string names[], long ids[],
 void displayGrades(string names[], char homeworkScores[][NUMBER_OF_SCORES],
                    int size) {
   cout << "Student Grades" << endl;
-  cout << "Ava" << '\t' << "D" << endl;
-  cout << "Brook" << '\t' << "F" << endl;
-  cout << "Caryon" << '\t' << "A" << endl;
-  cout << "Daniel" << '\t' << "C" << endl;
-  cout << "Emma" << '\t' << "B" << endl;
-  cout << "Perfect" << '\t' << "A" << endl;
+  for (int row = 0; row < size; row++) {
+    int e = 0;
+    int m = 0;
+    int r = 0;
+    int n = 0;
+    cout << names[row] << "\t";
+    getGradeTotals(homeworkScores[row], NUMBER_OF_SCORES, e, m, r, n);
+    cout << getHomeworkGrade(e, m, r, n);
+    cout << "\n";
+  }
 }
 void displaySuggestedResubmissions(string names[],
                                    char homeworkScores[][NUMBER_OF_SCORES],
                                    int size) {
-  cout << "Ava should resubmit homework 5" << endl;
-  cout << "Brook should resubmit homework 5" << endl;
-  cout << "Caryon should resubmit homework 4" << endl;
-  cout << "Daniel should resubmit homework 3" << endl;
-  cout << "Emma should resubmit homework 2" << endl;
-  cout << "Perfect has no homework to resubmit" << endl;
+  for (int r = 0; r < size; r++) {
+    cout << names[r];
+    if (getNextResubmission(homeworkScores[r], NUMBER_OF_SCORES) == -1) {
+      cout << " has no homework to resubmit" << endl;
+    } else {
+      cout << " should resubmit homework "
+           << getNextResubmission(homeworkScores[r], NUMBER_OF_SCORES) << endl;
+    }
+  }
 }
 void getGradeTotals(char homeworkScores[], int size, int &e, int &m, int &r,
                     int &n) {
@@ -207,22 +214,30 @@ char getHomeworkGrade(int e, int m, int r, int n) {
   }
 }
 int getNextResubmission(char homeworkScores[], int size) {
-  int indexVal = 0;
+  int indexValNR = 0;
+  int indexValM = 0;
+  int indexValE = 0;
+  int index = 0;
   int counter = 0;
-  for (int i = 1; i <= size; i++) {
+  for (int i = 0; i < size; i++) {
     if (homeworkScores[i] == 'N' || homeworkScores[i] == 'R') {
-      indexVal = i;
-      break;
+      if (indexValNR == 0) {
+        indexValNR = i;
+      }
     } else if (homeworkScores[i] == 'M') {
-      indexVal = i;
-      break;
+      if (indexValM == 0) {
+        indexValM = i;
+      }
     } else if (homeworkScores[i] == 'E') {
       counter++;
     }
   }
   if (counter == size) {
-    return -1;
-  } else {
-    return indexVal;
+    index = -1;
+  } else if (indexValNR > 0) {
+    index = indexValNR;
+  } else if (indexValM > 0) {
+    index = indexValM;
   }
+  return index;
 }
