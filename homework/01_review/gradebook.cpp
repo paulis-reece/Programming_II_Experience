@@ -216,7 +216,6 @@ char getHomeworkGrade(int e, int m, int r, int n) {
 int getNextResubmission(char homeworkScores[], int size) {
   int indexValNR = 0;
   int indexValM = 0;
-  int indexValE = 0;
   int index = 0;
   int counter = 0;
   for (int i = 0; i < size; i++) {
