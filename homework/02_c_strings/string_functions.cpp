@@ -9,9 +9,10 @@
  *
  */
 
-#include <ctype.h>
+#include <cctype>
 #include <iostream> //	cin & cout
-#include <string.h>
+#include <cstring>
+#include "string_functions.h"
 using namespace std;
 
 bool areAnagrams(char string1[], char string2[]) {
