@@ -9,15 +9,17 @@
  *
  */
 
-#include <ctype.h>
+#include <cctype>
 #include <iostream> //	cin & cout
-#include <string.h>
+#include <cstring>
 using namespace std;
 
-bool areAnagrams(char string1[], char string2[]) {
+bool areAnagrams(const char string1[], const char string2[]) {
   // TODO Add code to determine if strings are anagrams
+  return false;
 }
 
-bool arePalindromes(char string1[], char string2[]) {
+bool arePalindromes(const char string1[], const char string2[]) {
   // TODO Add code to determine if strings are anagrams
+  return false;
 }

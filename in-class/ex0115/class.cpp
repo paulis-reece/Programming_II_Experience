@@ -9,7 +9,7 @@
  */
 
 #include <iostream> 	// cin and cout
-#include <math.h>       // pow
+#include <cmath>       // pow
 
 using namespace std;
 
@@ -34,9 +34,11 @@ int main() {
 	cin >> y;
 
 	// TODO: assign values
+    target.setX(x);
+    target.setY(y);
 
 	// TODO: obtain distance
-	distance = 0;
+	distance = target.distanceFromOrigin();
 
 	cout << "target is " << distance << " units from origin" << endl;
 

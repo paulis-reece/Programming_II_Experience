@@ -9,7 +9,7 @@
  */
 
 #include <iostream> //	cin & cout
-#include <string.h>
+#include <cstring>
 using namespace std;
 
 #include "string_functions.h"
