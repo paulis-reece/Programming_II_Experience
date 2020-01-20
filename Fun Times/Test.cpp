@@ -6,22 +6,21 @@
 using namespace std;
 
 int main() {
-  int counter = 0;
+  int count = 0;
+  int count2 = 0;
   bool verdict;
-  char orgName[] = "gameStop!";
-  char brandName[] = "pot, Semag";
-  for (int r = 0; r < strlen(orgName); r++) {
-    if (strchr(brandName, orgName[0])) {
-      verdict = true;
-    } else {
-      verdict = false;
-    }
-  }
-  if (verdict != true) {
-    cout << "It didnt work";
+  char orgName[] = "abcdd";
+  char brandName[] = "abcd";
+  if (strlen(orgName) == strlen(brandName)) {
+    verdict = true;
   } else {
-    cout << "It worked";
+    verdict = false;
   }
+  if (verdict == true) {
 
+    cout << "It worked" << endl;
+  } else {
+    cout << "It didnt work." << endl;
+  }
   return 0;
 }
