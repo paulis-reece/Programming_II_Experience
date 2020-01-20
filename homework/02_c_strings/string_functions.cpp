@@ -20,33 +20,32 @@ bool areAnagrams(const char string1[], const char string2[]) {
   bool verdict;
   int count = 0;
   int count2 = 0;
-  if (strlen(string1) == strlen(string2)) {
-    verdict = false;
-  } else {
-    for (int r = 0; r < strlen(string1); r++) {
-      if (strchr(string2, string1[r])) {
-        verdict = true;
-      } else {
-        verdict = false;
-      }
+
+  for (int r = 0; r < strlen(string1); r++) {
+    if (strchr(string2, string1[r])) {
+      verdict = true;
+    } else {
+      verdict = false;
     }
   }
-  return verdict;
+  if (strlen(string1) == strlen(string2)) {
+    verdict = false;
+  }
+   return verdict;
 }
 
-bool arePalindromes(const char string1[], const char string2[]) {
-  // TODO Add code to determine if strings are anagrams
-  bool verdict;
-  if (strlen(string1) == strlen(string2)) {
-    verdict = false;
-  } else {
-    for (int r = 0; r < strlen(string1); r++) {
-      if (strchr(string2, string1[r])) {
-        verdict = true;
-      } else {
-        verdict = false;
+  bool arePalindromes(const char string1[], const char string2[]) {
+    // TODO Add code to determine if strings are anagrams
+    bool verdict;
+      for (int r = 0; r < strlen(string1); r++) {
+        if (strchr(string2, string1[r])) {
+          verdict = true;
+        } else {
+          verdict = false;
       }
     }
+   if (strlen(string1) == strlen(string2)) {
+      verdict = false;
+   }
+    return verdict;
   }
-  return verdict;
-}
