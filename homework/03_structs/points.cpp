@@ -38,7 +38,9 @@ void PolarToCartesian(PolarPoint) {
   group.y = nextGroup.radius * sin(nextGroup.theta);
 }
 
-double LengthC(CartesianPoint) { return (sqrt(pow(group.x, 2.0) + pow(group.y, 2.0))); }
+double LengthC(CartesianPoint) {
+  return (sqrt(pow(group.x, 2.0) + pow(group.y, 2.0)));
+}
 
 void NormalizedC(CartesianPoint) {
   double length = LengthC(group.x2, group.y2);
