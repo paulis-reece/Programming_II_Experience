@@ -8,6 +8,8 @@ class CounterType {
 		void decrease();
 		int getCount() const { return count; }
 		void printCount() const;
+        CounterType();
+        CounterType(int number);
 	private:
 		int count;
 };
