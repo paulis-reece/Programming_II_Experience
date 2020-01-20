@@ -9,15 +9,26 @@ int main() {
   int count = 0;
   int count2 = 0;
   bool verdict;
-  char orgName[] = "abcdd";
-  char brandName[] = "abcd";
+  char orgName[] = "2abcd";
+  char brandName[] = "dbcA2";
+  for (int r = 0; r < strlen(brandName); r++) {
+    if (strchr(orgName, brandName[r]) != NULL) {
+      verdict = true;
+    } else {
+      verdict = false;
+    }
+    if(verdict == false){
+        break;
+    }
+  }
+  if(verdict == true){
   if (strlen(orgName) == strlen(brandName)) {
     verdict = true;
   } else {
-    verdict = false;
+      verdict = false;
   }
+}
   if (verdict == true) {
-
     cout << "It worked" << endl;
   } else {
     cout << "It didnt work." << endl;
