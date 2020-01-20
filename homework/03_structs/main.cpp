@@ -8,7 +8,7 @@
  */
 
 #include <iostream>  // for cin and cout
-#include <math.h>    // for trig functions
+#include <cmath>    // for trig functions
 using namespace std;
 
 #include "points.h"

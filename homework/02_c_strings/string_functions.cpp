@@ -15,7 +15,7 @@
 #include "string_functions.h"
 using namespace std;
 
-bool areAnagrams(char string1[], char string2[]) {
+bool areAnagrams(const char string1[],const char string2[]) {
   // TODO Add code to determine if strings are anagrams
   bool verdict;
   for (int r = 0; r < strlen(string1); r++) {
@@ -28,7 +28,7 @@ bool areAnagrams(char string1[], char string2[]) {
   return verdict;
 }
 
-bool arePalindromes(char string1[], char string2[]) {
+bool arePalindromes(const char string1[], const char string2[]) {
   // TODO Add code to determine if strings are anagrams
   bool verdict;
   for (int r = 0; r < strlen(string1); r++) {

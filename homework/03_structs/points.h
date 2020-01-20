@@ -3,7 +3,7 @@
  * Homework Assignment: struct for polar and cartesian points
  *
  * File Name:       points.h
- * Name:            ?
+ * Name:            reklre
  * Course:          cp1TR 142
  * Date:            January 17, 2020
  *

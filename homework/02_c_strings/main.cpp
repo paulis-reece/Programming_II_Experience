@@ -14,6 +14,10 @@ using namespace std;
 
 #include "string_functions.h"
 
+bool areAnagrams(const char[], const char[]);
+
+bool arePalindromes(const char[], const char[]);
+
 void test(const char string1[], const char string2[]) {
   cout << "\"" << string1 << "\" and \"" << string2
        << "\" areAnagrams() = " << areAnagrams(string1, string2)

@@ -8,8 +8,8 @@ using namespace std;
 int main() {
   int counter = 0;
   bool verdict;
-  char orgName[] = "gameStop";
-  char brandName[] = "pot Semag";
+  char orgName[] = "gameStop!";
+  char brandName[] = "pot, Semag";
   for (int r = 0; r < strlen(orgName); r++) {
     if (strchr(brandName, orgName[0])) {
       verdict = true;
