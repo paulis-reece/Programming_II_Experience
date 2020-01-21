@@ -6,32 +6,40 @@
 using namespace std;
 
 int main() {
-  int count = 0;
-  int count2 = 0;
-  bool verdict;
-  char orgName[] = "2abcd";
-  char brandName[] = "dbcA2";
-  for (int r = 0; r < strlen(brandName); r++) {
-    if (strchr(orgName, brandName[r]) != NULL) {
-      verdict = true;
-    } else {
-      verdict = false;
-    }
-    if(verdict == false){
-        break;
-    }
-  }
-  if(verdict == true){
-  if (strlen(orgName) == strlen(brandName)) {
-    verdict = true;
-  } else {
-      verdict = false;
-  }
+ string trash;
+  char firstName[100];
+  char lastName[100];
+  char game[50] = "YES   GGG     Doc       tog1222!!!@@@";
+int counter = 0;
+int count = 0;
+int counting = 0;
+int temp = 0;
+  for(int r = 0; game[r] != '\0'; r++){
+if(isspace(game[r])){
+
+count++;
+} else if(isblank(game[r])){
+
+count++;
+} else if(ispunct(game[r])){
+
+count++;
+} else if(iscntrl(game[r])){
+
+count++;
+} else if(tolower(game[r])){
+firstName[r - count] = tolower(game[r]);
 }
-  if (verdict == true) {
-    cout << "It worked" << endl;
-  } else {
-    cout << "It didnt work." << endl;
+
+
+  counter++;
   }
+  firstName[counter] = '\0';
+cout << firstName << endl;
+for(int c = 0; game[c] != '\0'; c++){
+lastName[c] = firstName[counter];
+counter--;
+}
+cout << lastName << endl;
   return 0;
 }
