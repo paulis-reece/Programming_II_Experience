@@ -39,25 +39,26 @@ int main() {
 
 count = 0;
 counter = 0;
-   for (int r = 0; chess[r] != '\0'; r++) {
-    if (isspace(chess[r])) {
+   for (int c = 0; chess[c] != '\0'; c++) {
+    if (isspace(chess[c])) {
 
       count++;
-    } else if (isblank(game[r])) {
+    } else if (isblank(game[c])) {
 
       count++;
-    } else if (ispunct(game[r])) {
+    } else if (ispunct(game[c])) {
 
       count++;
-    } else if (iscntrl(game[r])) {
+    } else if (iscntrl(game[c])) {
 
       count++;
-    } else if (tolower(game[r])) {
-      lastName[r - count] = tolower(game[r]);
+    } else if (tolower(game[c])) {
+      lastName[c - count] = tolower(game[c]);
     }
 
     counter++;
   }
-
+  lastName[counter] = '\0';
+  cout << lastName << endl;
   return 0;
 }

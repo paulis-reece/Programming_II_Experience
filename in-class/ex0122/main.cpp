@@ -11,7 +11,7 @@
  */
 
 #include <iostream> 	// for cin and cout
-#include <assert.h>		// assert()
+#include <cassert>		// assert()
 #include "CounterType.h"
 using namespace std;
 
@@ -21,7 +21,7 @@ using namespace std;
  */
 int main() {
     cout << "Counter Exercise" << endl;
-    CounterType1 counter1;
+    CounterType counter1;
 
     counter1.setCount(-1);
     assert(counter1.getCount() == 0);
