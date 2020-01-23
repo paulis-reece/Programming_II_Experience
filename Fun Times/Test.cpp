@@ -3,7 +3,6 @@
 #include <cstdlib> // for exit
 #include <cstring>
 #include <iostream> // for cin and cout
-#include<vector>
 using namespace std;
 
 int main() {
@@ -11,7 +10,6 @@ int main() {
   bool verdict;
   char firstName[100];
   char lastName[100];
-  vector<string> name;
   char game[50] = "Dave";
   char chess[50] = "evad";
   int counter = 0;
@@ -57,12 +55,14 @@ int main() {
 
       count++;
     } else if (tolower(chess[c])) {
-      name[c].push_back(tolower(chess[c]));
+     lastName[c - count] = tolower(chess[c]);
     }
     counter++;
   }
-  for(int i = 0; i < name.size(); i++){
-      
+  lastName[counter] = '\0';
+  cout << lastName << endl;
+  for(int i = strlen(firstName); i > -1; i--){
+cout << firstName[i];
   }
   
   return 0;
