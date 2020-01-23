@@ -6,9 +6,9 @@
 using namespace std;
 
 int main() {
-  char game[50] = "Dormi tory";
-  char chess[50] = "Dirty             Room";
- char storestr1[100];
+  char game[50] = "a1bcd";
+  char chess[50] = "a1bcd";
+  char storestr1[100];
   char storestr2[100];
   int counter = 0;
   int count = 0;
@@ -19,7 +19,7 @@ int main() {
 
       count++;
     } else if (isblank(game[r])) {
-        
+
       count++;
     } else if (ispunct(game[r])) {
 
@@ -36,9 +36,9 @@ int main() {
   storestr1[counter - count] = '\0';
   cout << storestr1 << endl;
 
-   counter = 0;
+  counter = 0;
   count = 0;
-   for (int r = 0; chess[r] != '\0'; r++) {
+  for (int r = 0; chess[r] != '\0'; r++) {
     if (isspace(chess[r])) {
 
       count++;
@@ -60,8 +60,6 @@ int main() {
   storestr2[counter - count] = '\0';
   cout << storestr2 << endl;
 
-
-
   for (int i = 0; i < strlen(storestr1); i++) {
     if (strchr(storestr2, storestr1[temp]) == NULL) {
       verdict = false;
@@ -78,11 +76,11 @@ int main() {
       verdict = false;
     }
   }
-  if(verdict == true){
-      cout << "Yes";
+  if (verdict == true) {
+    cout << "Yes";
   } else {
-      cout << "No";
+    cout << "No";
   }
-  
+
   return 0;
 }
