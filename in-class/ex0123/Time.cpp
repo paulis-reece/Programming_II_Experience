@@ -20,3 +20,12 @@ void Time::print() {
          << setfill('0') << setw(2) << minutes << endl;
 }
 
+Time Time::operator-(int minutes){
+Time integer;
+integer.minutes = minutes;
+integer.hours = integer.minutes / 60;
+return integer;
+}
+Time Time::operator<(int minutes){
+
+}

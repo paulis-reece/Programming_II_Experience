@@ -3,7 +3,7 @@
  * In-Class Exercise: Operator Overloading
  *
  * File Name: main.cpp
- * Username:  ?
+ * Username:  reklre
  * Username:  ?
  * Course:    CPTR 142
  * Date:      21 January 2019
@@ -14,7 +14,7 @@
  */
 
 #include <iostream> 	// for cin and cout
-#include <assert.h>		// assert()
+#include <cassert>		// assert()
 #include "Time.h"
 using namespace std;
 
@@ -27,7 +27,7 @@ int main() {
     t2.print();
 
     Time t3;
-    // t3 = t1 + 110;
+    t3 = t1.Operator-(110);
     t3.print();
 
     bool flag = false;
