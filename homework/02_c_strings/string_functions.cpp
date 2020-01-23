@@ -64,8 +64,8 @@ bool areAnagrams(const char string1[], const char string2[]) {
     counter++;
   }
   storestr2[counter] = '\0';
-  for (int i = strlen(string1) - 1; i > -1; i--) {
-    if (strchr(string2, string1[temp]) == NULL) {
+  for (int i = 0; i < strlen(storestr1); i++) {
+    if (strchr(storestr2, storestr1[temp]) == NULL) {
       verdict = false;
       break;
     } else {
@@ -74,7 +74,7 @@ bool areAnagrams(const char string1[], const char string2[]) {
     temp++;
   }
   if (verdict == true) {
-    if (strlen(string1) == strlen(string2)) {
+    if (strlen(storestr1) == strlen(storestr2)) {
       verdict = true;
     } else {
       verdict = false;
@@ -133,8 +133,8 @@ bool arePalindromes(const char string1[], const char string2[]) {
     counter++;
   }
   storestr2[counter] = '\0';
-  for (int i = strlen(string1) - 1; i > -1; i--) {
-    if (strchr(string2, string1[temp]) == NULL) {
+  for (int i = strlen(storestr1) - 1; i > -1; i--) {
+    if (strchr(storestr2, storestr1[temp]) == NULL) {
       verdict = false;
       break;
     } else {
@@ -143,15 +143,15 @@ bool arePalindromes(const char string1[], const char string2[]) {
     temp++;
   }
   if (verdict == true) {
-    if (strlen(string1) == strlen(string2)) {
+    if (strlen(storestr1) == strlen(storestr2)) {
       verdict = true;
     } else {
       verdict = false;
     }
   }
   if (verdict == true) {
-    for (int i = strlen(string1) - 1; i > -1; i--) {
-      if (string1[i] != string2[counting]) {
+    for (int i = strlen(storestr1) - 1; i > -1; i--) {
+      if (storestr1[i] != storestr2[counting]) {
         verdict = false;
         break;
       } else {
