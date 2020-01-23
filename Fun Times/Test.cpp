@@ -61,8 +61,8 @@ int main() {
   }
   lastName[counter] = '\0';
   cout << lastName << endl;
-  for(int i = strlen(firstName); i > -1; i--){
-cout << firstName[i];
+  for(int i = strlen(firstName) - 1; i > -1; i--){
+cout << firstName[1];
   }
   
   return 0;
