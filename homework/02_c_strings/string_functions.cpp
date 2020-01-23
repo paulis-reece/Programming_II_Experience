@@ -27,6 +27,8 @@ bool areAnagrams(const char string1[], const char string2[]) {
     if (isspace(string1[r])) {
 
       count++;
+    } else if (isdigit(string1[r])) {
+      count++;
     } else if (isblank(string1[r])) {
 
       count++;
@@ -48,6 +50,8 @@ bool areAnagrams(const char string1[], const char string2[]) {
   for (int c = 0; string2[c] != '\0'; c++) {
     if (isspace(string2[c])) {
 
+      count++;
+    } else if (isdigit(string2[c])) {
       count++;
     } else if (isblank(string2[c])) {
 
@@ -96,6 +100,8 @@ bool arePalindromes(const char string1[], const char string2[]) {
     if (isspace(string1[r])) {
 
       count++;
+    } else if (isdigit(string1[r])) {
+      count++;
     } else if (isblank(string1[r])) {
 
       count++;
@@ -117,6 +123,8 @@ bool arePalindromes(const char string1[], const char string2[]) {
   for (int c = 0; string2[c] != '\0'; c++) {
     if (isspace(string2[c])) {
 
+      count++;
+    } else if (isdigit(string2[c])) {
       count++;
     } else if (isblank(string2[c])) {
 
