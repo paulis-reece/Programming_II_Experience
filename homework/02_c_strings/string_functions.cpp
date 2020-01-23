@@ -42,7 +42,7 @@ bool areAnagrams(const char string1[], const char string2[]) {
 
     counter++;
   }
-  storestr1[counter] = '\0';
+  storestr1[counter - count] = '\0';
   count = 0;
   counter = 0;
   for (int c = 0; string2[c] != '\0'; c++) {
@@ -63,7 +63,7 @@ bool areAnagrams(const char string1[], const char string2[]) {
     }
     counter++;
   }
-  storestr2[counter] = '\0';
+  storestr2[counter - count] = '\0';
   for (int i = 0; i < strlen(storestr1); i++) {
     if (strchr(storestr2, storestr1[temp]) == NULL) {
       verdict = false;
@@ -111,7 +111,7 @@ bool arePalindromes(const char string1[], const char string2[]) {
 
     counter++;
   }
-  storestr1[counter] = '\0';
+  storestr1[counter - count] = '\0';
   count = 0;
   counter = 0;
   for (int c = 0; string2[c] != '\0'; c++) {
@@ -132,7 +132,7 @@ bool arePalindromes(const char string1[], const char string2[]) {
     }
     counter++;
   }
-  storestr2[counter] = '\0';
+  storestr2[counter - count] = '\0';
   for (int i = strlen(storestr1) - 1; i > -1; i--) {
     if (strchr(storestr2, storestr1[temp]) == NULL) {
       verdict = false;

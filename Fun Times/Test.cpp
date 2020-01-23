@@ -6,23 +6,20 @@
 using namespace std;
 
 int main() {
-  string trash;
-  bool verdict;
-  char firstName[100];
-  char lastName[100];
-  char game[50] = "Dave";
-  char chess[50] = "evad";
+  char game[50] = "Dormi tory";
+  char chess[50] = "Dirty             Room";
+ char storestr1[100];
+  char storestr2[100];
   int counter = 0;
   int count = 0;
-  int counting = 0;
   int temp = 0;
-  
+  bool verdict;
   for (int r = 0; game[r] != '\0'; r++) {
     if (isspace(game[r])) {
 
       count++;
     } else if (isblank(game[r])) {
-
+        
       count++;
     } else if (ispunct(game[r])) {
 
@@ -31,47 +28,59 @@ int main() {
 
       count++;
     } else if (tolower(game[r])) {
-      firstName[r - count] = tolower(game[r]);
+      storestr1[r - count] = tolower(game[r]);
     }
 
     counter++;
   }
-  firstName[counter] = '\0';
-  cout << firstName << endl;
+  storestr1[counter - count] = '\0';
+  cout << storestr1 << endl;
 
+   counter = 0;
   count = 0;
-  counter = 0;
-  for (int c = 0; chess[c] != '\0'; c++) {
-    if (isspace(chess[c])) {
+   for (int r = 0; chess[r] != '\0'; r++) {
+    if (isspace(chess[r])) {
 
       count++;
-    } else if (isblank(chess[c])) {
+    } else if (isblank(chess[r])) {
 
       count++;
-    } else if (ispunct(chess[c])) {
+    } else if (ispunct(chess[r])) {
 
       count++;
-    } else if (iscntrl(chess[c])) {
+    } else if (iscntrl(chess[r])) {
 
       count++;
-    } else if (tolower(chess[c])) {
-     lastName[c - count] = tolower(chess[c]);
+    } else if (tolower(chess[r])) {
+      storestr2[r - count] = tolower(chess[r]);
     }
+
     counter++;
   }
-  lastName[counter] = '\0';
-  cout << lastName << endl;
-  for(int i = strlen(firstName) - 1; i > -1; i--){
-if(firstName[i] == lastName[counting]){
-    verdict = true;
-} else {
-    verdict = false;
-}
-counting++;
+  storestr2[counter - count] = '\0';
+  cout << storestr2 << endl;
+
+
+
+  for (int i = 0; i < strlen(storestr1); i++) {
+    if (strchr(storestr2, storestr1[temp]) == NULL) {
+      verdict = false;
+      break;
+    } else {
+      verdict = true;
+    }
+    temp++;
+  }
+  if (verdict == true) {
+    if (strlen(storestr1) == strlen(storestr2)) {
+      verdict = true;
+    } else {
+      verdict = false;
+    }
   }
   if(verdict == true){
-    cout << "Yes";
-  } else if(verdict == false){
+      cout << "Yes";
+  } else {
       cout << "No";
   }
   
