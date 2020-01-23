@@ -17,37 +17,148 @@ using namespace std;
 
 bool areAnagrams(const char string1[], const char string2[]) {
   // TODO Add code to determine if strings are anagrams
-  bool verdict;
+  char storestr1[100];
+  char storestr2[100];
+  int counter = 0;
   int count = 0;
-  int count2 = 0;
+  int temp = 0;
+  bool verdict;
+  for (int r = 0; string1[r] != '\0'; r++) {
+    if (isspace(string1[r])) {
 
-  for (int r = 0; r < strlen(string1); r++) {
-    if (strchr(string2, string1[r])) {
+      count++;
+    } else if (isblank(string1[r])) {
+
+      count++;
+    } else if (ispunct(string1[r])) {
+
+      count++;
+    } else if (iscntrl(string1[r])) {
+
+      count++;
+    } else if (tolower(string1[r])) {
+      storestr1[r - count] = tolower(string1[r]);
+    }
+
+    counter++;
+  }
+  storestr1[counter] = '\0';
+  count = 0;
+  counter = 0;
+  for (int c = 0; string2[c] != '\0'; c++) {
+    if (isspace(string2[c])) {
+
+      count++;
+    } else if (isblank(string2[c])) {
+
+      count++;
+    } else if (ispunct(string2[c])) {
+
+      count++;
+    } else if (iscntrl(string2[c])) {
+
+      count++;
+    } else if (tolower(string2[c])) {
+      storestr2[c - count] = tolower(string2[c]);
+    }
+    counter++;
+  }
+  storestr2[counter] = '\0';
+  for (int i = strlen(string1) - 1; i > -1; i--) {
+    if (strchr(string2, string1[temp]) == NULL) {
+      verdict = false;
+      break;
+    } else {
+      verdict = true;
+    }
+    temp++;
+  }
+  if (verdict == true) {
+    if (strlen(string1) == strlen(string2)) {
       verdict = true;
     } else {
       verdict = false;
     }
-  }
-  if (strlen(string1) == strlen(string2)) {
-    verdict = false;
   }
   return verdict;
 }
 
 bool arePalindromes(const char string1[], const char string2[]) {
   // TODO Add code to determine if strings are anagrams
+  char storestr1[100];
+  char storestr2[100];
+  int counting = 0;
+  int counter = 0;
+  int count = 0;
+  int temp = 0;
   bool verdict;
-  for (int r = 0; r < strlen(string1); r++) {
-    if (strchr(string2, string1[r])) {
+  for (int r = 0; string1[r] != '\0'; r++) {
+    if (isspace(string1[r])) {
+
+      count++;
+    } else if (isblank(string1[r])) {
+
+      count++;
+    } else if (ispunct(string1[r])) {
+
+      count++;
+    } else if (iscntrl(string1[r])) {
+
+      count++;
+    } else if (tolower(string1[r])) {
+      storestr1[r - count] = tolower(string1[r]);
+    }
+
+    counter++;
+  }
+  storestr1[counter] = '\0';
+  count = 0;
+  counter = 0;
+  for (int c = 0; string2[c] != '\0'; c++) {
+    if (isspace(string2[c])) {
+
+      count++;
+    } else if (isblank(string2[c])) {
+
+      count++;
+    } else if (ispunct(string2[c])) {
+
+      count++;
+    } else if (iscntrl(string2[c])) {
+
+      count++;
+    } else if (tolower(string2[c])) {
+      storestr2[c - count] = tolower(string2[c]);
+    }
+    counter++;
+  }
+  storestr2[counter] = '\0';
+  for (int i = strlen(string1) - 1; i > -1; i--) {
+    if (strchr(string2, string1[temp]) == NULL) {
+      verdict = false;
+      break;
+    } else {
+      verdict = true;
+    }
+    temp++;
+  }
+  if (verdict == true) {
+    if (strlen(string1) == strlen(string2)) {
       verdict = true;
     } else {
       verdict = false;
     }
   }
-  if (strlen(string1) == strlen(string2)) {
-    verdict = true;
-  } else {
-    verdict = false;
+  if (verdict == true) {
+    for (int i = strlen(string1) - 1; i > -1; i--) {
+      if (string1[i] != string2[counting]) {
+        verdict = false;
+        break;
+      } else {
+        verdict = true;
+      }
+      counting++;
+    }
   }
   return verdict;
 }

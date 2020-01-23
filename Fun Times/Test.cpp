@@ -62,7 +62,17 @@ int main() {
   lastName[counter] = '\0';
   cout << lastName << endl;
   for(int i = strlen(firstName) - 1; i > -1; i--){
-cout << firstName[1];
+if(firstName[i] == lastName[counting]){
+    verdict = true;
+} else {
+    verdict = false;
+}
+counting++;
+  }
+  if(verdict == true){
+    cout << "Yes";
+  } else if(verdict == false){
+      cout << "No";
   }
   
   return 0;
