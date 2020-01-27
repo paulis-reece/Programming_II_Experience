@@ -32,4 +32,8 @@ double DotProductC(double firstX, double firstY, double secondX,
 void SumC(double firstX, double firstY, double secondX, double secondY,
           double &resultX, double &resultY);
 
+CartesianPoint group;
+CartesianPoint group1;
+PolarPoint nextGroup;
+
 #endif // POINTS_H

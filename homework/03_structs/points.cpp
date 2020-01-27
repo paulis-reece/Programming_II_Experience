@@ -14,9 +14,6 @@
 using namespace std;
 
 #include "points.h"
-CartesianPoint group;
-CartesianPoint group1;
-PolarPoint nextGroup;
 void CartesianToPolar(CartesianPoint) {
   nextGroup.radius = sqrt(pow(group.x, 2) + pow(group.y, 2));
   nextGroup.theta = atan2(group.y, group.x);
