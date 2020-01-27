@@ -14,19 +14,8 @@
 using namespace std;
 
 #include "points.h"
-
-struct CartesianPoint {
-  double x;
-  double y;
-  double x2;
-  double y2;
-};
 CartesianPoint group;
 CartesianPoint group1;
-struct PolarPoint {
-  double radius;
-  double theta;
-};
 PolarPoint nextGroup;
 void CartesianToPolar(CartesianPoint) {
   nextGroup.radius = sqrt(pow(group.x, 2) + pow(group.y, 2));

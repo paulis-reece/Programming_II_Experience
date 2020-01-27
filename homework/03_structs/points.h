@@ -12,6 +12,17 @@
 #define POINTS_H
 
 //  function declarations (prototypes)
+
+struct CartesianPoint {
+  double x;
+  double y;
+  double x2;
+  double y2;
+};
+struct PolarPoint {
+  double radius;
+  double theta;
+};
 void CartesianToPolar(double x, double y, double &radius, double &theta);
 void PolarToCartesian(double radius, double theta, double &x, double &y);
 double LengthC(double x, double y);
