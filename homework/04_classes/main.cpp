@@ -1,10 +1,10 @@
 /*************************************************************************
  *
  * Homework Assignment: Class for taking a pizza order
- * 
+ *
  * File Name:       main.cpp
  * Course:          cp1TR 142
- * 
+ *
  */
 
 #include "Pizza.h"
