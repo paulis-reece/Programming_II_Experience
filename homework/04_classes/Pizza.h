@@ -9,6 +9,14 @@
  *
  */
 
+const int SMALL = 0;
+const int MEDIUM = 1;
+const int LARGE = 2;
+
+const int DEEPDISH = 0;
+const int HANDTOSSED = 1;
+const int PAN = 2;
+
 class Pizza {
 public:
   Pizza();
