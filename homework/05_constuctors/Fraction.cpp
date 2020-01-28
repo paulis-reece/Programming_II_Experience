@@ -23,7 +23,7 @@ Fraction::Fraction() {
   this->numerator = 1;
   this->denominator = 1;
 }
-Fraction::Fraction(int one) { this->numerator = one; }
+Fraction::Fraction(int one) { this->denominator = one; }
 Fraction::Fraction(int one, int two) {
   this->numerator = one;
   this->denominator = two;
