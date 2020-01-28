@@ -14,27 +14,27 @@
 using namespace std;
 
 #include "points.h"
-void CartesianToPolar(CartesianPoint) {
+void CartesianToPolar(double x1, double y1, double ppRadius, double ppTheta) {
   nextGroup.radius = sqrt(pow(group.x, 2) + pow(group.y, 2));
   nextGroup.theta = atan2(group.y, group.x);
 }
 
-void PolarToCartesian(PolarPoint) {
+void PolarToCartesian(double ppRadius, double ppTheta, double x3, double y3) {
   group.x = nextGroup.radius * cos(nextGroup.theta);
   group.y = nextGroup.radius * sin(nextGroup.theta);
 }
 
-double LengthC(CartesianPoint) {
+double LengthC(double x1, double y1) {
   return (sqrt(pow(group.x, 2.0) + pow(group.y, 2.0)));
 }
 
-void NormalizedC(CartesianPoint) {
+void NormalizedC(double x2, double y2) {
   double length = LengthC(group.x2, group.y2);
   group.x2 = group.x2 / length;
   group.y2 = group.y2 / length;
 }
 
-double DotProductC(CartesianPoint) {
+double DotProductC(double x, double y) {
   return (group.x * group1.x + group.y * group1.y);
 }
 

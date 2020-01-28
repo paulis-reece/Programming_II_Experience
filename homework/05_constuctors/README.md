@@ -18,7 +18,7 @@ Your solution to this problem must meet the following criteria.
 Since the project is using multiple files, you will need compile and run your code using the following terminal commands.
 
 ```sh
-g++ main.cpp Fraction.cpp && ./a.out
+g++ main..cpp Fraction.cpp && ./a.out
 ```
 
 ### Push to GitLab
