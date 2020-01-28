@@ -18,7 +18,7 @@ class Fraction {
 public:
   // TODO Add fraction constuctors here
   Fraction();
-  Fraction(int one);
+  Fraction(double one);
   Fraction(int one, int two);
 
   double getDouble();
