@@ -38,28 +38,36 @@ void Pizza::setToppings(int topping) { this->toppings = topping; }
 void Pizza::setType(int type) { this->type = type; }
 
 // TODO Add a function to compute price of the pizza
-double Pizza:: computePrice(){
-int money = 0;
-    const int SMALL = 0;
-const int MEDIUM = 1;
-const int LARGE = 2;
+double Pizza::computePrice() {
+  int money = 0;
+  const int SMALL = 0;
+  const int MEDIUM = 1;
+  const int LARGE = 2;
 
-const int DEEPDISH = 0;
-const int HANDTOSSED = 1;
-const int PAN = 2;
+  const int DEEPDISH = 0;
+  const int HANDTOSSED = 1;
+  const int PAN = 2;
 
-switch(this->size){
-
-
-
-
-
+  switch (this->size) {
+  case 0:
+    money = 10 + (2 * this->toppings);
+    break;
+  case 1:
+    money = 14 + (2 * this->toppings);
+    break;
+  case 2:
+    money = 17 + (2 * this->toppings);
+    break;
+  default:
+    money = 10 + (2 * this->toppings);
+    break;
+  }
+  return money;
 }
- //   Price of a pizza using the formula:
-  //     Small = $10 + $2 per topping
-  //     Medium = $14 + $2 per topping
-  //     Large = $17 + $2 per topping
-} 
+//   Price of a pizza using the formula:
+//     Small = $10 + $2 per topping
+//     Medium = $14 + $2 per topping
+//     Large = $17 + $2 per topping
 //==================================
 // outputDescription
 // Prints a textual description of the contents of the pizza.
