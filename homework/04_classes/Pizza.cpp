@@ -40,14 +40,6 @@ void Pizza::setType(int type) { this->type = type; }
 // TODO Add a function to compute price of the pizza
 double Pizza::computePrice() {
   int money = 0;
-  const int SMALL = 0;
-  const int MEDIUM = 1;
-  const int LARGE = 2;
-
-  const int DEEPDISH = 0;
-  const int HANDTOSSED = 1;
-  const int PAN = 2;
-
   switch (this->size) {
   case 0:
     money = 10 + (2 * this->toppings);
