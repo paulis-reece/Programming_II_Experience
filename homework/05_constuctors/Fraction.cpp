@@ -19,8 +19,7 @@ using namespace std;
 // ======================
 
 // TODO Add fraction constuctors here
-Fraction::Fraction() { this->numerator = this->denominator;
-}
+Fraction::Fraction() { this->numerator = this->denominator; }
 Fraction::Fraction(int one) { this->denominator = one; }
 Fraction::Fraction(int one, int two) {
   this->numerator = one;
