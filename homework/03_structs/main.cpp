@@ -18,11 +18,10 @@ using namespace std;
  */
 int main() {
   CartesianPoint group;
-  CartesianPoint group1;
+  CartesianPoint2 group2;
   PolarPoint nextGroup;
   double x1 = 1.0, y1 = 2.0;
   cout << "Cartesian Point 1: (" << x1 << "," << y1 << ")" << endl;
-
   double ppRadius, ppTheta;
   CartesianToPolar(x1, y1, ppRadius, ppTheta);
   cout << "Polar Point: (" << ppRadius << "," << ppTheta << ")" << endl;
