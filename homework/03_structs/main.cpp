@@ -17,16 +17,21 @@ using namespace std;
  * Main program
  */
 int main() {
-  CartesianPoint group;
-  CartesianPoint2 group2;
-  PolarPoint nextGroup;
+    CartesianPoint group;
+    CartesianPoint2 group2;
+    PolarPoint nextGroup;
   double x1 = 1.0, y1 = 2.0;
   cout << "Cartesian Point 1: (" << x1 << "," << y1 << ")" << endl;
   double ppRadius, ppTheta;
-  CartesianToPolar(x1, y1, ppRadius, ppTheta);
-  cout << "Polar Point: (" << ppRadius << "," << ppTheta << ")" << endl;
+  group.x = x1;
+  group.y = y1;
+  group.radius = ppRadius;
+  group.theta = ppTheta;
+  CartesianToPolar(group.x, group.y, group.radius, group.theta);
+  cout << "Polar Point: (" << nextGroup.radius << "," << nextGroup.theta << ")" << endl;
 
   double x3, y3;
+  group2.x
   PolarToCartesian(ppRadius, ppTheta, x3, y3);
   cout << "Cartesian Point 3: (" << x3 << "," << y3 << ")" << endl;
 
