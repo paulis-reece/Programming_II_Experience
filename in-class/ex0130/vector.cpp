@@ -31,16 +31,15 @@ State::State(string name, int population) {
 }
 
 int main() {
-  // define a vector
+  // Exrcise 1: define a vector and print its size
 
-  // add elements
+  // Exercise 2: add elements
 
-  // loop and print
+  // Exercise 3: loop and print
   cout << "Here are the elements: " << endl;
 
-  // project 5% growth
+  // Exercise 4: project 5% growth and print the list again
 
-  // loop and print again
   cout << endl << "After adjustment, here are the elements: " << endl;
 
   return 0;
