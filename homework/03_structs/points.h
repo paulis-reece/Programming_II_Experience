@@ -16,10 +16,17 @@
 struct CartesianPoint {
   double x;
   double y;
+  double x2;
+  double y2;
+  double x3;
+  double y3;
   double radius;
   double theta;
+  double length;
 };
 struct CartesianPoint2 {
+  double x;
+  double y;
   double x2;
   double y2;
 };
@@ -27,12 +34,10 @@ struct PolarPoint {
   double radius;
   double theta;
 };
-void CartesianToPolar(double x, double y, double &radius, double &theta);
-void PolarToCartesian(double radius, double theta, double &x, double &y);
-double LengthC(double x, double y);
-void NormalizedC(double xIn, double yIn, double &xOut, double &yOut);
-double DotProductC(double firstX, double firstY, double secondX,
-                   double secondY);
-void SumC(double firstX, double firstY, double secondX, double secondY,
-          double &resultX, double &resultY);
+PolarPoint CartesianToPolar(CartesianPoint);
+CartesianPoint PolarToCartesian(CartesianPoint);
+double LengthC(CartesianPoint);
+CartesianPoint NormalizedC(CartesianPoint);
+double DotProductC(CartesianPoint, CartesianPoint2);
+CartesianPoint2 SumC(CartesianPoint, CartesianPoint2);
 #endif // POINTS_H
