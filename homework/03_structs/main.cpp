@@ -23,7 +23,7 @@ int main() {
   double x1 = 1.0, y1 = 2.0;
   cout << "Cartesian Point 1: (" << x1 << "," << y1 << ")" << endl;
   double ppRadius, ppTheta;
-   group.x= x1;
+  group.x = x1;
   group.y = y1;
   group.radius = ppRadius;
   group.theta = ppTheta;
@@ -32,20 +32,22 @@ int main() {
        << endl;
 
   double x3, y3;
-  group.x2 = x3;
-  group.y2 = y3;
-  PolarToCartesian(group);
-  cout << "Cartesian Point 3: (" << x3 << "," << y3 << ")" << endl;
-
+  nextGroup.x = x3;
+  nextGroup.y = y3;
+  PolarToCartesian(nextGroup);
+  cout << "Cartesian Point 3: (" << nextGroup.x << "," << nextGroup.y << ")"
+       << endl;
+  group.x2 = nextGroup.x;
+  group.y2 = nextGroup.y;
   double length = LengthC(group);
   group.length = length;
-  cout << "length = " << length << endl;
+  cout << "length = " << group.length << endl;
 
   double x4, y4;
   group.x3 = x4;
   group.y3 = y4;
   NormalizedC(group);
-  cout << "normalized = (" << x4 << "," << y4 << ")" << endl;
+  cout << "normalized = (" << group.x3 << "," << group.y3 << ")" << endl;
 
   double x2 = 2.0, y2 = 1.0;
   cout << "Cartesian Point 2: (" << x2 << "," << y2 << ")" << endl;
@@ -58,7 +60,7 @@ int main() {
   group2.x2 = x5;
   group2.y2 = y5;
   SumC(group, group2);
-  cout << "sum = (" << x5 << "," << y5 << ")" << endl;
+  cout << "sum = (" << group2.x2 << "," << group2.x2 << ")" << endl;
 
   return 0;
 }

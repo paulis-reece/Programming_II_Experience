@@ -23,8 +23,8 @@ PolarPoint CartesianToPolar(CartesianPoint group) {
 
 CartesianPoint PolarToCartesian(PolarPoint nextGroup) {
   CartesianPoint group;
-  group.x = nextGroup.radius * cos(nextGroup.theta);
-  group.y = nextGroup.radius * sin(nextGroup.theta);
+  group.x2 = nextGroup.radius * cos(nextGroup.theta);
+  group.y2 = nextGroup.radius * sin(nextGroup.theta);
   return group;
 }
 

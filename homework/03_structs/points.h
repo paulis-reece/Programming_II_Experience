@@ -31,13 +31,15 @@ struct CartesianPoint2 {
   double y2;
 };
 struct PolarPoint {
+  double x;
+  double y;
   double radius;
   double theta;
 };
-PolarPoint CartesianToPolar(CartesianPoint);
-CartesianPoint PolarToCartesian(CartesianPoint);
-double LengthC(CartesianPoint);
-CartesianPoint NormalizedC(CartesianPoint);
-double DotProductC(CartesianPoint, CartesianPoint2);
-CartesianPoint2 SumC(CartesianPoint, CartesianPoint2);
+PolarPoint CartesianToPolar(CartesianPoint group);
+CartesianPoint PolarToCartesian(PolarPoint nextGroup);
+double LengthC(CartesianPoint group);
+CartesianPoint NormalizedC(CartesianPoint group);
+double DotProductC(CartesianPoint group, CartesianPoint2 group2);
+CartesianPoint2 SumC(CartesianPoint group, CartesianPoint2 group2);
 #endif // POINTS_H
