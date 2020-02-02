@@ -18,12 +18,12 @@ public:
   Temperature(double temperature) { this->temperature = temperature; };
 
   double getTemperature() const { return temperature; };
-  virtual void printTemperature() const = 0; 
+  virtual void printTemperature() const = 0;
 
   // Conversions
-  virtual double getTemperatureInCelsius() const = 0; 
-  virtual double getTemperatureInFahrenheit() const = 0; 
-  virtual double getTemperatureInKelvin() const = 0; 
+  virtual double getTemperatureInCelsius() const = 0;
+  virtual double getTemperatureInFahrenheit() const = 0;
+  virtual double getTemperatureInKelvin() const = 0;
 };
 
 #endif // TEMPERATURE_H

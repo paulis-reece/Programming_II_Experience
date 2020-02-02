@@ -94,7 +94,7 @@ int Money::centsPart(double amount) const {
                                                    // for negatives
   if (amount < 0)
     intCents = -intCents;
-  return intCents;
+  return intCents * -1;
 }
 
 int Money::round(double number) const { return floor(number + 0.5); }
