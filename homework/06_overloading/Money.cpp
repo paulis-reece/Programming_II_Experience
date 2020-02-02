@@ -100,10 +100,9 @@ int Money::centsPart(double amount) const {
 int Money::round(double number) const { return floor(number + 0.5); }
 
 ostream &operator<<(ostream &outputStream, Money &amount) {
-  Money dollarAmounts;
-  int absDollars = abs(dollarAmounts.getDollars());
-  int absCents = abs(dollarAmounts.getCents());
-  if (dollarAmounts.getDollars() < 0 || dollarAmounts.getCents())
+  int absDollars = abs(amount.getDollars());
+  int absCents = abs(amount.getCents());
+  if (amount.getDollars() < 0 || amount.getCents())
     // accounts for dollars == 0 or cents == 0
     outputStream << "$-";
   else
