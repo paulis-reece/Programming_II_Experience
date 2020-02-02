@@ -19,12 +19,15 @@ bool Money::operator==(const Money &amount2) {
 }
 // TODO Add overloading < operator here
 bool Money::operator<(const Money &amount2) {
-bool verdict;
-   if((dollars < amount2.dollars) && (cents < amount2.cents)){
-return verdict = true;
-   } else {
-return verdict = false;
-   }
+  bool verdict;
+  if ((dollars < amount2.dollars) && (cents < amount2.cents)) {
+    verdict = true;
+  } else if (dollars < amount2.dollars) {
+    verdict = true;
+  } else {
+    verdict = false;
+  }
+  return verdict;
 }
 // TODO Add overloading > operator here
 bool Money::operator>(const Money &amount2) {
