@@ -3,9 +3,9 @@
  * Homework Assignment: Implement operator overloading with money.
  *
  * File Name:       Money.cpp
- * Name:            ?
+ * Name:            reklre
  * Course:          CPTR 142
- * Date:            ?
+ * Date:            2/1/2020
  *
  */
 #include "Money.h"
@@ -15,18 +15,24 @@
 using namespace std;
 
 bool Money::operator==(const Money &amount2) {
-  return ((dollars == amount2.dollars) &&
-          (cents == amount2.cents));
+  return ((dollars == amount2.dollars) && (cents == amount2.cents));
 }
-
 // TODO Add overloading < operator here
-
+bool Money::operator<(const Money &amount2) {
+  return ((dollars < amount2.dollars) && (cents < amount2.cents));
+}
 // TODO Add overloading > operator here
-
+bool Money::operator>(const Money &amount2) {
+  return ((dollars > amount2.dollars) && (cents > amount2.cents));
+}
 // TODO Add overloading + operator here
-
+const Money Money::operator+(const Money &amount2) {
+  return ((dollars + amount2.dollars) && (cents + amount2.cents));
+}
 // TODO Add overloading - operator here
-
+const Money Money::operator-(const Money &amount2) {
+  return ((dollars - amount2.dollars) && (cents - amount2.cents));
+}
 Money::Money() {
   dollars = 0;
   cents = 0;

@@ -1,14 +1,15 @@
 /*************************************************************************
  *
  * Homework Assignment: Implement operator overloading with money.
- * 
+ *
  * File Name:       main.cpp
  * Course:          CPTR 142
- * 
- */#include <cmath>
+ *
+ */
+#include <cmath>
 #include <cstdlib>
 #include <iostream>
-using namespace std;
+    using namespace std;
 #include "Money.h"
 
 int main() {

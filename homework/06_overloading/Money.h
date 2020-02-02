@@ -1,10 +1,10 @@
 /*************************************************************************
  *
  * Homework Assignment: Implement operator overloading with money.
- * 
+ *
  * File Name:       Money.h
  * Course:          CPTR 142
- * 
+ *
  */
 #include <cmath>
 #include <cstdlib>
@@ -21,7 +21,6 @@ public:
   double getAmount() const;
   int getDollars() const;
   int getCents() const;
-
   bool operator==(const Money &amount2);
   bool operator<(const Money &amount2);
   bool operator>(const Money &amount2);
