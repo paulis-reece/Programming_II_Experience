@@ -28,7 +28,7 @@ public:
   const Money operator+(const Money &amount2);
   const Money operator-(const Money &amount2);
 
-  friend ostream &operator<<(ostream &outputStream, const Money &amount);
+  friend ostream &operator<<(ostream &outputStream, Money &amount);
 
 private:
   // negative amounts are represented as negative dollars

@@ -31,15 +31,29 @@ bool Money::operator<(const Money &amount2) {
 }
 // TODO Add overloading > operator here
 bool Money::operator>(const Money &amount2) {
-  return ((dollars == amount2.dollars) && (cents == amount2.cents));
+  bool verdict;
+  if ((dollars > amount2.dollars) && (cents > amount2.cents)) {
+    verdict = true;
+  } else if (dollars > amount2.dollars) {
+    verdict = true;
+  } else {
+    verdict = false;
+  }
+  return verdict;
 }
 // TODO Add overloading + operator here
 const Money Money::operator+(const Money &amount2) {
-  return ((dollars + amount2.dollars) && (cents + amount2.cents));
+  Money amount3;
+  amount3.dollars = dollars + amount2.dollars;
+  amount3.cents = cents + amount2.cents;
+  return amount3;
 }
 // TODO Add overloading - operator here
 const Money Money::operator-(const Money &amount2) {
-  return ((dollars - amount2.dollars) && (cents - amount2.cents));
+  Money amount3;
+  amount3.dollars = dollars - amount2.dollars;
+  amount3.cents = cents - amount2.cents;
+  return amount3;
 }
 Money::Money() {
   dollars = 0;
@@ -85,10 +99,11 @@ int Money::centsPart(double amount) const {
 
 int Money::round(double number) const { return floor(number + 0.5); }
 
-ostream &operator<<(ostream &outputStream, const Money &amount) {
-  int absDollars = abs(amount.dollars);
-  int absCents = abs(amount.cents);
-  if (amount.dollars < 0 || amount.cents < 0)
+ostream &operator<<(ostream &outputStream, Money &amount) {
+  Money dollarAmounts;
+  int absDollars = abs(dollarAmounts.getDollars());
+  int absCents = abs(dollarAmounts.getCents());
+  if (dollarAmounts.getDollars() < 0 || dollarAmounts.getCents())
     // accounts for dollars == 0 or cents == 0
     outputStream << "$-";
   else

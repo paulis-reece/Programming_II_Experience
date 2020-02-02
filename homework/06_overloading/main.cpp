@@ -9,7 +9,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <iostream>
-    using namespace std;
+using namespace std;
 #include "Money.h"
 
 int main() {
