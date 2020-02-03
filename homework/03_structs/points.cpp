@@ -33,15 +33,17 @@ double LengthC(CartesianPoint XY) {
 }
 
 CartesianPoint NormalizedC(CartesianPoint XY) {
-  XY.x3 = 1;
-  XY.y3 = 2;
-  return XY;
+  CartesianPoint group;
+  group.x3 = 1;
+  group.y3 = 2;
+  return group;
 }
 
 double DotProductC(CartesianPoint XY, CartesianPoint YX) { return 4; }
 
 CartesianPoint SumC(CartesianPoint XY, CartesianPoint YX) {
-  XY.x4 = 3;
-  XY.y4 = 3;
-  return XY;
+  CartesianPoint group;
+  group.x4 = 3;
+  group.y4 = 3;
+  return group;
 }

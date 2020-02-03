@@ -35,8 +35,8 @@ int main() {
   cout << "length = " << LengthC(group) << endl;
   double x4, y4;
   NormalizedC(group);
-  x4 = 1;
-  y4 = 2;
+  x4 = group.x3;
+  y4 = group.y3;
   cout << "normalized = (" << 1 << "," << 2 << ")" << endl;
   double x2 = 2.0, y2 = 1.0;
   cout << "Cartesian Point 2: (" << x2 << "," << y2 << ")" << endl;
