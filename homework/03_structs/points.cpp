@@ -23,13 +23,13 @@ PolarPoint CartesianToPolar(CartesianPoint XY) {
 
 CartesianPoint PolarToCartesian(PolarPoint XY) {
   CartesianPoint groups;
-  groups.x2 = XY.radius * cos(XY.theta);
-  groups.y2 = XY.radius * sin(XY.theta);
+  groups.x = XY.radius * cos(XY.theta);
+  groups.y = XY.radius * sin(XY.theta);
   return groups;
 }
 
 double LengthC(CartesianPoint XY) {
-  return (sqrt(pow(XY.x, 2.0) + pow(XY.x, 2.0)));
+  return (sqrt(pow(XY.x, 2.0) + pow(XY.y, 2.0)));
 }
 
 CartesianPoint NormalizedC(CartesianPoint XY) {
