@@ -14,35 +14,36 @@
 using namespace std;
 
 #include "points.h"
-void CartesianToPolar(double x, double y, double &radius, double &theta) {
-  PolarPoint nextGroup;
-  radius = sqrt(pow(x, 2) + pow(y, 2));
-  theta = atan2(y, x);
+PolarPoint CartesianToPolar(CartesianPoint XY) {
+  PolarPoint groups;
+  groups.radius = sqrt(pow(XY.x1, 2) + pow(XY.y1, 2));
+  groups.theta = atan2(XY.y1, XY.x1);
+  return groups;
 }
 
-void PolarToCartesian(double radius, double theta, double &x, double &y) {
-  x = radius * cos(theta);
-  y = radius * sin(theta);
+CartesianPoint PolarToCartesian(PolarPoint XY) {
+  CartesianPoint groups;
+  groups.x2 = XY.radius * cos(XY.theta);
+  groups.y2 = XY.radius * sin(XY.theta);
+  return groups;
 }
 
-double LengthC(double x, double y) {
-  double length = 0;
-  return length = (sqrt(pow(x, 2.0) + pow(y, 2.0)));
+double LengthC(CartesianPoint XY) {
+  return (sqrt(pow(XY.x1, 2.0) + pow(XY.x1, 2.0)));
 }
 
-void NormalizedC(double xIn, double yIn, double &xOut, double &yOut) {
-  xOut = xIn / LengthC(xIn, yIn);
-  yOut = yIn / LengthC(xIn, yIn);
+CartesianPoint NormalizedC(CartesianPoint XY) {
+  XY.x3 = XY.x1 / LengthC(XY);
+  XY.y3 = XY.y1 / LengthC(XY);
+  return XY;
 }
 
-double DotProductC(double firstX, double firstY, double secondX,
-                   double secondy) {
-  double length = 0;
-  return length = (firstX * secondX + firstY * secondy);
+double DotProductC(CartesianPoint XY, PolarPoint YX) {
+  return (XY.x1 * YX.x + XY.y1 * YX.y);
 }
 
-void SumC(double firstX, double firstY, double secondX, double secondY,
-          double &resultX, double &resultY) {
-  resultX = firstX + secondX;
-  resultY = secondY + resultY;
+CartesianPoint SumC(CartesianPoint XY, PolarPoint YX) {
+  XY.x4 = XY.x1 + YX.x;
+  XY.y4 = XY.y1 + YX.y;
+  return XY;
 }
