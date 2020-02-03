@@ -94,7 +94,7 @@ int Money::centsPart(double amount) const {
                                                    // for negatives
   if (amount < 0)
     intCents = -intCents;
-  return intCents * -1;
+  return intCents;
 }
 
 int Money::round(double number) const { return floor(number + 0.5); }
@@ -102,17 +102,17 @@ int Money::round(double number) const { return floor(number + 0.5); }
 ostream &operator<<(ostream &outputStream, const Money &amount) {
   int absDollars = abs(amount.getDollars());
   int absCents = abs(amount.getCents());
-  if (amount.getDollars() < 0 || amount.getCents())
+  if (amount.getDollars() < 0 || amount.getCents() < 0) {
     // accounts for dollars == 0 or cents == 0
     outputStream << "$-";
-  else
+  } else {
     outputStream << '$';
-  outputStream << absDollars;
-
-  if (absCents >= 10)
+    outputStream << absDollars;
+  }
+  if (absCents >= 10) {
     outputStream << '.' << absCents;
-  else
+  } else {
     outputStream << '.' << '0' << absCents;
-
+  }
   return outputStream;
 }
