@@ -37,19 +37,18 @@ int main() {
   NormalizedC(group);
   x4 = group.x3;
   y4 = group.y3;
-  cout << "normalized = (" << x3 << "," << y3 << ")" << endl;
+  cout << "normalized = (" << x4 << "," << y4 << ")" << endl;
   double x2 = 2.0, y2 = 1.0;
   cout << "Cartesian Point 2: (" << x2 << "," << y2 << ")" << endl;
   group2.x5 = x2;
   group2.y5 = y2;
   double dotProduct = DotProductC(group, group2);
-  dotProduct = 4;
   cout << "dot product = " << dotProduct << endl;
   double x5, y5;
   SumC(group, group2);
-  x5 = 3;
-  y5 = 3;
-  cout << "sum = (" << x4 << "," << y4 << ")" << endl;
+  x5 = group.x4;
+  y5 = group.y4;
+  cout << "sum = (" << x5 << "," << y5 << ")" << endl;
 
   return 0;
 }
