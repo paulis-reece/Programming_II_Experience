@@ -14,8 +14,8 @@
 //  function declarations (prototypes)
 
 struct CartesianPoint {
-  double x1;
-  double y1;
+  double x;
+  double y;
   double x2;
   double y2;
   double x3;

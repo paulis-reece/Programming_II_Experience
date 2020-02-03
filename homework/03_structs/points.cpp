@@ -16,8 +16,8 @@ using namespace std;
 #include "points.h"
 PolarPoint CartesianToPolar(CartesianPoint XY) {
   PolarPoint groups;
-  groups.radius = sqrt(pow(XY.x1, 2) + pow(XY.y1, 2));
-  groups.theta = atan2(XY.y1, XY.x1);
+  groups.radius = sqrt(pow(XY.x, 2) + pow(XY.y, 2));
+  groups.theta = atan2(XY.y, XY.x);
   return groups;
 }
 
@@ -29,21 +29,21 @@ CartesianPoint PolarToCartesian(PolarPoint XY) {
 }
 
 double LengthC(CartesianPoint XY) {
-  return (sqrt(pow(XY.x1, 2.0) + pow(XY.x1, 2.0)));
+  return (sqrt(pow(XY.x, 2.0) + pow(XY.x, 2.0)));
 }
 
 CartesianPoint NormalizedC(CartesianPoint XY) {
-  XY.x3 = XY.x1 / LengthC(XY);
-  XY.y3 = XY.y1 / LengthC(XY);
+  XY.x3 = XY.x / LengthC(XY);
+  XY.y3 = XY.y / LengthC(XY);
   return XY;
 }
 
 double DotProductC(CartesianPoint XY) {
-  return (XY.x1 * XY.x5 + XY.y1 * XY.y5);
+  return (XY.x * XY.x5 + XY.y * XY.y5);
 }
 
 CartesianPoint SumC(CartesianPoint XY) {
-  XY.x4 = XY.x1 + XY.x5;
-  XY.y4 = XY.y1 + XY.y5;
+  XY.x4 = XY.x + XY.x5;
+  XY.y4 = XY.y + XY.y5;
   return XY;
 }
