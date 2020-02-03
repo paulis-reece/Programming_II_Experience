@@ -34,10 +34,12 @@ struct PolarPoint {
   double radius;
   double theta;
 };
-PolarPoint CartesianToPolar(CartesianPoint group);
-CartesianPoint PolarToCartesian(PolarPoint nextGroup);
-double LengthC(CartesianPoint group);
-CartesianPoint NormalizedC(CartesianPoint group);
-double DotProductC(CartesianPoint group);
-void SumC(CartesianPoint group);
+void CartesianToPolar(double x, double y, double &radius, double &theta);
+void PolarToCartesian(double radius, double theta, double &x, double &y);
+double LengthC(double x, double y);
+void NormalizedC(double xIn, double yIn, double &xOut, double &yOut);
+double DotProductC(double firstX, double firstY, double secondX,
+                   double secondy);
+void SumC(double firstX, double firstY, double secondX, double secondY,
+          double &resultX, double &resultY);
 #endif // POINTS_H
