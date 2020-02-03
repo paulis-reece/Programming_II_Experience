@@ -20,38 +20,34 @@ int main() {
   CartesianPoint group;
   PolarPoint nextGroup;
   double x1 = 1.0, y1 = 2.0;
-  group.x1 = x1;
-  group.y1 = y1;
-  cout << "Cartesian Point 1: (" << group.x1 << "," << group.y1 << ")" << endl;
+  cout << "Cartesian Point 1: (" << x1 << "," << y1 << ")" << endl;
   double ppRadius, ppTheta;
-  nextGroup.radius = ppRadius;
-  nextGroup.theta = ppTheta;
   CartesianToPolar(group);
-  cout << "Polar Point: (" << nextGroup.radius << "," << nextGroup.theta << ")"
-       << endl;
+  ppRadius = nextGroup.radius;
+  ppTheta = nextGroup.theta;
+  cout << "Polar Point: (" << ppRadius << "," << ppTheta << ")" << endl;
   double x3, y3;
-  group.x2 = x3;
-  group.y2 = y3;
   PolarToCartesian(nextGroup);
-  cout << "Cartesian Point 3: (" << group.x2 << "," << group.x2 << ")" << endl;
+  x3 = group.x2;
+  y3 = group.y2;
+  cout << "Cartesian Point 3: (" << x3 << "," << y3 << ")" << endl;
   cout << "length = " << LengthC(group) << endl;
   double x4, y4;
-  group.x3 = x4;
-  group.y3 = y4;
   NormalizedC(group);
-  cout << "normalized = (" << group.x3 << "," << group.y3 << ")" << endl;
+  x4 = group.x3;
+  y4 = group.y3;
+  cout << "normalized = (" << x3 << "," << y3 << ")" << endl;
   double x2 = 2.0, y2 = 1.0;
-  nextGroup.x = x2;
-  nextGroup.y = y2;
-  cout << "Cartesian Point 2: (" << nextGroup.x << "," << nextGroup.y << ")"
-       << endl;
-  double dotProduct = DotProductC(group, nextGroup);
+  cout << "Cartesian Point 2: (" << x2 << "," << y2 << ")" << endl;
+  group.x5 = x2;
+  group.y5 = y2;
+  double dotProduct = DotProductC(group);
   cout << "dot product = " << dotProduct << endl;
   double x5, y5;
-  group.x4 = x5;
-  group.y4 = y5;
-  SumC(group, nextGroup);
-  cout << "sum = (" << group.x4 << "," << group.y4 << ")" << endl;
+  SumC(group);
+  x5 = group.x4;
+  y5 = group.y4;
+  cout << "sum = (" << x4 << "," << y4 << ")" << endl;
 
   return 0;
 }

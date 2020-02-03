@@ -22,6 +22,8 @@ struct CartesianPoint {
   double y3;
   double x4;
   double y4;
+  double x5;
+  double y5;
   double radius;
   double theta;
   double length;
@@ -36,6 +38,6 @@ PolarPoint CartesianToPolar(CartesianPoint XY);
 CartesianPoint PolarToCartesian(PolarPoint XY);
 double LengthC(CartesianPoint XY);
 CartesianPoint NormalizedC(CartesianPoint XY);
-double DotProductC(CartesianPoint XY, PolarPoint YX);
-CartesianPoint SumC(CartesianPoint XY, PolarPoint YX);
+double DotProductC(CartesianPoint XY);
+CartesianPoint SumC(CartesianPoint XY);
 #endif // POINTS_H

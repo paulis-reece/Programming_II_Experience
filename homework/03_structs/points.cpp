@@ -38,12 +38,12 @@ CartesianPoint NormalizedC(CartesianPoint XY) {
   return XY;
 }
 
-double DotProductC(CartesianPoint XY, PolarPoint YX) {
-  return (XY.x1 * YX.x + XY.y1 * YX.y);
+double DotProductC(CartesianPoint XY) {
+  return (XY.x1 * XY.x5 + XY.y1 * XY.y5);
 }
 
-CartesianPoint SumC(CartesianPoint XY, PolarPoint YX) {
-  XY.x4 = XY.x1 + YX.x;
-  XY.y4 = XY.y1 + YX.y;
+CartesianPoint SumC(CartesianPoint XY) {
+  XY.x4 = XY.x1 + XY.x5;
+  XY.y4 = XY.y1 + XY.y5;
   return XY;
 }
