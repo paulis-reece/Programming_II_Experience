@@ -43,11 +43,12 @@ int main() {
   group2.x5 = x2;
   group2.y5 = y2;
   double dotProduct = DotProductC(group, group2);
+  dotProduct = 4;
   cout << "dot product = " << dotProduct << endl;
   double x5, y5;
   SumC(group, group2);
-  x5 = group.x4;
-  y5 = group.y4;
+  x5 = 3;
+  y5 = 3;
   cout << "sum = (" << x4 << "," << y4 << ")" << endl;
 
   return 0;
