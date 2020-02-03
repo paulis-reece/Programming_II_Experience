@@ -41,5 +41,5 @@ CartesianPoint PolarToCartesian(PolarPoint nextGroup);
 double LengthC(CartesianPoint group);
 CartesianPoint NormalizedC(CartesianPoint group);
 double DotProductC(CartesianPoint group, CartesianPoint2 group2);
-CartesianPoint2 SumC(CartesianPoint group, CartesianPoint2 group2);
+void SumC(CartesianPoint group, CartesianPoint2 group2);
 #endif // POINTS_H

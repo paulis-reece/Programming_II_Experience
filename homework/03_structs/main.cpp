@@ -53,7 +53,8 @@ int main() {
   cout << "Cartesian Point 2: (" << x2 << "," << y2 << ")" << endl;
   group2.x = x2;
   group2.y = y2;
-  double dotProduct = DotProductC(group, group2);
+  group.length = DotProductC(group, group2);
+  double dotProduct = group.length;
   cout << "dot product = " << dotProduct << endl;
 
   double x5, y5;

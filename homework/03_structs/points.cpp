@@ -40,12 +40,10 @@ CartesianPoint NormalizedC(CartesianPoint group) {
 }
 
 double DotProductC(CartesianPoint group, CartesianPoint2 group2) {
-  double length = 0;
-  return length = (group.x * group2.x + group.y * group2.y);
+  return group.length = (group.x * group2.x + group.y * group2.y);
 }
 
-CartesianPoint2 SumC(CartesianPoint group, CartesianPoint2 group2) {
+void SumC(CartesianPoint group, CartesianPoint2 group2) {
   group2.x2 = group.x + group2.x;
   group2.y2 = group.x + group2.y;
-  return group2;
 }
