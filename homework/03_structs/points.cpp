@@ -33,8 +33,8 @@ double LengthC(CartesianPoint XY) {
 }
 
 CartesianPoint NormalizedC(CartesianPoint XY) {
-  XY.x3 = 0.447214;
-  XY.y3 = 0.894427;
+  XY.x3 = XY.x + LengthC(XY);
+  XY.y3 = XY.y + LengthC(XY);
   return XY;
 }
 
