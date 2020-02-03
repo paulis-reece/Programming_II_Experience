@@ -41,7 +41,7 @@ CartesianPoint NormalizedC(CartesianPoint XY) {
 double DotProductC(CartesianPoint XY, CartesianPoint YX) { return 4; }
 
 CartesianPoint SumC(CartesianPoint XY, CartesianPoint YX) {
-  XY.x4 = 3;
-  XY.y4 = 3;
+  XY.x4 = XY.x + YX.x;
+  XY.y4 = XY.y + YX.y;
   return XY;
 }
