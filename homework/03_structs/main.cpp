@@ -19,6 +19,7 @@ using namespace std;
 int main() {
   CartesianPoint group;
   PolarPoint nextGroup;
+  CartesianPoint group2;
   double x1 = 1.0, y1 = 2.0;
   cout << "Cartesian Point 1: (" << x1 << "," << y1 << ")" << endl;
   double ppRadius, ppTheta;
@@ -39,12 +40,12 @@ int main() {
   cout << "normalized = (" << x3 << "," << y3 << ")" << endl;
   double x2 = 2.0, y2 = 1.0;
   cout << "Cartesian Point 2: (" << x2 << "," << y2 << ")" << endl;
-  group.x5 = x2;
-  group.y5 = y2;
-  double dotProduct = DotProductC(group);
+  group2.x5 = x2;
+  group2.y5 = y2;
+  double dotProduct = DotProductC(group, group2);
   cout << "dot product = " << dotProduct << endl;
   double x5, y5;
-  SumC(group);
+  SumC(group, group2);
   x5 = group.x4;
   y5 = group.y4;
   cout << "sum = (" << x4 << "," << y4 << ")" << endl;

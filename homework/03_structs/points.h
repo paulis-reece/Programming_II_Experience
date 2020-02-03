@@ -38,6 +38,6 @@ PolarPoint CartesianToPolar(CartesianPoint XY);
 CartesianPoint PolarToCartesian(PolarPoint XY);
 double LengthC(CartesianPoint XY);
 CartesianPoint NormalizedC(CartesianPoint XY);
-double DotProductC(CartesianPoint XY);
-CartesianPoint SumC(CartesianPoint XY);
+double DotProductC(CartesianPoint XY, CartesianPoint YX);
+CartesianPoint SumC(CartesianPoint XY, CartesianPoint YX);
 #endif // POINTS_H
