@@ -18,13 +18,12 @@ using namespace std;
  */
 int main() {
   CartesianPoint group;
-  CartesianPoint2 group2;
   PolarPoint nextGroup;
   double x1 = 1.0, y1 = 2.0;
   cout << "Cartesian Point 1: (" << x1 << "," << y1 << ")" << endl;
   double ppRadius, ppTheta;
-  group.x = x1;
-  group.y = y1;
+  group.x1 = x1;
+  group.y1 = y1;
   group.radius = ppRadius;
   group.theta = ppTheta;
   CartesianToPolar(group);
@@ -51,17 +50,17 @@ int main() {
 
   double x2 = 2.0, y2 = 1.0;
   cout << "Cartesian Point 2: (" << x2 << "," << y2 << ")" << endl;
-  group2.x = x2;
-  group2.y = y2;
-  group.length = DotProductC(group, group2);
+  group.x4 = x2;
+  group.y4 = y2;
+  group.length = DotProductC(group);
   double dotProduct = group.length;
   cout << "dot product = " << dotProduct << endl;
 
   double x5, y5;
-  group2.x2 = x5;
-  group2.y2 = y5;
-  SumC(group, group2);
-  cout << "sum = (" << group2.x2 << "," << group2.x2 << ")" << endl;
+  group.x5 = x5;
+  group.y5 = y5;
+  SumC(group);
+  cout << "sum = (" << group.x5 << "," << group.y5 << ")" << endl;
 
   return 0;
 }

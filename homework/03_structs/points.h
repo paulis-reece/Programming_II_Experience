@@ -14,21 +14,19 @@
 //  function declarations (prototypes)
 
 struct CartesianPoint {
-  double x;
-  double y;
+  double x1;
+  double y1;
   double x2;
   double y2;
   double x3;
   double y3;
+  double x4;
+  double y4;
+  double x5;
+  double y5;
   double radius;
   double theta;
   double length;
-};
-struct CartesianPoint2 {
-  double x;
-  double y;
-  double x2;
-  double y2;
 };
 struct PolarPoint {
   double x;
@@ -40,6 +38,6 @@ PolarPoint CartesianToPolar(CartesianPoint group);
 CartesianPoint PolarToCartesian(PolarPoint nextGroup);
 double LengthC(CartesianPoint group);
 CartesianPoint NormalizedC(CartesianPoint group);
-double DotProductC(CartesianPoint group, CartesianPoint2 group2);
-void SumC(CartesianPoint group, CartesianPoint2 group2);
+double DotProductC(CartesianPoint group);
+void SumC(CartesianPoint group);
 #endif // POINTS_H

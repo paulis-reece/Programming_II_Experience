@@ -16,8 +16,8 @@ using namespace std;
 #include "points.h"
 PolarPoint CartesianToPolar(CartesianPoint group) {
   PolarPoint nextGroup;
-  nextGroup.radius = sqrt(pow(group.x, 2) + pow(group.y, 2));
-  nextGroup.theta = atan2(group.y, group.x);
+  nextGroup.radius = sqrt(pow(group.x1, 2) + pow(group.y1, 2));
+  nextGroup.theta = atan2(group.y1, group.x1);
   return nextGroup;
 }
 
@@ -30,7 +30,7 @@ CartesianPoint PolarToCartesian(PolarPoint nextGroup) {
 
 double LengthC(CartesianPoint group) {
   double length = 0;
-  return length = (sqrt(pow(group.x, 2.0) + pow(group.y, 2.0)));
+  return length = (sqrt(pow(group.x1, 2.0) + pow(group.y1, 2.0)));
 }
 
 CartesianPoint NormalizedC(CartesianPoint group) {
@@ -39,11 +39,11 @@ CartesianPoint NormalizedC(CartesianPoint group) {
   return group;
 }
 
-double DotProductC(CartesianPoint group, CartesianPoint2 group2) {
-  return group.length = (group.x * group2.x + group.y * group2.y);
+double DotProductC(CartesianPoint group) {
+  return group.length = (group.x1 * group.x4 + group.y1 * group.y4);
 }
 
-void SumC(CartesianPoint group, CartesianPoint2 group2) {
-  group2.x2 = group.x + group2.x;
-  group2.y2 = group.x + group2.y;
+void SumC(CartesianPoint group) {
+  group.x5 = group.x1 + group.x5;
+  group.y5 = group.x1 + group.y5;
 }
