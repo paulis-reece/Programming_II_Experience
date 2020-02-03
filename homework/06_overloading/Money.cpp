@@ -113,6 +113,7 @@ ostream &operator<<(ostream &outputStream, const Money &amount) {
   if (amount.getDollars() < 0 || amount.getCents() < 0) {
     // accounts for dollars == 0 or cents == 0
     outputStream << "$-";
+    outputStream << absDollars;
   } else {
     outputStream << '$';
     outputStream << absDollars;
