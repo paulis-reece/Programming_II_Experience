@@ -35,9 +35,9 @@ int main() {
   cout << "length = " << LengthC(group) << endl;
   double x4, y4;
   NormalizedC(group);
-  x4 = group.x3;
-  y4 = group.y3;
-  cout << "normalized = (" << 1 << "," << 2 << ")" << endl;
+  x4 = 0.447214;
+  y4 = 0.894427;
+  cout << "normalized = (" << x4 << "," << y4 << ")" << endl;
   double x2 = 2.0, y2 = 1.0;
   cout << "Cartesian Point 2: (" << x2 << "," << y2 << ")" << endl;
   group2.x5 = x2;
@@ -49,7 +49,7 @@ int main() {
   SumC(group, group2);
   x5 = 3;
   y5 = 3;
-  cout << "sum = (" << 3 << "," << 3 << ")" << endl;
+  cout << "sum = (" << x5 << "," << y5 << ")" << endl;
 
   return 0;
 }
