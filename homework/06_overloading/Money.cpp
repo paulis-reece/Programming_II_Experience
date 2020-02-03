@@ -44,15 +44,23 @@ bool Money::operator>(const Money &amount2) {
 // TODO Add overloading + operator here
 const Money Money::operator+(const Money &amount2) {
   Money amount3;
-  amount3.dollars = dollars + amount2.dollars;
-  amount3.cents = cents + amount2.cents;
+  amount3.dollars =
+      ((((dollars * 100) + cents) + ((amount2.dollars * 100) + amount2.cents)) /
+       100);
+  amount3.cents =
+      ((((dollars * 100) + cents) + ((amount2.dollars * 100) + amount2.cents)) %
+       100);
   return amount3;
 }
 // TODO Add overloading - operator here
 const Money Money::operator-(const Money &amount2) {
   Money amount3;
-  amount3.dollars = dollars - amount2.dollars;
-  amount3.cents = cents - amount2.cents;
+  amount3.dollars =
+      ((((dollars * 100) + cents) - ((amount2.dollars * 100) + amount2.cents)) /
+       100);
+  amount3.cents =
+      ((((dollars * 100) + cents) - ((amount2.dollars * 100) + amount2.cents)) %
+       100);
   return amount3;
 }
 Money::Money() {
