@@ -8,11 +8,13 @@ using namespace std;
 
 
 int main() {
-int number = 0;
-srand(2);
-for(int i = 0; i < 6; i++){
-number = rand() % 6 + 1;
-cout << number << endl;
+string name;
+cout << "Enter (z) : ";
+cin >> name;
+if(name == "LEAVE"){
+exit(0);
 }
+cout << "Hi";
+cout << endl;
 return 0;
 }
