@@ -85,7 +85,7 @@ int Beetle::getAntennas() const { return this->antennas; }
 int Beetle::getEyes() const { return this->eyes; }
 int Beetle::getSumBettle() const { return this->sumBettle; }
 
-void bettleGame(string name, int seed, int &turnsTaken) {
+void bettleGame(int seed, int &turnsTaken) {
   Dice dice;
   Beetle beetle;
   beetle.resetBettlePart();
@@ -158,70 +158,63 @@ void bettleGame(string name, int seed, int &turnsTaken) {
 }
 
 int main() {
-  vector<int> rankTurns;
-  vector<string> rankPlayer;
   vector<string> players;
-  vector<int> seeds;
   vector<int> turnPerPlayer;
   int numPlayer = 0;
   int seed = 0;
   int turnsTaken = 0;
   string playerName;
+  bool checkString;
 
   cout << "Welcome to the Bettle Dice Game!" << endl;
   cout << "How many players are participating : ";
   cin >> numPlayer;
-  if (cin.fail() || numPlayer <= 0) {
-    while (cin.fail() || numPlayer <= 0) {
-      cout << "Please enter only positive integers except zero and negative "
-              "one (-1 to exit the game) : ";
-      cin >> numPlayer;
-      if (numPlayer == -1) {
-        exit(0);
-      }
+  while (numPlayer <= 0 || cin.fail()) {
+    cin.clear();
+    cin.ignore(1000, '\n');
+    cout << "Please enter only positive integers except zero and negative "
+            "one (-1 to exit the game) : ";
+    cin >> numPlayer;
+    if (numPlayer == -1) {
+      exit(0);
     }
   }
   for (int i = 0; i < numPlayer; i++) {
-    cout << "What is the name for player " << i + 1 << " :";
+    cout << "What is the name for player " << i + 1 << " : ";
     cin >> playerName;
-    if (cin.fail()) {
-      while (cin.fail()) {
-        cout << "Please Enter Valid Player Names (type the word LEAVE to "
-                "exit) : ";
-        cin >> playerName;
-        if (playerName == "LEAVE") {
-          exit(0);
-        }
+    while (cin.fail()) {
+      cin.clear();
+      cin.ignore(1000, '\n');
+      cout << "Please Enter Valid Player Names (type the word LEAVE to "
+              "exit) : ";
+      cin >> playerName;
+      if (playerName == "LEAVE") {
+        exit(0);
       }
     }
     players.push_back(playerName);
   }
-  for (int j = 0; j < numPlayer; j++) {
-    cout << "What is the seed for player " << players[j] << " :";
+    cout << "What is the seed for the players : ";
     cin >> seed;
-    if (cin.fail() || seed <= 0) {
-      while (cin.fail() || seed <= 0) {
-        cout << "Please Enter Valid Player Seeds (-1 to exit) : ";
-        cin >> seed;
-        if (seed == -1) {
-          exit(0);
-        }
+    while (cin.fail() || seed < 0) {
+      cin.clear();
+      cin.ignore(1000, '\n');
+      cout << "Please Enter Valid Player Seeds (-1 to exit) : ";
+      cin >> seed;
+      if (seed == -1) {
+        exit(0);
       }
     }
-    seeds.push_back(seed);
-  }
+
   for (int k = 0; k < numPlayer; k++) {
     turnsTaken = 0;
-    bettleGame(players.at(k), seeds.at(k), turnsTaken);
+    bettleGame(seed, turnsTaken);
     turnPerPlayer.push_back(turnsTaken);
   }
-  cout << "Here are the rankings" << endl;
+  cout << "Here are the players and their turns" << endl;
+  cout << "____________________________________" << endl;
   for (int r = 0; r < numPlayer; r++) {
-   for(int c = 0; c < numPlayer; c++){   
-    if (turnPerPlayer.at(c)) {
-    
-    }
-   }
+    cout << players.at(r) << "--------" << turnPerPlayer.at(r) << endl;
   }
   return 0;
 }

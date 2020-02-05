@@ -1,20 +1,16 @@
-#include <cassert> // for assert
-#include <cstdlib> // for exit
-#include <cstring>
+#include <cassert>  // for assert
+#include <cstdlib>  // for exit
 #include <iostream> // for cin and cout
-#include <vector>
+#include <vector>   // Activate Vector usage
+
 using namespace std;
 
-
-
 int main() {
-string name;
-cout << "Enter (z) : ";
-cin >> name;
-if(name == "LEAVE"){
-exit(0);
+int number = 0;
+srand(0);
+for(int i = 0; i < 10; i++){
+number = rand() % 6 + 1;
+cout << number << endl;
 }
-cout << "Hi";
-cout << endl;
-return 0;
+  return 0;
 }
