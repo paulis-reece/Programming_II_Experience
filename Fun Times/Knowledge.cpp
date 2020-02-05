@@ -2,15 +2,17 @@
 #include <cstdlib> // for exit
 #include <cstring>
 #include <iostream> // for cin and cout
+#include <vector>
 using namespace std;
 
 
 
 int main() {
-int val = 912;
-int vals = 100;
-int result = 0;
-result = 912 / 100;
-cout << "Results: " << result;
-  return 0;
+int number = 0;
+srand(2);
+for(int i = 0; i < 6; i++){
+number = rand() % 6 + 1;
+cout << number << endl;
+}
+return 0;
 }
