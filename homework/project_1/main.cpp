@@ -22,7 +22,6 @@ void Dice::setDiceFace() { this->diceFace = rand() % 6 + 1; }
 class Beetle : public Dice {
 public:
   Beetle();
-  void resetBettlePart();
   void setBettlePart(int number);
   int getBody() const;
   int getHead() const;
@@ -43,15 +42,6 @@ private:
 };
 
 Beetle::Beetle() {
-  this->body = 6;
-  this->head = 5;
-  this->wings = 8;
-  this->legs = 36;
-  this->antennas = 4;
-  this->eyes = 4;
-  this->sumBettle = 63;
-}
-void Beetle::resetBettlePart() {
   this->body = 6;
   this->head = 5;
   this->wings = 8;
@@ -88,7 +78,6 @@ int Beetle::getSumBettle() const { return this->sumBettle; }
 void bettleGame(int seed, int &turnsTaken) {
   Dice dice;
   Beetle beetle;
-  beetle.resetBettlePart();
   int currentPart = 0;
   int constructedPart = 0;
   srand(seed);

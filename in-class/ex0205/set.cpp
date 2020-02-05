@@ -3,7 +3,7 @@
  * In-Class Exercise: Sets
  *
  * File Name: set.cpp
- * Username:  ?
+ * Username:  reklre
  * Username:  ?
  * Course:    CPTR 142
  *
@@ -15,22 +15,24 @@ using namespace std;
 
 int main() {
   // define a set
-
+set<string>states;
   // add Oregon and Washington
-
+states.insert("WA");
+states.insert("OR");
   bool exists;
   int size;
   // does Alaska exist?
-  exists = false || true;
+  exists = states.count("OR");
   // what is size of set?
-  size = 0;
-  cout << "Alaska is " << (exists ? "" : "not ") << "in set of " << size << endl;
+  size = states.size();
+  
+  cout << "Alaska is " << ( exists ?" " : "not ") << "in set of " << size << endl;
 
   // add Alasks
   // does Alaska exist?
-  exists = false || true;
+  exists = states.count("OR");
   // what is size of set?
-  size = 0;
+  size = states.size();
   cout << "Alaska is " << (exists ? "" : "not ") << "in set of " << size << endl;
 
   return 0;
