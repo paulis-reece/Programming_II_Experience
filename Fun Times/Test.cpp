@@ -152,6 +152,7 @@ int main() {
   int loopCount = 0;
   int turnsTaken = 0;
   int sumConstructed = 0;
+  bool verdict;
   string playerName;
   string player;
   Beetle beetle;
@@ -197,15 +198,21 @@ int main() {
     }
   }
   srand(seed);
-  while(true){
+  while (true) {
     for (int j = 0; j < numPlayer; j++) {
       turnPerPlayer.at(j) += bettleGame(turnsTaken);
       cout << turnPerPlayer.at(j) << endl;
     }
-     for (int j = 0; j < numPlayer; j++) {}
+    for (int j = 0; j < numPlayer; j++) {
+      if (turnPerPlayer.at(j) != beetle.getSumBettle()) {
+        verdict = false;
+      } else {
+        verdict = true;
+      }
+    }
   }
   cout << "Here is the winner and the player's turns" << endl;
   cout << "------------------------------------" << endl;
-    cout << player << "_______" << turnsTaken << endl;
+  cout << player << "_______" << turnsTaken << endl;
   return 0;
 }
