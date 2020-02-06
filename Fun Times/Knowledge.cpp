@@ -6,11 +6,22 @@
 using namespace std;
 
 int main() {
-int number = 0;
-srand(0);
-for(int i = 0; i < 10; i++){
-number = rand() % 6 + 1;
-cout << number << endl;
-}
+  int number = 0;
+  int n = 4;
+  int loop = 0;
+  vector<int> players(2, 0);
+  while (number != 4) {
+    players.at(loop) += 1;
+    cout << players.at(loop);
+    if (players.at(loop) == 4) {
+      number = 4;
+      break;
+    }
+    if (loop == 1) {
+      loop = 0;
+    } else {
+      loop++;
+    }
+  }
   return 0;
 }
