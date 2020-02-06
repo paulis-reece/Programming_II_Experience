@@ -208,6 +208,8 @@ int main() {
         verdict = false;
       } else {
         verdict = true;
+        player = players.at(j);
+        break;
       }
     }
   }
