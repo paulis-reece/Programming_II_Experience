@@ -9,7 +9,7 @@ int main() {
   int* p;
 
   p = &numOne;
-  cout << "Number: " << *p << endl;
+  cout << "Number: " << *p*2 << endl;
   p = &numTwo;
   cout << "Number: " << *p << endl;
   p = &numThree;

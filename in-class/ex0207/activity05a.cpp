@@ -4,7 +4,7 @@ using namespace std;
 int main() {
   int  myArray[] = {40, 30, 20, 10};
   int* p = myArray;
-   
+   p-=9;
   cout << "Value of p: " << p << endl;
   cout << "Value of *p: " << *p << endl;
   cout << "Value of myArray: ";
