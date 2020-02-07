@@ -19,10 +19,9 @@ Dice::Dice() { this->diceFace = 0; }
 int Dice::getDiceFace() const { return this->diceFace; }
 void Dice::setDiceFace() { this->diceFace = rand() % 6 + 1; }
 
-class Beetle : public Dice {
+class Beetle {
 public:
   Beetle();
-  void resetBettlePart();
   void setBettlePart(int number);
   int getBody() const;
   int getHead() const;
@@ -30,7 +29,8 @@ public:
   int getLegs() const;
   int getAntennas() const;
   int getEyes() const;
-  int getSumBettle() const;
+  int getPlayers() const;
+  int bettleGame(int &turnsTaken);
 
 private:
   int body;
@@ -39,7 +39,6 @@ private:
   int legs;
   int antennas;
   int eyes;
-  int sumBettle;
 };
 
 Beetle::Beetle() {
@@ -49,7 +48,6 @@ Beetle::Beetle() {
   this->legs = 36;
   this->antennas = 4;
   this->eyes = 4;
-  this->sumBettle = 63;
 }
 
 void Beetle::setBettlePart(int number) {
@@ -74,67 +72,65 @@ int Beetle::getWings() const { return this->wings; }
 int Beetle::getLegs() const { return this->legs; }
 int Beetle::getAntennas() const { return this->antennas; }
 int Beetle::getEyes() const { return this->eyes; }
-int Beetle::getSumBettle() const { return this->sumBettle; }
 
-int bettleGame(int &turnsTaken) {
+int Beetle::bettleGame(int &turnsTaken) {
   Dice dice;
-  Beetle beetle;
   int currentPart = 0;
   int constructedPart = 0;
   dice.setDiceFace();
   currentPart = dice.getDiceFace();
-  if (beetle.getBody() == 6) {
+  if (this->getBody() == 6) {
     if (currentPart == 6) {
-      beetle.setBettlePart(currentPart);
-      constructedPart += 6;
+      this->setBettlePart(currentPart);
+      constructedPart = 6;
     }
-  } else if (beetle.getHead() == 5) {
+  } else if (this->getHead() == 5) {
     switch (currentPart) {
     case 3:
-      if (beetle.getLegs() != 0) {
-        beetle.setBettlePart(currentPart);
-        constructedPart += 6;
+      if (this->getLegs() != 0) {
+        this->setBettlePart(currentPart);
+        constructedPart = 6;
       }
       break;
     case 4:
-      if (beetle.getWings() != 0) {
-        beetle.setBettlePart(currentPart);
-        constructedPart += 4;
+      if (this->getWings() != 0) {
+        this->setBettlePart(currentPart);
+        constructedPart = 4;
       }
       break;
     case 5:
-      if (beetle.getHead() != 0) {
-        beetle.setBettlePart(currentPart);
-        constructedPart += 5;
+      if (this->getHead() != 0) {
+        this->setBettlePart(currentPart);
+        constructedPart = 5;
       }
       break;
     default:
       break;
     }
-  } else if (beetle.getHead() == 0) {
+  } else if (this->getHead() == 0) {
     switch (currentPart) {
     case 1:
-      if (beetle.getEyes() != 0) {
-        beetle.setBettlePart(currentPart);
-        constructedPart += 2;
+      if (this->getEyes() != 0) {
+        this->setBettlePart(currentPart);
+        constructedPart = 2;
       }
       break;
     case 2:
-      if (beetle.getAntennas() != 0) {
-        beetle.setBettlePart(currentPart);
-        constructedPart += 2;
+      if (this->getAntennas() != 0) {
+        this->setBettlePart(currentPart);
+        constructedPart = 2;
       }
       break;
     case 3:
-      if (beetle.getLegs() != 0) {
-        beetle.setBettlePart(currentPart);
-        constructedPart += 6;
+      if (this->getLegs() != 0) {
+        this->setBettlePart(currentPart);
+        constructedPart = 6;
       }
       break;
     case 4:
-      if (beetle.getWings() != 0) {
-        beetle.setBettlePart(currentPart);
-        constructedPart += 4;
+      if (this->getWings() != 0) {
+        this->setBettlePart(currentPart);
+        constructedPart = 4;
       }
       break;
     default:
@@ -155,7 +151,7 @@ int main() {
   bool verdict = false;
   string playerName;
   string player;
-  Beetle beetle;
+  Dice dice;
 
   cout << "Welcome to the Bettle Dice Game!" << endl;
   cout << "How many players are participating today : ";
@@ -171,6 +167,7 @@ int main() {
     }
   }
   vector<int> turnPerPlayer(numPlayer, 0);
+  vector<Beetle> beetleDrawings(numPlayer);
   for (int i = 0; i < numPlayer; i++) {
     cout << "What is the name for player " << i + 1 << " : ";
     cin >> playerName;
@@ -198,13 +195,14 @@ int main() {
     }
   }
   srand(seed);
+  int loop = 0;
   while (verdict == false) {
     for (int j = 0; j < numPlayer; j++) {
-      turnPerPlayer.at(j) += bettleGame(turnsTaken);
-      cout << turnPerPlayer.at(j) << endl;
+      turnPerPlayer.at(j) += beetleDrawings.at(j).bettleGame(turnsTaken);
+      cout << turnPerPlayer.at(j) << "-" << loop++ << endl;
     }
-    for (int j = 0; j < numPlayer; j++) {
-      if (turnPerPlayer.at(j) != beetle.getSumBettle()) {
+     for (int j = 0; j < numPlayer; j++) {
+      if (turnPerPlayer.at(j) != 63) {
         verdict = false;
       } else {
         verdict = true;
@@ -215,6 +213,6 @@ int main() {
   }
   cout << "Here is the winner and the player's turns" << endl;
   cout << "------------------------------------" << endl;
-  cout << player << "_______" << turnsTaken << endl;
+  cout << player << "_______" << turnsTaken - numPlayer << endl;
   return 0;
 }
