@@ -30,7 +30,7 @@ public:
   int getAntennas() const;
   int getEyes() const;
   int getPlayers() const;
-  int bettleGame(int &turnsTaken);
+  int bettleGame(int getRoll);
 
 private:
   int body;
@@ -73,12 +73,10 @@ int Beetle::getLegs() const { return this->legs; }
 int Beetle::getAntennas() const { return this->antennas; }
 int Beetle::getEyes() const { return this->eyes; }
 
-int Beetle::bettleGame(int &turnsTaken) {
-  Dice dice;
+int Beetle::bettleGame(int getRoll) {
   int currentPart = 0;
   int constructedPart = 0;
-  dice.setDiceFace();
-  currentPart = dice.getDiceFace();
+  currentPart = getRoll;
   if (this->getBody() == 6) {
     if (currentPart == 6) {
       this->setBettlePart(currentPart);
@@ -105,6 +103,7 @@ int Beetle::bettleGame(int &turnsTaken) {
       }
       break;
     default:
+      constructedPart = 0;
       break;
     }
   } else if (this->getHead() == 0) {
@@ -134,19 +133,21 @@ int Beetle::bettleGame(int &turnsTaken) {
       }
       break;
     default:
+      constructedPart = 0;
       break;
     }
   }
-  turnsTaken++;
   return constructedPart;
 }
 
 int main() {
+  Dice dice;
   vector<string> players;
   int numPlayer = 0;
   int seed = 0;
   int turnsTaken = 0;
   int turnWinner = 0;
+  int getRoll = 0;
   bool verdict = false;
   string playerName;
   string player;
@@ -193,16 +194,18 @@ int main() {
     }
   }
   srand(seed);
-  int loop = 0;
   while (verdict == false) {
+    turnsTaken++;
     for (int j = 0; j < numPlayer; j++) {
-      turnPerPlayer.at(j) += beetleDrawings.at(j).bettleGame(turnsTaken);
-      cout << turnPerPlayer.at(j) << "-" << loop++ << endl;
+      dice.setDiceFace();
+      getRoll = dice.getDiceFace();
+      turnPerPlayer.at(j) += beetleDrawings.at(j).bettleGame(getRoll);
+      cout << turnPerPlayer.at(j) << "-" << turnsTaken << endl;
       if (turnPerPlayer.at(j) == 63) {
-        turnWinner = turnsTaken - 1;
+        turnWinner = turnsTaken;
       }
     }
-     for (int j = 0; j < numPlayer; j++) {
+    for (int j = 0; j < numPlayer; j++) {
       if (turnPerPlayer.at(j) != 63) {
         verdict = false;
       } else {
