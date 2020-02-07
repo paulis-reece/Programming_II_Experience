@@ -145,13 +145,11 @@ int main() {
   vector<string> players;
   int numPlayer = 0;
   int seed = 0;
-  int loopCount = 0;
   int turnsTaken = 0;
-  int sumConstructed = 0;
+  int turnWinner = 0;
   bool verdict = false;
   string playerName;
   string player;
-  Dice dice;
 
   cout << "Welcome to the Bettle Dice Game!" << endl;
   cout << "How many players are participating today : ";
@@ -200,6 +198,9 @@ int main() {
     for (int j = 0; j < numPlayer; j++) {
       turnPerPlayer.at(j) += beetleDrawings.at(j).bettleGame(turnsTaken);
       cout << turnPerPlayer.at(j) << "-" << loop++ << endl;
+      if (turnPerPlayer.at(j) == 63) {
+        turnWinner = turnsTaken - 1;
+      }
     }
      for (int j = 0; j < numPlayer; j++) {
       if (turnPerPlayer.at(j) != 63) {
@@ -213,6 +214,6 @@ int main() {
   }
   cout << "Here is the winner and the player's turns" << endl;
   cout << "------------------------------------" << endl;
-  cout << player << "_______" << turnsTaken - numPlayer << endl;
+  cout << player << "_______" << turnWinner << endl;
   return 0;
 }
