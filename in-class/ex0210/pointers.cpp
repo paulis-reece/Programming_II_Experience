@@ -54,5 +54,6 @@ void exercise2() {
   cin >> *ptrd;
   // Take a value from the console and put it in the memory pointed to by ptrd
   // output to the console the value pointed to by ptrd
-  cout << *ptrd << endl;
+  cout << *ptrd << " " << ptrd;
+  delete ptrd;
 }

@@ -12,7 +12,7 @@
 // ======================================================================
 #include <iomanip>  // for setw
 #include <iostream> // for cin and cout
-#include <stdlib.h> // for exit
+#include <cstdlib> // for exit
 #include "BankAccount.h"
 using namespace std;
 
