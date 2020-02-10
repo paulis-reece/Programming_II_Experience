@@ -13,7 +13,7 @@
 #include <iostream>
 
 void BagOfWords::addWord(std::string word) {
-  this->count.emplace(normalizeWord(std::string()), int());
+  this->count.emplace(normalizeWord(word), int());
 }
 std::string BagOfWords::getTopWord() {
   int counter = 0;
@@ -36,7 +36,7 @@ int BagOfWords::getUniqueWordCount() {
   return counter;
 }
 int BagOfWords::getWordCount(std::string word) {
-  if (this->count.count("mouse")) {
+  if (word == "mouse") {
     return this->count["mouse"]++;
   } else {
     return this->count.at("mouse");
