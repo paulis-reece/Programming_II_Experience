@@ -29,8 +29,8 @@ int main() {
     bow.addWord(word);
   }
 
-  //  wc.printWordCount();
-  //  std::cout << std::endl;
+  bow.printWordCount();
+  std::cout << std::endl;
   std::cout << "Unique words: " << bow.getUniqueWordCount() << std::endl;
   std::cout << "Top word: " << bow.getTopWord() << std::endl;
   std::cout << "Count for 'mouse': " << bow.getWordCount("mouse") << std::endl;
