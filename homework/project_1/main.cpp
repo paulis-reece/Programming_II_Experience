@@ -117,6 +117,6 @@ int main() {
   cout << "------------------------------------" << endl;
   // Winner and his/her turns
   cout << "The winner among the participants is Player " << player << " and "
-       << "the number it took him/her : " << turnsTaken << endl;
+       << "the number of turns it took him/her : " << turnsTaken << endl;
   return 0;
 }
