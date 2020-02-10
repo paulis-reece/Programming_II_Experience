@@ -13,16 +13,14 @@
 #include <string>
 using namespace std;
 
-void BagOfWords::addWord(string word) { this->count.emplace(word, int()); }
+void BagOfWords::addWord(string word) {
+  this->count.emplace(normalizeWord(std::string()), int());
+}
 std::string BagOfWords::getTopWord() {
   int counter = 0;
   string topWord;
   for (int i = 0; i < this->count.size(); i++) {
-    if (counter < count.at(normalizeWord(std::string()))) {
-      counter = count.at(normalizeWord(std::string()));
-    }
   }
-  topWord = count.at(normalizeWord(std::string()));
 }
 int BagOfWords::getUniqueWordCount() {
   if (!this->count.count("mouse")) {
@@ -30,7 +28,7 @@ int BagOfWords::getUniqueWordCount() {
 }
 int BagOfWords::getWordCount(std::string word) {
   if (this->count.count("mouse")) {
-    this->count["mouse"]++;
+    return this->count["mouse"]++;
   } else {
     return this->count.at("mouse");
   }
