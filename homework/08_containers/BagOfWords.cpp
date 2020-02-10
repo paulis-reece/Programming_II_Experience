@@ -10,15 +10,14 @@
  */
 
 #include "BagOfWords.h"
-#include <string>
-using namespace std;
+#include <iostream>
 
-void BagOfWords::addWord(string word) {
+void BagOfWords::addWord(std::string word) {
   this->count.emplace(normalizeWord(std::string()), int());
 }
 std::string BagOfWords::getTopWord() {
   int counter = 0;
-  string topWord;
+  std::string topWord;
   for (int i = 0; i < this->count.size(); i++) {
     if (counter < this->count.at(std::string())) {
       counter = this->count.at(std::string());
@@ -43,4 +42,10 @@ int BagOfWords::getWordCount(std::string word) {
     return this->count.at("mouse");
   }
 }
-void BagOfWords::printWordCount() {}
+void BagOfWords::printWordCount() {
+  int counter = 0;
+  for (int i = 0; i < this->count.size(); i++) {
+    counter++;
+  }
+  std::cout << counter;
+}
