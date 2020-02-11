@@ -37,7 +37,11 @@ int BagOfWords::getUniqueWordCount() {
 }
 int BagOfWords::getWordCount(std::string word) {
   if (word == "mouse") {
-    return this->count["mouse"]++;
+    if (this->count.count(word) == 0) {
+      this->count.emplace(word, int());
+    } else {
+      return this->count["mouse"]++;
+    }
   } else {
     return this->count.at("mouse");
   }
