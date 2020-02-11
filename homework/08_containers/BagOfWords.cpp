@@ -16,20 +16,16 @@ void BagOfWords::addWord(std::string word) { this->count.emplace(word, int()); }
 std::string BagOfWords::getTopWord() {
   int counter = 0;
   std::string topWord;
-  for (int i = 0; i < this->count.size(); i++) {
-    if (counter < this->count.at(std::string())) {
-      counter = this->count.at(std::string());
-      topWord = std::string();
-    }
+  if (counter < this->count.at(std::string())) {
+    counter = this->count.at(std::string());
+    topWord = std::string();
   }
   return topWord;
 }
 int BagOfWords::getUniqueWordCount() {
   int counter = 0;
-  for (int i = 0; i < this->count.size(); i++) {
-    if (this->count.count(std::string()) == 1) {
-      counter++;
-    }
+  if (this->count.count(std::string()) == 0) {
+    counter++;
   }
   return counter;
 }
