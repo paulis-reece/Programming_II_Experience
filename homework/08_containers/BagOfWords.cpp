@@ -19,7 +19,7 @@ std::string BagOfWords::getTopWord() {
   for (int i = 0; i < this->count.size(); i++) {
     if (counter < this->count.at(std::string())) {
       counter = this->count.at(std::string());
-      topWord = this->count.at(std::string());
+      topWord = std::string();
     }
   }
   return topWord;
@@ -27,19 +27,20 @@ std::string BagOfWords::getTopWord() {
 int BagOfWords::getUniqueWordCount() {
   int counter = 0;
   for (int i = 0; i < this->count.size(); i++) {
-    if (this->count.count(std::string()) == 0) {
+    if (this->count.count(std::string()) == 1) {
       counter++;
     }
   }
   return counter;
 }
 int BagOfWords::getWordCount(std::string word) {
+  int count = 0;
   if (this->count.count(word) == 0) {
     this->count.emplace(word, int());
   } else {
-    this->count[word]++;
+    count++;
   }
-  return count.at(word);
+  return count;
 }
 void BagOfWords::printWordCount() {
   int counter = 0;
