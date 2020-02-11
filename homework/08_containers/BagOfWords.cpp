@@ -40,11 +40,10 @@ int BagOfWords::getWordCount(std::string word) {
     if (this->count.count(word) == 0) {
       this->count.emplace(word, int());
     } else {
-      return this->count["mouse"]++;
+      this->count["mouse"]++;
     }
-  } else {
-    return this->count.at("mouse");
   }
+  return this->count.at("mouse");
 }
 void BagOfWords::printWordCount() {
   int counter = 0;
