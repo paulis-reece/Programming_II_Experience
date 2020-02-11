@@ -12,15 +12,15 @@
 #include "BagOfWords.h"
 #include <iostream>
 
-void BagOfWords::addWord(std::string word) { this->count.emplace(word, int()); }
+void BagOfWords::addWord(std::string word) {
+  this->count.emplace(normalizeWord(word), int());
+}
 std::string BagOfWords::getTopWord() {
   int counter = 0;
   std::string topWord;
-  std::map<std::string, int>::iterator iter = count.begin();
-  for (auto iter : count) {
+  for (int i = 0; i < count.size(); i++) {
     if (count.count(std::string()) == 1) {
       if (count.at(std::string()) > counter) {
-        counter = count.at(std::string());
         topWord = std::string();
       }
     }
@@ -29,8 +29,7 @@ std::string BagOfWords::getTopWord() {
 }
 int BagOfWords::getUniqueWordCount() {
   int counter = 0;
-  std::map<std::string, int>::iterator iter = count.begin();
-  for (auto iter : count) {
+  for (int i = 0; i < count.size(); i++) {
     if (count.count(std::string()) == 0) {
       counter++;
     }
@@ -39,8 +38,7 @@ int BagOfWords::getUniqueWordCount() {
 }
 int BagOfWords::getWordCount(std::string word) {
   int counter = 0;
-  std::map<std::string, int>::iterator iter = count.begin();
-  for (auto iter : count) {
+  for (int i = 0; i < count.size(); i++) {
     if (count.count(word) == 1) {
       counter = count[word]++;
     }
@@ -49,8 +47,7 @@ int BagOfWords::getWordCount(std::string word) {
 }
 void BagOfWords::printWordCount() {
   int counter = 0;
-  std::map<std::string, int>::iterator iter = count.begin();
-  for (auto iter : count) {
+  for (int i = 0; i < count.size(); i++) {
     if (count.count(std::string()) == 1) {
       counter++;
     }
