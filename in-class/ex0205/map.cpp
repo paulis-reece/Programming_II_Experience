@@ -27,9 +27,10 @@ variableName.emplace("C", 5);
 int counter = 0;
 for (int i = 0; i < variableName.size(); i++) {
     if (variableName.count("Adam")  > counter) {
-      cout << variableName.at(string()) << endl;
+      counter = variableName.count("Adam");
     }
   }
+cout << variableName.find(counter)
   // what is Eve's ID?
   //cout << "Eve is person #" << "??" << endl;
   // is Able part of the family?
