@@ -38,7 +38,8 @@ int BagOfWords::getWordCount(std::string word) {
   int counter = 0;
   for (int i = 0; i < count.size(); i++) {
     if (count.count(word) == 1) {
-      counter = count[word]++;
+      count.at(word) += 1;
+      counter = count.at(word);
     }
   }
   return counter;
