@@ -3,7 +3,7 @@
  * Exercise: Dynamic Memory
  * 
  * File Name:       student.cpp
- * Username:  ?
+ * Username:  reklre
  * Username:  ?
  * Course:    CPTR 142
  * 
@@ -27,8 +27,12 @@ int main() {
     cout << endl << "Case 1: Creating dynamic person objects" << endl;
 
     ////     CODE
-    
-
+    Person* pl = nullptr;
+    new Person("Michael");
+    pl = new Person;
+    cout << (*pl).getName();
+delete new Person;
+pl = NULL;
     /*********************************************************************
      *  - Define a variable named stranger as a new Person
      *  - Assign p1 to point to this new object   
@@ -36,9 +40,10 @@ int main() {
      *  - After doing so, display the name using p1 then again with stranger
      ********************************************************************/
     cout << endl << "Case 2: Resetting the pointer to another person named Stinky" << endl;
-    
+    new Person("Stinky");
+    pl = new Person;
     ////  CODE 
-
+cout << pl->getName();
 
     /*********************************************************************
      *  - One more - this time prompt for a new student's name
