@@ -1,3 +1,7 @@
+// Name : Reece Reklai
+// Date : 2/9/2020
+// Runs with beetle.h and initializes it
+
 #include "beetle.h"
 // Constructor
 Beetle::Beetle() {

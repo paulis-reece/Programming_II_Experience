@@ -1,14 +1,16 @@
-
+// Name : Reece Reklai
+// Date : 2/9/2020
+// Bettle class definitions
 
 #ifndef BEETLE_H
 #define BEETLE_H
 // Beetle Class Function
 class Beetle {
 public:
-// Constructor and Mutator
+  // Constructor and Mutator
   Beetle();
   void setBettlePart(int number);
-// Accessors
+  // Accessors
   int getBody() const;
   int getHead() const;
   int getWings() const;
@@ -19,7 +21,7 @@ public:
   int bettleGame(int getRoll);
 
 private:
-// Body Parts to construct beetle
+  // Body Parts to construct beetle
   int body;
   int head;
   int wings;

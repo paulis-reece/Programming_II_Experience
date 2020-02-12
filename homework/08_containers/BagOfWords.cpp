@@ -39,9 +39,7 @@ int BagOfWords::getUniqueWordCount() {
   for (auto map : count) {
     if (count.count(std::string()) == 0) {
       counter++;
-    } else {
-      counter = counter;
-    }
+    } 
   }
   return counter;
 }

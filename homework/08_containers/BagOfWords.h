@@ -14,7 +14,6 @@
 class BagOfWords {
 private:
   std::map<std::string, int> count;
-  std::string normalizeWord(std::string word);
 
 public:
   void addWord(std::string);

@@ -1,3 +1,7 @@
+// Name : Reece Reklai
+// Date : 2/9/2020
+// Runs main with connection to beetle.cpp and dice.cpp
+
 #include "beetle.cpp" // Enable Bettle Class
 #include "dice.cpp"   // Enable Dice Class
 #include <cassert>    // for assert
