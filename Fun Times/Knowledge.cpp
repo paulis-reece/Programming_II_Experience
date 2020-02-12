@@ -6,17 +6,25 @@
 using namespace std;
 
 int main() {
-  string word = "Hello!HALLA?&";
-  string store;
-  for (int i = 0; i < word.size(); i++) {
-    if (isalpha(word.at(i))) {
-      if (isupper(word.at(i))) {
-        store += tolower(word.at(i));
-      } else {
-        store += word.at(i);
-      }
+  map<string, int> map;
+  map.emplace("a", 1);
+  map.emplace("b", 2);
+  map.emplace("c", 3);
+  map.emplace("d", 4);
+  map.emplace("e", 5);
+
+  int counter = 0;
+  std::string topWord;
+  for (int i = 0; i < map.size(); i++) {
+    if (map.at("a") > counter) {
+      counter = map.at("a");
+      topWord = "a";
+    }
+    if (map.at("e") > counter) {
+      counter = map.at("a");
+      topWord = "e";
     }
   }
-  cout << store;
+  cout << topWord;
   return 0;
 }

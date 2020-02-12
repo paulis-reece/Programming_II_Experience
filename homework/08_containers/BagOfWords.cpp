@@ -16,9 +16,7 @@ void BagOfWords::addWord(std::string word) {
   std::string normalizeWord;
   for (int i = 0; i < word.size(); i++) {
     if (isalpha(word.at(i))) {
-      if (isupper(word.at(i))) {
-        normalizeWord += word.at(i);
-      }
+      normalizeWord += word.at(i);
     }
   }
   this->count.emplace(normalizeWord, int());
@@ -29,6 +27,7 @@ std::string BagOfWords::getTopWord() {
   for (int i = 0; i < count.size(); i++) {
     if (count.count(std::string()) == 1) {
       if (count.at(std::string()) > counter) {
+        topWord = count.at(std::string());
         topWord = std::string();
       }
     }
