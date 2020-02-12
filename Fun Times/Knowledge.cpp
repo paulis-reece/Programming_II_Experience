@@ -10,7 +10,11 @@ int main() {
   string store;
   for (int i = 0; i < word.size(); i++) {
     if (isalpha(word.at(i))) {
-      store += word.at(i);
+      if (isupper(word.at(i))) {
+        store += tolower(word.at(i));
+      } else {
+        store += word.at(i);
+      }
     }
   }
   cout << store;

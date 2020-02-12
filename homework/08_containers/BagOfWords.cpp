@@ -16,7 +16,11 @@ std::string normalizeWord(std::string word) {
   std::string normalizeWord;
   for (int i = 0; i < word.size(); i++) {
     if (isalpha(word.at(i))) {
-      normalizeWord += word.at(i);
+      if (isupper(word.at(i))) {
+        normalizeWord += tolower(word.at(i));
+      } else {
+        normalizeWord += word.at(i);
+      }
     }
   }
   return normalizeWord;
