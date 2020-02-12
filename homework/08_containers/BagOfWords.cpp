@@ -12,7 +12,7 @@
 #include "BagOfWords.h"
 #include <iostream>
 
-std::string normalizeWord(std::string word) {
+void BagOfWords::addWord(std::string word) {
   std::string normalizeWord;
   for (int i = 0; i < word.size(); i++) {
     if (isalpha(word.at(i))) {
@@ -23,11 +23,7 @@ std::string normalizeWord(std::string word) {
       }
     }
   }
-  return normalizeWord;
-}
-
-void BagOfWords::addWord(std::string word) {
-  this->count.emplace(normalizeWord(word), int());
+  this->count.emplace(normalizeWord, int());
 }
 std::string BagOfWords::getTopWord() {
   int counter = 0;
