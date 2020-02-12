@@ -24,7 +24,7 @@ void BagOfWords::addWord(std::string word) {
 std::string BagOfWords::getTopWord() {
   int counter = 0;
   std::string topWord;
-  for (int i = 0; i < count.size(); i++) {
+  for (auto map : count) {
     if (count.count(std::string()) == 1) {
       if (count.at(std::string()) > counter) {
         topWord = count.at(std::string());
@@ -36,19 +36,27 @@ std::string BagOfWords::getTopWord() {
 }
 int BagOfWords::getUniqueWordCount() {
   int counter = 0;
-  for (int i = 0; i < count.size(); i++) {
+  for (auto map : count) {
     if (count.count(std::string()) == 0) {
       counter++;
+    } else {
+      counter = counter;
     }
   }
   return counter;
 }
 int BagOfWords::getWordCount(std::string word) {
   int counter = 0;
-  for (int i = 0; i < count.size(); i++) {
-    if (count.count(word) == 1) {
-      count.at(word) += 1;
-      counter = count.at(word);
+  int loopCount = 0;
+  std::string words;
+  for (auto map : count) {
+    if (loopCount == 0) {
+      if (count.count(word) == 1) {
+        words = word;
+      }
+    }
+    if (words == map.first) {
+      counter++;
     }
   }
   return counter;

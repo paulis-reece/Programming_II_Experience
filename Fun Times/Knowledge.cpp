@@ -6,25 +6,23 @@
 using namespace std;
 
 int main() {
+    vector<int>num;
   map<string, int> map;
-  map.emplace("a", 1);
-  map.emplace("b", 2);
-  map.emplace("c", 3);
-  map.emplace("d", 4);
+  map.emplace("b", 1);
+  map.emplace("a", 2);
+  map.emplace("d", 3);
+  map.emplace("a", 4);
   map.emplace("e", 5);
-
+  map.emplace("a", 6);
+  int loopCount = 0;
   int counter = 0;
-  std::string topWord;
-  for (int i = 0; i < map.size(); i++) {
-    if (map.at("a") > counter) {
-      counter = map.at("a");
-      topWord = "a";
-    }
-    if (map.at("e") > counter) {
-      counter = map.at("a");
-      topWord = "e";
-    }
+  int count = 0;
+  int word;
+  for (auto yes : map) {
+   num.push_back(yes.second);
   }
-  cout << topWord;
+   for (int i = 0; i < map.size(); i++) {
+   cout << num.at(i);
+  }
   return 0;
 }
