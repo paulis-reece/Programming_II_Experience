@@ -10,6 +10,7 @@
  */
 
 #include "BagOfWords.h"
+#include <algorithm>
 #include <iostream>
 
 void BagOfWords::addWord(std::string word) {
@@ -24,11 +25,11 @@ void BagOfWords::addWord(std::string word) {
 std::string BagOfWords::getTopWord() {
   int counter = 0;
   std::string topWord;
-  for (auto map : count) {
+  for (int i = 0; i < count.size(); i++) {
     if (count.count(std::string()) == 1) {
       if (count.at(std::string()) > counter) {
-        topWord = count.at(std::string());
-        topWord = std::string();
+        counter = count.at(std::string());
+        topWord = std::find(count.begin(), count.end(), counter)->first;
       }
     }
   }
@@ -38,25 +39,23 @@ int BagOfWords::getUniqueWordCount() {
   int counter = 0;
   for (int i = 0; i < count.size(); i++) {
     if (count.count(std::string()) == 0) {
-      counter++;
-    } 
+      count.at(std::string() += 1);
+    }
   }
   return counter;
 }
 int BagOfWords::getWordCount(std::string word) {
-  int counter = 0;
-  int loopCount = 0;
-  std::string words;
   for (int i = 0; i < count.size(); i++) {
-  }
-  return counter;
-}
-void BagOfWords::printWordCount() {
-  int counter = 0;
-  for (int i = 0; i < count.size(); i++) {
-    if (count.count(std::string()) == 1) {
-      counter++;
+    if (count.count(word) == 1) {
+      count.at(word += 1);
     }
   }
-  std::cout << counter;
+  return count.at(word);
+}
+void BagOfWords::printWordCount() {
+  for (int i = 0; i < count.size(); i++) {
+    if (count.count(std::string()) == 1) {
+      std::cout << std::string();
+    }
+  }
 }
