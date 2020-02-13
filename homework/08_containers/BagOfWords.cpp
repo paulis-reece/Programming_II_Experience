@@ -10,7 +10,6 @@
  */
 
 #include "BagOfWords.h"
-#include <algorithm>
 #include <iostream>
 
 void BagOfWords::addWord(std::string word) {
@@ -29,7 +28,7 @@ std::string BagOfWords::getTopWord() {
     if (count.count(std::string()) == 1) {
       if (count.at(std::string()) > counter) {
         counter = count.at(std::string());
-        topWord = std::find(count.begin(), count.end(), counter)->first;
+        topWord = count[std::string()];
       }
     }
   }
@@ -39,23 +38,18 @@ int BagOfWords::getUniqueWordCount() {
   int counter = 0;
   for (int i = 0; i < count.size(); i++) {
     if (count.count(std::string()) == 0) {
-      count.at(std::string() += 1);
+      counter++;
     }
   }
   return counter;
 }
 int BagOfWords::getWordCount(std::string word) {
+  int counter = 0;
   for (int i = 0; i < count.size(); i++) {
     if (count.count(word) == 1) {
-      count.at(word += 1);
+      counter = count.at(word)++;
     }
   }
-  return count.at(word);
+  return counter;
 }
-void BagOfWords::printWordCount() {
-  for (int i = 0; i < count.size(); i++) {
-    if (count.count(std::string()) == 1) {
-      std::cout << std::string();
-    }
-  }
-}
+void BagOfWords::printWordCount() {}
