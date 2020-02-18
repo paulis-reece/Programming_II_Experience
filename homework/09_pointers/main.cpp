@@ -3,9 +3,9 @@
  * Homework Assignment:  Class for counting words
  *
  * File Name:  main.cpp
- * Name:            ?
+ * Name:            reklre
  * Course:          CPTR 142
- * Date:            ?
+ * Date:            2/17/2020
  *
  */
 #include "Bee.h"

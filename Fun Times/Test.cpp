@@ -6,17 +6,14 @@
 using namespace std;
 
 int main() {
-  string word = "Hello!HALLA?&";
-  string store;
-  for (int i = 0; i < word.size(); i++) {
-    if (isalpha(word.at(i))) {
-      if (isupper(word.at(i))) {
-        store += tolower(word.at(i));
-      } else {
-        store += word.at(i);
-      }
-    }
-  }
-  cout << store;
+enum LightState {LS_RED, LS_GREEN, LS_YELLOW, LS_DONE};
+   LightState lightVal = LS_RED;
+for(int i = 0; i < 4; i++){
+if(lightVal == LS_GREEN){
+cout << "yes";
+} else {
+cout << "no";
+}
+}
   return 0;
 }
