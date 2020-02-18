@@ -16,7 +16,7 @@ void BagOfWords::addWord(std::string word) {
   std::string normalizeWord;
   for (int i = 0; i < word.size(); i++) {
     if (isalpha(word.at(i))) {
-      normalizeWord += word.at(i);
+      normalizeWord += tolower(word.at(i));
     }
   }
   this->count.emplace(normalizeWord, int());
@@ -25,9 +25,9 @@ std::string BagOfWords::getTopWord() {
   int counter = 0;
   std::string topWord;
   for (auto map : count) {
-    if (count.count(map.first) == 1) {
+    if (count.count(map.first)) {
       if (count.at(map.first) > counter) {
-        counter = count.at(map.first)++;
+        counter = count.at(map.first);
         topWord = map.first;
       }
     } else {
@@ -38,10 +38,12 @@ std::string BagOfWords::getTopWord() {
 }
 int BagOfWords::getUniqueWordCount() {
   int counter = 0;
-  for (int i = 0; i < count.size(); i++) {
-    if (count.count(std::string()) == 0) {
+  for (auto map : count) {
+    if (count.count(map.first)) {
+      counter = counter;
+    } else {
       counter++;
-      addWord(std::string());
+      addWord(map.first);
     }
   }
   return counter;
@@ -49,7 +51,7 @@ int BagOfWords::getUniqueWordCount() {
 int BagOfWords::getWordCount(std::string word) {
   int counter = 0;
   for (auto map : count) {
-    if (count.count(word) == 1) {
+    if (count.count(word)) {
       counter = count.at(word)++;
     } else {
       addWord(word);
