@@ -28,8 +28,8 @@ void Zoo::addCreature(CREATURES creature, std::string x) {
 
 void Zoo::printCensus() {
   for (int i = 0; i < 4; i++) {
-    creatures.at(i)->getDescription();
-    creatures.at(i)->getName();
+    std::cout << "- " << creatures.at(i)->getName();
+    std::cout << " (" << creatures.at(i)->getDescription() << ")";
     std::cout << std::endl;
   }
 }
