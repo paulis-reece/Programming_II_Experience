@@ -14,7 +14,7 @@
 
 std::string BagOfWords::normalize(std::string word) {
   std::string normalizeWord;
-  int counter = 0;
+  int counter = 1;
   for (int i = 0; i < word.size(); i++) {
     if (ispunct(word.at(i) == true)) {
       counter++;
