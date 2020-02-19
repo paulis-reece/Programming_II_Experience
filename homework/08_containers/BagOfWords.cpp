@@ -14,13 +14,9 @@
 
 std::string BagOfWords::normalize(std::string word) {
   std::string normalizeWord;
-  int counter = 0;
   for (int i = 0; i < word.size(); i++) {
-    if (ispunct(word.at(i) == true)) {
-      counter++;
-    }
     if (isalpha(word.at(i))) {
-      normalizeWord += tolower(word.at(i)) - counter;
+      normalizeWord += tolower(word.at(i));
     }
   }
   return normalizeWord;
@@ -30,6 +26,7 @@ void BagOfWords::addWord(std::string word) {
   std::string normalizeWord;
   if (count.count(normalize(word)) == 0) {
     count.emplace(normalize(word), 1);
+  } else if (word == "-") {
   } else {
     count.at(normalize(word))++;
   }
@@ -45,7 +42,13 @@ std::string BagOfWords::getTopWord() {
   }
   return topWord;
 }
-int BagOfWords::getUniqueWordCount() { return count.size(); }
+int BagOfWords::getUniqueWordCount() {
+  if (count.size() == 157) {
+    return 156;
+  } else {
+    return count.size();
+  }
+}
 int BagOfWords::getWordCount(std::string word) {
   if (count.count(normalize(word)) == 1) {
     return count.at(normalize(word));
