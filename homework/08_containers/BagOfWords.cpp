@@ -26,6 +26,7 @@ void BagOfWords::addWord(std::string word) {
   std::string normalizeWord;
   if (count.count(normalize(word)) == 0) {
     count.emplace(normalize(word), 1);
+  } else if (normalize(word) == "") {
   } else {
     count.at(normalize(word))++;
   }
