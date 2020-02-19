@@ -27,7 +27,7 @@ void Zoo::addCreature(CREATURES creature, std::string x) {
 }
 
 void Zoo::printCensus() {
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < creatures.size(); i++) {
     std::cout << "- " << creatures.at(i)->getName();
     std::cout << " (" << creatures.at(i)->getDescription() << ")";
     std::cout << std::endl;
@@ -36,7 +36,7 @@ void Zoo::printCensus() {
 
 int Zoo::getNumberOfLegs() {
   int total = 0;
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < creatures.size(); i++) {
     total += creatures.at(i)->getNumberOfLegs();
   }
   return total;
