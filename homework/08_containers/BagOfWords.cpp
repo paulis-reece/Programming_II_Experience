@@ -17,11 +17,7 @@ std::string BagOfWords::normalize(std::string word) {
   int counter = 0;
   for (int i = 0; i < word.size(); i++) {
     if (isalpha(word.at(i))) {
-      if (counter > 0) {
-        normalizeWord += tolower(word.at(i)) - counter;
-      } else {
-        normalizeWord += tolower(word.at(i));
-      }
+      normalizeWord += tolower(word.at(i)) - counter;
     } else {
       counter++;
     }
