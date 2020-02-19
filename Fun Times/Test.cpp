@@ -5,15 +5,19 @@
 #include <vector> // Activate Vector usage
 using namespace std;
 
+std::string normalize(std::string word) {
+  std::string normalizeWord;
+  for (int i = 0; i < word.size(); i++) {
+    if (isalpha(word.at(i))) {
+      normalizeWord += tolower(word.at(i));
+    }
+  }
+  return normalizeWord;
+}
+
 int main() {
-enum LightState {LS_RED, LS_GREEN, LS_YELLOW, LS_DONE};
-   LightState lightVal = LS_RED;
-for(int i = 0; i < 4; i++){
-if(lightVal == LS_GREEN){
-cout << "yes";
-} else {
-cout << "no";
-}
-}
+  string work;
+  cin >> work;
+  cout << normalize(work) << endl;
   return 0;
 }

@@ -17,6 +17,7 @@ private:
 
 public:
   void addWord(std::string);
+  std::string normalize(std::string);
   std::string getTopWord();
   int getUniqueWordCount();
   int getWordCount(std::string word);
