@@ -25,7 +25,7 @@ the command line (see page 382 of the text).
   with a space when prompted to do so:
 
 ```sh
-~/workspace/10_dynamicArrays/sample.o AAAAA BBBBB "CCCCC DDDDD"
+~/code/cpp/student142/homework/10_dynamic_arrays/sample.o AAAAA BBBBB "CCCCC DDDDD"
 ```
 
 ### Hints
