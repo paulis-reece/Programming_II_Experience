@@ -50,7 +50,9 @@ int BagOfWords::getUniqueWordCount() {
   }
 }
 int BagOfWords::getWordCount(std::string word) {
-  if (count.count(normalize(word)) == 1) {
+  if (word == "-") {
+    return 0;
+  } else if (count.count(normalize(word)) == 1) {
     return count.at(normalize(word));
   } else {
     return 0;
