@@ -42,10 +42,4 @@ std::string BagOfWords::getTopWord() {
   return topWord;
 }
 int BagOfWords::getUniqueWordCount() { return count.size(); }
-int BagOfWords::getWordCount(std::string word) {
-  int counter = 0;
-  for (auto map : count) {
-    counter += map.second;
-  }
-  return counter;
-}
+int BagOfWords::getWordCount(std::string word) { return count.at(word); }
