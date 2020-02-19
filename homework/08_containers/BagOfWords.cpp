@@ -14,11 +14,13 @@
 
 std::string BagOfWords::normalize(std::string word) {
   std::string normalizeWord;
+  int counter = 0;
   for (int i = 0; i < word.size(); i++) {
-    if (!isalpha(word.at(i))) {
-      normalizeWord += tolower(word.at(i)) - 1;
-    } else if (isalpha(word.at(i))) {
-      normalizeWord += tolower(word.at(i));
+    if (ispunct(word.at(i) == true)) {
+      counter++;
+    }
+    if (isalpha(word.at(i))) {
+      normalizeWord += tolower(word.at(i)) - counter;
     }
   }
   return normalizeWord;
