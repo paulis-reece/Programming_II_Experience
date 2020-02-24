@@ -3,9 +3,9 @@
  * Homework Assignment:  Merge strings
  *
  * File Name:  main.cpp
- * Name:       ?
+ * Name:       Reece Reklai
  * Course:     CPTR 142
- * Date:       ?
+ * Date:       2/20/2020
  *
  */
 #include "mergeStrings.h"

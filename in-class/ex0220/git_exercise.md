@@ -16,7 +16,7 @@ Open a terminal in `student142` and run the following command:
 > which git
 
 ```
-Replace this line with the result of the command.
+/usr/bin/git
 ```
 
 Run the following command:
@@ -24,7 +24,7 @@ Run the following command:
 > git version
 
 ```
-Replace this line with the result of the command.
+git version 2.17.1
 ```
 
 Run the following command:
@@ -37,7 +37,25 @@ Run the following command:
 > git status
 
 ```
-Replace this line with the result of the command.
+On branch master
+Your branch is ahead of 'origin/master' by 6 commits.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   reecereklai.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   ../../homework/10_dynamic_arrays/main.cpp
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        ../../student142_project3/
 ```
 
 Run the following command:
@@ -45,7 +63,67 @@ Run the following command:
 > git log -3
 
 ```
-Replace this line with the result of the command.
+commit 3a6213da7b381d26e88f101aa211c11f75eda5c7 (HEAD -> master)
+Merge: 50e0dd6 f33d5e3
+Author: reklre <reklre@cs.wallawalla.edu>
+Date:   Thu Feb 20 21:12:33 2020 +0000
+
+    automerging
+
+commit f33d5e3d0919778ae31a6ca479aa7cf0ae1a9e0e (upstream/master)
+Author: James Foster <github@jgfoster.net>
+:...skipping...
+commit 3a6213da7b381d26e88f101aa211c11f75eda5c7 (HEAD -> master)
+Merge: 50e0dd6 f33d5e3
+Author: reklre <reklre@cs.wallawalla.edu>
+Date:   Thu Feb 20 21:12:33 2020 +0000
+
+    automerging
+
+commit f33d5e3d0919778ae31a6ca479aa7cf0ae1a9e0e (upstream/master)
+Author: James Foster <github@jgfoster.net>
+Date:   Wed Feb 19 20:44:31 2020 -0800
+
+:...skipping...
+commit 3a6213da7b381d26e88f101aa211c11f75eda5c7 (HEAD -> master)
+Merge: 50e0dd6 f33d5e3
+Author: reklre <reklre@cs.wallawalla.edu>
+Date:   Thu Feb 20 21:12:33 2020 +0000
+
+    automerging
+
+commit f33d5e3d0919778ae31a6ca479aa7cf0ae1a9e0e (upstream/master)
+Author: James Foster <github@jgfoster.net>
+Date:   Wed Feb 19 20:44:31 2020 -0800
+
+    Add in-class exercise for 20-Feb-2020.
+
+commit 275588374e1ccc650ce748f53860217eb2c5f6c5
+Author: Preston Carman <prestonc@apache.org>
+Date:   Wed Feb 19 15:30:57 2020 -0800
+
+:...skipping...
+commit 3a6213da7b381d26e88f101aa211c11f75eda5c7 (HEAD -> master)
+Merge: 50e0dd6 f33d5e3
+Author: reklre <reklre@cs.wallawalla.edu>
+Date:   Thu Feb 20 21:12:33 2020 +0000
+
+    automerging
+
+commit f33d5e3d0919778ae31a6ca479aa7cf0ae1a9e0e (upstream/master)
+Author: James Foster <github@jgfoster.net>
+Date:   Wed Feb 19 20:44:31 2020 -0800
+
+    Add in-class exercise for 20-Feb-2020.
+
+commit 275588374e1ccc650ce748f53860217eb2c5f6c5
+Author: Preston Carman <prestonc@apache.org>
+Date:   Wed Feb 19 15:30:57 2020 -0800
+
+    Making example executable.
+~
+~
+~
 ```
 
 Run the following command:
@@ -68,7 +146,17 @@ Run the following command:
 > git config --list
 
 ```
-Replace this line with the result of the command.
+user.email=reklre@cs.wallawalla.edu
+user.name=reklre
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=git@gitlab.cs.wallawalla.edu:/reklre/student142.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.master.remote=origin
+branch.master.merge=refs/heads/master
+:
 ```
 
 
@@ -77,7 +165,7 @@ Run the following command:
 > cat ~/.gitconf
 
 ```
-Replace this line with the result of the command.
+cat: /home/project/.gitconf: No such file or directory
 ```
 
 ## Create a Local Repository
@@ -99,6 +187,7 @@ Replace this line with the result of the command.
     > ls -al
 ```
 Write your observation here.
+- the total decreased by one from 21 to 20 and deleted this line : drwxr-xr-x 2 reklre nogroup 2 Feb 20 21:36 
 ```
 1. Take a look at the .git directory.
     > ls -al .git
@@ -107,27 +196,88 @@ Write your observation here.
 1. Run this command.
     > git status
 ```
-Replace this line with the result of the command.
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        index.html
+
+nothing added to commit but untracked files present (use "git add" to track)
 ```
 1. Run this command.
     > git add -A
 ```
-Replace this line with the result of the command.
+nothing happened
 ```
 1. Run this command.
     > git status
 ```
-Replace this line with the result of the command.
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   index.html
 ```
 1. Run this command.
     > git commit -m "Initialize repository"
 ```
-Replace this line with the result of the command.
+error: switch `m' requires a value
+usage: git commit [<options>] [--] <pathspec>...
+
+    -q, --quiet           suppress summary after successful commit
+    -v, --verbose         show diff in commit message template
+
+Commit message options
+    -F, --file <file>     read message from file
+    --author <author>     override author for commit
+    --date <date>         override date for commit
+    -m, --message <message>
+                          commit message
+    -c, --reedit-message <commit>
+                          reuse and edit message from specified commit
+    -C, --reuse-message <commit>
+                          reuse message from specified commit
+    --fixup <commit>      use autosquash formatted message to fixup specified commit
+    --squash <commit>     use autosquash formatted message to squash specified commit
+    --reset-author        the commit is authored by me now (used with -C/-c/--amend)
+    -s, --signoff         add Signed-off-by:
+    -t, --template <file>
+                          use specified template file
+    -e, --edit            force edit of commit
+    --cleanup <default>   how to strip spaces and #comments from message
+    --status              include status in commit message template
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+Commit contents options
+    -a, --all             commit all changed files
+    -i, --include         add specified files to index for commit
+    --interactive         interactively add files
+    -p, --patch           interactively add changes
+    -o, --only            commit only specified files
+    -n, --no-verify       bypass pre-commit and commit-msg hooks
+    --dry-run             show what would be committed
+    --short               show status concisely
+    --branch              show branch information
+    --ahead-behind        compute full ahead/behind values
+    --porcelain           machine-readable output
+    --long                show status in long format (default)
+    -z, --null            terminate entries with NUL
+    --amend               amend previous commit
+    --no-post-rewrite     bypass post-rewrite hook
+    -u, --untracked-files[=<mode>]
+                          show untracked files, optional modes: all, normal, no. (Default: all)
 ```
 1. Run this command.
     > git log
 ```
-Replace this line with the result of the command.
+fatal: your current branch 'master' does not have any commits yet
 ```
 
 
@@ -138,17 +288,72 @@ Replace this line with the result of the command.
 1. Run this command.
     > git diff
 ```
-Replace this line with the result of the command.
+diff --git a/index.html b/index.html
+index e69de29..8ab686e 100644
+--- a/index.html
++++ b/index.html
+@@ -0,0 +1 @@
++Hello, World!
 ```
 1. Run this command.
     > git commit -a -m "Add content to index.html"
 ```
-Replace this line with the result of the command.
+error: switch `m' requires a value
+usage: git commit [<options>] [--] <pathspec>...
+
+    -q, --quiet           suppress summary after successful commit
+    -v, --verbose         show diff in commit message template
+
+Commit message options
+    -F, --file <file>     read message from file
+    --author <author>     override author for commit
+    --date <date>         override date for commit
+    -m, --message <message>
+                          commit message
+    -c, --reedit-message <commit>
+                          reuse and edit message from specified commit
+    -C, --reuse-message <commit>
+                          reuse message from specified commit
+    --fixup <commit>      use autosquash formatted message to fixup specified commit
+    --squash <commit>     use autosquash formatted message to squash specified commit
+    --reset-author        the commit is authored by me now (used with -C/-c/--amend)
+    -s, --signoff         add Signed-off-by:
+    -t, --template <file>
+                          use specified template file
+    -e, --edit            force edit of commit
+    --cleanup <default>   how to strip spaces and #comments from message
+    --status              include status in commit message template
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+Commit contents options
+    -a, --all             commit all changed files
+    -i, --include         add specified files to index for commit
+    --interactive         interactively add files
+    -p, --patch           interactively add changes
+    -o, --only            commit only specified files
+    -n, --no-verify       bypass pre-commit and commit-msg hooks
+    --dry-run             show what would be committed
+    --short               show status concisely
+    --branch              show branch information
+    --ahead-behind        compute full ahead/behind values
+    --porcelain           machine-readable output
+    --long                show status in long format (default)
+    -z, --null            terminate entries with NUL
+    --amend               amend previous commit
+    --no-post-rewrite     bypass post-rewrite hook
+    -u, --untracked-files[=<mode>]
+                          show untracked files, optional modes: all, normal, no. (Default: all)
 ```
 1. Run this command.
     > git diff
 ```
-Replace this line with the result of the command.
+diff --git a/index.html b/index.html
+index e69de29..8ab686e 100644
+--- a/index.html
++++ b/index.html
+@@ -0,0 +1 @@
++Hello, World!
 ```
 
 
