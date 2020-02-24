@@ -40,7 +40,6 @@ string mergeStrings(int argc, char *argv[], string userEntry) {
     index++;
   }
   for (auto words : nullWords) {
-    cout << words << endl;
     if (words.size() > largestSize) {
       largestSize = words.size();
     }
