@@ -34,12 +34,13 @@ string mergeStrings(int argc, char *argv[], string userEntry) {
         word = new string;
       }
     }
-    if ((*argv)[index] != '\0') {
+    if ((*argv)[index] != '\0' && (*argv)[index] != '\n') {
       *word += (*argv)[index];
     }
     index++;
   }
   for (auto words : nullWords) {
+    cout << words << endl;
     if (words.size() > largestSize) {
       largestSize = words.size();
     }
