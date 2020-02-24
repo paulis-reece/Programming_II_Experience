@@ -15,6 +15,8 @@
 #include <string>
 #include <vector>
 string mergeStrings(int argc, char *argv[], string userEntry) {
+  char letter;
+  string WORDS;
   int largestSize = 0;
   int argcMirror = 0;
   int index = 0;
@@ -32,11 +34,12 @@ string mergeStrings(int argc, char *argv[], string userEntry) {
         word = new string;
       }
     }
-    *word += (*argv)[index];
+    if ((*argv)[index] != '\0') {
+      *word += (*argv)[index];
+    }
     index++;
   }
   for (auto words : nullWords) {
-    cout << words << endl;
     if (words.size() > largestSize) {
       largestSize = words.size();
     }
@@ -48,8 +51,6 @@ string mergeStrings(int argc, char *argv[], string userEntry) {
       resultSTR += " ";
     }
     for (int i = 0; i < argc; i++) {
-      char letter;
-      string WORDS;
       WORDS = nullWords.at(i);
       if (counter < WORDS.length()) {
         letter = WORDS.at(counter);
