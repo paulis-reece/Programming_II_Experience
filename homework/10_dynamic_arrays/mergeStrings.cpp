@@ -18,20 +18,47 @@ string mergeStrings(int argc, char *argv[], string userEntry) {
   int largestSize = 0;
   int argcMirror = 0;
   int index = 0;
+  int counter = 0;
   string resultSTR;
   string *word;
-  vector<string> nullWords(argc);
+  vector<string> nullWords;
   word = new string;
   while (argcMirror < argc) {
     if ((*argv)[index] == '\0') {
       argcMirror++;
-      cout << (*word) << endl;
       nullWords.push_back(*word);
       delete word;
-      word = new string;
+      if (argcMirror < argc) {
+        word = new string;
+      }
     }
-    word += (*argv)[index];
+    *word += (*argv)[index];
     index++;
   }
-  return "end";
+  for (auto words : nullWords) {
+    cout << words << endl;
+    if (words.size() > largestSize) {
+      largestSize = words.size();
+    }
+  }
+  while (counter < largestSize) {
+    if (counter < userEntry.length()) {
+      resultSTR += userEntry.at(counter);
+    } else {
+      resultSTR += " ";
+    }
+    for (int i = 0; i < argc; i++) {
+      char letter;
+      string WORDS;
+      WORDS = nullWords.at(i);
+      if (counter < WORDS.length()) {
+        letter = WORDS.at(counter);
+        resultSTR += letter;
+      } else {
+        resultSTR += " ";
+      }
+    }
+    counter++;
+  }
+  return resultSTR;
 }
