@@ -6,17 +6,22 @@
 #include <map>
 #include <string> // strings
 #include <vector> // for vectors
+#include <utility>
 using namespace std;
 
 // Functions
 int main() {
   vector<string> productFromBrand;
-  map<string, string> brandProduct;
-  map<string, int> brandAmount;
-  string *ptrBrand;
+  map<string*, string*> productBrand;
+  map<string*, int> brandAmount;
+  pair<string,string> ProBrand;
+  map<string, pair<string,string>> UpcProductBrand;
+  string upcCode;
   string brand;
   string product;
   ofstream fout;
+  string name;
+  string name2;
   ifstream file;
   string line;
   int num;
@@ -27,28 +32,52 @@ int main() {
   } else {
     while (!file.eof()) {
       (getline(file, line, '\t'));
+      upcCode = line;
       (getline(file, line, '\t'));
       brand = line;
       (getline(file, line, '\n'));
       product = line;
-      brandProduct.emplace(product, brand);
+      ProBrand = make_pair(product, brand);
+      UpcProductBrand.emplace(upcCode, ProBrand);
+      productBrand.emplace(product, brand);
     }
   }
   fout.close();
-  for (auto map : brandProduct) {
+for(auto map : UpcProductBrand){
+name = map.second.first;
+name2 = map.second.second;
+cout << map.first << "-------------" << name << "----------------" << name2<< endl;
+}
+
+
+
+
+
+
+
+
+
+
+
+  /* for (auto map : productBrand) {
     cout << map.first << "---------" << map.second << endl;
     // use new for this vector
     if (map.second == "Usda Meat") {
       productFromBrand.push_back(map.first);
     }
     // Use new for this variable
-    ptrBrand = &map.second;
-    if (brandAmount.count((*ptrBrand)) == 0) {
-      brandAmount.emplace((*ptrBrand), 1);
+    if (brandAmount.count((&map.second)) == 0) {
+      brandAmount.emplace(&map.second, 1);
     } else {
-      brandAmount.at((*ptrBrand))++;
+      brandAmount.at(&map.second)++;
     }
   }
+ for(auto map: productBrand){
+
+
+
+
+ }
   cout << "___________________________" << endl;
   for (auto map : productFromBrand) {
     cout << map << endl;
@@ -56,6 +85,6 @@ int main() {
   cout << "__________________________" << endl;
   for (auto map : brandAmount) {
     cout << map.first << "-----------------" << map.second << endl;
-  }
+  }*/
   return 0;
 }
