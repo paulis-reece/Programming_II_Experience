@@ -41,6 +41,7 @@ int main() {
     if (map.second == "Usda Meat") {
       productFromBrand.push_back(map.first);
     }
+    // Use new for this variable
     ptrBrand = &map.second;
     if (brandAmount.count((*ptrBrand)) == 0) {
       brandAmount.emplace((*ptrBrand), 1);
