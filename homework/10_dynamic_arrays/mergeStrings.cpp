@@ -34,7 +34,7 @@ string mergeStrings(int argc, char *argv[], string userEntry) {
         word = new string;
       }
     }
-    if ((*argv)[index] != '\0' && (*argv)[index] != '\n') {
+    if ((*argv)[index] != '\0') {
       *word += (*argv)[index];
     }
     index++;

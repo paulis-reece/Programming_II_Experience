@@ -40,13 +40,18 @@ From the bash command prompt enter the following:
 > cd ~/code/cpp/gitExercise/; git status
 
 ```text
-Replace this line with the output from the terminal.
+On branch master
+nothing to commit, working tree clean
 ```
 
 > git log
 
 ```text
-Replace this line with the output from the terminal.
+commit e4c909b9cd57363f5989833519f084823396ca2b (HEAD -> master)
+Author: reklre <reklre@cs.wallawalla.edu>
+Date:   Tue Feb 25 03:14:14 2020 +0000
+
+    Initialize repository
 ```
 
 Select the file `index.html` from the directory tree on the left and edit it to appear as follows:
@@ -65,19 +70,49 @@ Select the file `index.html` from the directory tree on the left and edit it to 
 > git status
 
 ```text
-Replace this line with the output from the terminal.
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   touch index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
 > git diff
 
 ```text
-Replace this line with the output from the terminal.
+diff --git a/touch index.html b/touch index.html
+index e69de29..af53f37 100644
+--- a/touch index.html  
++++ b/touch index.html  
+@@ -0,0 +1,8 @@
++<html>
++    <head>
++        <title>CPTR 142 - Git Assignment</title>
++    </head>
++    <body>
+:...skipping...
+diff --git a/touch index.html b/touch index.html
+index e69de29..af53f37 100644
+--- a/touch index.html  
++++ b/touch index.html  
+@@ -0,0 +1,8 @@
++<html>
++    <head>
++        <title>CPTR 142 - Git Assignment</title>
++    </head>
++    <body>
++        <h1>This is our Git Assignment page!</h1>
+:
 ```
 
 Commit your changes to your local Git repository with an appropriate commit message.
 
 ```text
-Replace this line with your commands and the output from the terminal.
+[master f63ee6b] Change titles and styling on homepage
+ 1 file changed, 8 insertions(+)
 ```
 
 This gives you a brief introduction to working with a local Git repository.
@@ -108,7 +143,13 @@ git clone git@gitlab.cs.wallawalla.edu:USERID/student142_hw11.git
 If you are asked to verify the authenticity of `gitlab.cs.wallawalla.edu (192.147.173.125)`, say `yes`.
 
 ```text
-Replace this line with your commands and the output from the terminal.
+Cloning into 'student142_hw11'...
+remote: Enumerating objects: 104, done.
+remote: Counting objects: 100% (104/104), done.
+remote: Compressing objects: 100% (57/57), done.
+remote: Total 104 (delta 38), reused 103 (delta 38)
+Receiving objects: 100% (104/104), 11.91 KiB | 812.00 KiB/s, done.
+Resolving deltas: 100% (38/38), done.
 ```
 
 * In the bash shell, enter the following to add another:
@@ -121,7 +162,10 @@ git remote -v
 ```
 
 ```text
-Replace this line with your commands and the output from the terminal.
+origin  git@gitlab.cs.wallawalla.edu:reklre/student142_hw11.git (fetch)
+origin  git@gitlab.cs.wallawalla.edu:reklre/student142_hw11.git (push)
+upstream        git@gitlab.cs.wallawalla.edu:cptr142/student142_hw11.git (fetch)
+upstream        git@gitlab.cs.wallawalla.edu:cptr142/student142_hw11.git (push)
 ```
 
 Using the Code.CS directory tree on the left, add a new file to the `student142_hw11` directory
