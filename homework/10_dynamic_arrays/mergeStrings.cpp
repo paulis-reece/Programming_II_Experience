@@ -25,7 +25,10 @@ string mergeStrings(int argc, char *argv[], string userEntry) {
   string *word;
   vector<string> nullWords;
   word = new string;
-  while (argcMirror < argc) {
+  while(argcMirror < argc){
+
+  }
+ while (argcMirror < argc) {
     if ((*argv)[index] == '\0') {
       argcMirror++;
       nullWords.push_back(*word);

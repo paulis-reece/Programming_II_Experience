@@ -1,7 +1,9 @@
 208220500007	Usda Meat	Pork Chops Bone-in Center Cut
-028881400000	Usda Meat	Pork Chops Bone-in Center Cut
+028881400000	Usda Meat	Chicken Chops Bone-in Center Cut
 027000419021	Snack Pack	Snack Pack Tapioca Pudding - 4 Pk
 041520880710	Pure Power	Pure Power Easy Grip Scrub Brush
 744160220198	Cocktail	Cocktail Rx Frozen Cocktails Blue Hawaiian
 048419063957	Anagram	Anagram Foil Balloon 18" Happy Birthday Smiles
 048481009952	Shelton's	Shelton's Turkey Burgers - 3 Ct
+662166200085	Usda Produce	Nonorganic Cranberries
+820838000030	Usda Produce	Organic Cranberries

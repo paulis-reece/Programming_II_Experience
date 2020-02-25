@@ -3,16 +3,22 @@
 #include <fstream>  // fstream
 #include <iomanip>  // for format output
 #include <iostream> // for cin and cout
-#include <string>   // strings
-#include <vector>   // for vectors
+#include <map>
+#include <string> // strings
+#include <vector> // for vectors
 using namespace std;
 
 // Functions
 int main() {
+  vector<string> productFromBrand;
+  map<string, string> brandProduct;
+  map<string, int> brandAmount;
+  string *ptrBrand;
+  string brand;
+  string product;
   ofstream fout;
   ifstream file;
   string line;
-  string Name;
   int num;
   bool facts = true;
   file.open("product.txt");
@@ -21,13 +27,34 @@ int main() {
   } else {
     while (!file.eof()) {
       (getline(file, line, '\t'));
-      cout << line << endl;
       (getline(file, line, '\t'));
-      cout << line << endl;
+      brand = line;
       (getline(file, line, '\n'));
-      cout << line << endl;
+      product = line;
+      brandProduct.emplace(product, brand);
     }
   }
   fout.close();
+  for (auto map : brandProduct) {
+    cout << map.first << "---------" << map.second << endl;
+    // use new for this vector
+    if (map.second == "Usda Meat") {
+      productFromBrand.push_back(map.first);
+    }
+    ptrBrand = &map.second;
+    if (brandAmount.count((*ptrBrand)) == 0) {
+      brandAmount.emplace((*ptrBrand), 1);
+    } else {
+      brandAmount.at((*ptrBrand))++;
+    }
+  }
+  cout << "___________________________" << endl;
+  for (auto map : productFromBrand) {
+    cout << map << endl;
+  }
+  cout << "__________________________" << endl;
+  for (auto map : brandAmount) {
+    cout << map.first << "-----------------" << map.second << endl;
+  }
   return 0;
 }
