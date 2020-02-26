@@ -40,7 +40,7 @@ the command line (search zyBooks for "command line arguments").
 * Report the number of *input strings* (command line arguments plus one for the user input)
   and the size of the *result string*.
 * Allocate a dynamic array to hold the *result string*.
-  *  `int* resultString = new char[resultStringSize];`
+  *  `char* resultString = new char[resultStringSize];`
   * Did you allow for a null character at the end?
 * Using an outer loop for the length of the longest of the *input strings* and an inner loop
   for the command line arguments, add a character at a time to the *result string*.
