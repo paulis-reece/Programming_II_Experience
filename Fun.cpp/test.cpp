@@ -17,8 +17,7 @@ public:
   string getProduct() const;
   map<string, pair<string, string>> UpcProductBrand;
   map<string, pair<string, string>>::iterator iter;
-  vector<string> productsToBrands;
-  void setStoreMap();
+  vector<string *> productsToBrands;
 
 private:
   ofstream fout;
@@ -37,13 +36,12 @@ public:
 
 private:
   string product;
-  map<string, string> productBrand;
+  map<string *, string *> productBrand;
 };
 
 class brand : public store {
 public:
   string getBrand() const;
-  void setSetBrand();
 
 private:
   string brand;
@@ -71,9 +69,7 @@ store::store() {
   }
   fout.close();
 }
-void store::setStoreMap() {}
 string products::getProduct() const { return this->product; }
 void products::setProductMap() {}
 string brand::getBrand() const { return this->brand; }
-void brand::setSetBrand() {}
 int main() { return 0; }
