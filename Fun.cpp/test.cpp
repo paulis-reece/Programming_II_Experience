@@ -4,87 +4,76 @@
 #include <iomanip>  // for format output
 #include <iostream> // for cin and cout
 #include <map>
+#include <set>
 #include <string> // strings
-#include <vector> // for vectors
 #include <utility>
+#include <vector> // for vectors
 using namespace std;
+class store {
+public:
+  store();
+  string getUpcCode() const;
+  string getBrand() const;
+  string getProduct() const;
+  map<string, pair<string, string>> UpcProductBrand;
+  map<string, pair<string, string>>::iterator iter;
+  vector<string> productsToBrands;
+  void setStoreMap();
 
-// Functions
-int main() {
-  vector<string> productFromBrand;
-  map<string*, string*> productBrand;
-  map<string*, int> brandAmount;
-  pair<string,string> ProBrand;
-  map<string, pair<string,string>> UpcProductBrand;
-  string upcCode;
+private:
+  ofstream fout;
+  ifstream file;
+  string upc;
   string brand;
   string product;
-  ofstream fout;
-  string name;
-  string name2;
-  ifstream file;
-  string line;
-  int num;
-  bool facts = true;
+  string lineCode;
+  pair<string, string> productBrand;
+};
+
+class products : public store {
+public:
+  string getProduct() const;
+  void setProductMap();
+
+private:
+  string product;
+  map<string, string> productBrand;
+};
+
+class brand : public store {
+public:
+  string getBrand() const;
+  void setSetBrand();
+
+private:
+  string brand;
+  set<string *> Storebrands;
+};
+
+string store::getUpcCode() const { return this->upc; }
+string store::getBrand() const { return this->brand; }
+string store::getProduct() const { return this->product; }
+store::store() {
   file.open("product.txt");
   if (!file.is_open()) {
     cout << "Could not be open" << endl;
   } else {
     while (!file.eof()) {
-      (getline(file, line, '\t'));
-      upcCode = line;
-      (getline(file, line, '\t'));
-      brand = line;
-      (getline(file, line, '\n'));
-      product = line;
-      ProBrand = make_pair(product, brand);
-      UpcProductBrand.emplace(upcCode, ProBrand);
-      productBrand.emplace(product, brand);
+      (getline(file, lineCode, '\t'));
+      this->upc = lineCode;
+      (getline(file, lineCode, '\t'));
+      this->brand = lineCode;
+      (getline(file, lineCode, '\n'));
+      this->product = lineCode;
+      this->productBrand = make_pair(product, brand);
+      UpcProductBrand.emplace(getUpcCode(), this->productBrand);
     }
   }
   fout.close();
-for(auto map : UpcProductBrand){
-name = map.second.first;
-name2 = map.second.second;
-cout << map.first << "-------------" << name << "----------------" << name2<< endl;
 }
-
-
-
-
-
-
-
-
-
-
-
-  /* for (auto map : productBrand) {
-    cout << map.first << "---------" << map.second << endl;
-    // use new for this vector
-    if (map.second == "Usda Meat") {
-      productFromBrand.push_back(map.first);
-    }
-    // Use new for this variable
-    if (brandAmount.count((&map.second)) == 0) {
-      brandAmount.emplace(&map.second, 1);
-    } else {
-      brandAmount.at(&map.second)++;
-    }
-  }
- for(auto map: productBrand){
-
-
-
-
- }
-  cout << "___________________________" << endl;
-  for (auto map : productFromBrand) {
-    cout << map << endl;
-  }
-  cout << "__________________________" << endl;
-  for (auto map : brandAmount) {
-    cout << map.first << "-----------------" << map.second << endl;
-  }*/
-  return 0;
-}
+void store::setStoreMap() {}
+string products::getProduct() const { return this->product; }
+void products::setProductMap() {}
+string brand::getBrand() const { return this->brand; }
+void brand::setSetBrand() {}
+int main() { return 0; }
