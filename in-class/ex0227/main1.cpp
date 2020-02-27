@@ -10,7 +10,7 @@
  */
 
 #include <fstream>
-#include <iostream>     // for cin and cout
+#include <iostream> // for cin and cout
 #include <stdexcept>
 using namespace std;
 
@@ -19,35 +19,33 @@ using namespace std;
 //    returns a success flag
 //    if successful, then lineCount has a number of lines
 //    if unsuccessful, then exception has an explanation
-bool linesInMain(int &lineCount, string &exception);
+void linesInMain(int &lineCount);
 
 int main() {
-    int lines = 0;
-    string message;
-    bool successFlag = linesInMain(lines, message);
-    if (successFlag) {
-        cout << "main.cpp has " << lines << " lines." << endl;
-    } else {
-        cerr << message << endl;
-    }
+  int lines = 0;
+  string message;
+  try {
+    linesInMain(lines);
+    cout << "main1.cpp has " << lines << " lines " << endl;
+  } catch (runtime_error &exception) {
+    cerr << exception.what() << "hi" << endl;
+  }
 }
 
-bool linesInMain(int &lineCount, string &exception) {
-   ifstream inFS;   // Input file stream
-    lineCount = 0;
+void linesInMain(int &lineCount) {
+  ifstream inFS; // Input file stream
+  lineCount = 0;
 
-    inFS.open("main.cpp");
-    if (!inFS.is_open()) {
-        exception = "Unable to open main.cpp!";
-        return false;
+  inFS.open("main.cpp");
+  if (!inFS.is_open()) {
+    throw runtime_error("Unable to open main.cpp!");
+  }
+  while (!inFS.eof()) {
+    string line;
+    getline(inFS, line);
+    if (!inFS.fail()) {
+      ++lineCount;
     }
-    while (!inFS.eof()) {
-        string line;
-        getline(inFS, line);
-        if (!inFS.fail()) {
-            ++lineCount;
-        }
-    }
-    inFS.close();
-    return true;
+  }
+  inFS.close();
 }
