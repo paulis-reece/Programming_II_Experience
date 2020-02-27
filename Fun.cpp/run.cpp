@@ -10,7 +10,7 @@
 #include <vector> // for vectors
 using namespace std;
 int main() {
-    // Use find function instead of iliterating through map
+  // Use find function instead of iliterating through map
   ofstream fout;
   ifstream file;
   string upc;

@@ -29,7 +29,7 @@ private:
   pair<string, string> productBrand;
 };
 
-class products : public store {
+class products {
 public:
   string getProduct() const;
   void setProductMap();
@@ -39,7 +39,7 @@ private:
   map<string *, string *> productBrand;
 };
 
-class brand : public store {
+class brand{
 public:
   string getBrand() const;
 

@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <cassert>  // for assert
 #include <cstdlib>  // for exit
 #include <fstream>  // fstream
@@ -13,77 +14,134 @@ int main() {
   // Use find function instead of iliterating through map
   ofstream fout;
   ifstream file;
-  string upc;
+  char user;
+  char tryAgain;
+  string username;
+  string passcode;
   string brand;
-  string brands;
   string product;
   string lineCode;
+  bool verdict = true;
+  int counter = 0;
   // string *branding;
   // branding = new string;
-  pair<string, string> productBrand;
-  set<string> Storebrands;
-  vector<string> productsToBrands;
-  map<string, pair<string, string>> UpcProductBrand;
-  map<string, pair<string, string>>::iterator iter;
-  map<string, string> productBrands;
-  file.open("product.txt");
+  map<string, string> readMe;
+  map<string, string>::iterator iter;
+  file.open("test.txt");
   if (!file.is_open()) {
     cout << "Could not be open" << endl;
   } else {
     while (!file.eof()) {
-      (getline(file, lineCode, '\t'));
-      upc = lineCode;
-      (getline(file, lineCode, '\t'));
+      (getline(file, lineCode, '\n'));
       brand = lineCode;
       (getline(file, lineCode, '\n'));
       product = lineCode;
-      productBrand = make_pair(product, brand);
-      UpcProductBrand.emplace(upc, productBrand);
+      readMe.emplace(product, brand);
     }
   }
   fout.close();
-  for (iter = UpcProductBrand.begin(); iter != UpcProductBrand.end(); ++iter) {
-    if (Storebrands.count(iter->second.second) == 0) {
-      Storebrands.insert(iter->second.second);
+  for (auto map : readMe) {
+    cout << map.first << "---" << map.second << endl;
+  }
+  cout << "____________" << endl;
+  // Function for Project 3
+  cout << "Do you want to login or sign up?" << endl;
+  cout << "(A) Login" << endl;
+  cout << "(B) Sign up" << endl;
+  cout << "User Choice : ";
+  cin >> user;
+  while (user != 'A' && user != 'B') {
+    cout << "Please Enter A for login or B for sign up : ";
+    cin >> user;
+  }
+  switch (user) {
+  case 'A': {
+    do {
+      if (verdict == false) {
+        cout << "Sorry, username does not exist" << endl;
+        cout << "Do you want to try again? (Y)es or (N)o : ";
+        cin >> tryAgain;
+        while (tryAgain != 'Y' && tryAgain != 'y' && tryAgain != 'N' &&
+               tryAgain != 'n') {
+          cout << "Please enter Y for yes or N for no : ";
+          cin >> tryAgain;
+        }
+        if (tryAgain == 'N' || tryAgain == 'n') {
+          exit(0);
+        }
+      }
+      cout << "What is your username? : ";
+      cin >> username;
+      for (auto map : readMe) {
+        if (username == map.first) {
+          verdict = true;
+          break;
+        } else {
+          verdict = false;
+        }
+      }
+    } while (verdict == false);
+    do {
+      if (verdict == false) {
+        cout << "Sorry, passcode does not exist" << endl;
+        cout << "Do you want to try again? (Y)es or (N)o : ";
+        cin >> tryAgain;
+        while (tryAgain != 'Y' && tryAgain != 'y' && tryAgain != 'N' &&
+               tryAgain != 'n') {
+          cout << "Please enter Y for yes or N for no : ";
+          cin >> tryAgain;
+        }
+        if (tryAgain == 'N' || tryAgain == 'n') {
+          exit(0);
+        }
+      }
+      cout << "What is your passcode? : ";
+      cin >> passcode;
+      for (auto map : readMe) {
+        if (passcode == map.second) {
+          verdict = true;
+          break;
+        } else {
+          verdict = false;
+        }
+      }
+    } while (verdict == false);
+    cout << "You have successfully logged in! " << endl;
+    break;
+  case 'B':
+    do {
+      if (verdict == false) {
+        cout << "Sorry, username is taken" << endl;
+        cout << "Do you want to try again? (Y)es or (N)o : ";
+        cin >> tryAgain;
+        while (tryAgain != 'Y' && tryAgain != 'y' && tryAgain != 'N' &&
+               tryAgain != 'n') {
+          cout << "Please enter Y for yes or N for no : ";
+          cin >> tryAgain;
+        }
+        if (tryAgain == 'N' || tryAgain == 'n') {
+          exit(0);
+        }
+      }
+      cout << "What is your desired username? : ";
+      cin >> username;
+      for (auto map : readMe) {
+        if (username != map.first) {
+          verdict = true;
+        } else {
+          verdict = false;
+          break;
+        }
+      }
+    } while (verdict == false);
+    cout << "What is your passcode? : ";
+    cin >> passcode;
+    readMe.emplace(username, passcode);
+    for (auto map : readMe) {
+      cout << map.first << "---" << map.second << endl;
     }
-    brand = "Usda Produce";
-    if (iter->second.second == brand) {
-      productsToBrands.push_back(iter->second.first);
-    }
+    break;
   }
-  cout << "Brand Associated with Product: Usda Produce" << endl;
-  for (auto vecArray : productsToBrands) {
-    cout << vecArray << endl;
   }
-  cout << "_________________________" << endl;
-  cout << "Brands in Store: " << endl;
-  for (auto SetArray : Storebrands) {
-    cout << SetArray << endl;
-  }
-  cout << "_________________________" << endl;
-  cout << "Give Upc Code then what is brand and product name? (208220500007)"
-       << endl;
-  for (iter = UpcProductBrand.begin(); iter != UpcProductBrand.end(); ++iter) {
-    if (iter->first == "208220500007") {
-      cout << iter->second.second << "--------" << iter->second.first << endl;
-    }
-  }
-  cout << "____________________________" << endl;
-  cout << "Given a product name, what are its UPC codes? Organic Cranberries"
-       << endl;
-  for (iter = UpcProductBrand.begin(); iter != UpcProductBrand.end(); ++iter) {
-    if (iter->second.first == "Organic Cranberries") {
-      cout << iter->first << endl;
-    }
-  }
-  cout << "____________________________" << endl;
-  cout << "Given a product name, what are its brand names? Organic Cranberries"
-       << endl;
-  for (iter = UpcProductBrand.begin(); iter != UpcProductBrand.end(); ++iter) {
-    if (iter->second.first == "Organic Cranberries") {
-      cout << iter->second.second << endl;
-    }
-  }
-  cout << endl;
   return 0;
 }
