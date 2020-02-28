@@ -43,7 +43,7 @@ int main() {
   }
   fout.close();
   for (iter = UpcProductBrand.begin(); iter != UpcProductBrand.end(); ++iter) {
-    if (Storebrands.count(iter->second.second) == 0) {
+    if (Storebrands.count(iter->second.second.getBrand()) == 0) {
       Storebrands.insert(iter->second.second);
     }
     brand = "Usda Produce";

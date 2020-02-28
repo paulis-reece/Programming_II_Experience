@@ -14,20 +14,11 @@ class brand;
 class store {
 public:
   string getUpcCode() const;
-  string getBrand() const;
-  string getProduct() const;
-  void setUpcCode(string upcCode);
-  void setBrand(string branding);
-  void setProduct(string products);
-  pair<product *, brand *> productBrand;
-  set<brand *> Storebrands;
-  map<string, pair<product *, brand *>> UpcProductBrand;
-  vector<product *> productsToBrands;
+  void setUpcCode(string Upc);
+  map<store*, pair<product *, brand *>> UpcProductBrand;
 
 private:
   string upc;
-  string brand;
-  string product;
 };
 
 #endif

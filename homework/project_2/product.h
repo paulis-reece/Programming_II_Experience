@@ -11,6 +11,7 @@ class product {
 public:
   string getProduct() const;
   void setProduct(string products);
+  vector<product *> productsToBrands;
 
 private:
   string product;
