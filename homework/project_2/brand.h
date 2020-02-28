@@ -11,7 +11,6 @@ class brand {
 public:
   string getBrand() const;
   void setBrand(string branding);
-  map<brand *, int> Storebrands;
 
 private:
   string brand;

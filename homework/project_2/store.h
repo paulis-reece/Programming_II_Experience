@@ -1,5 +1,6 @@
 #include "brand.h"
 #include "product.h"
+#include "upc.h"
 #include <fstream>
 #include <iostream>
 #include <map>
@@ -15,10 +16,10 @@ class store {
 public:
   string getUpcCode() const;
   void setUpcCode(string Upc);
-  map<store*, pair<product *, brand *>> UpcProductBrand;
+  map<upc*, pair<product *, brand *>> UpcProductBrand;
 
 private:
-  string upc;
+  set<string> Storebrands;
 };
 
 #endif
