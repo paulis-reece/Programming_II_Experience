@@ -4,7 +4,6 @@
 #include <map>
 #include <set>
 using namespace std;
-
 #ifndef STORE_H
 #define STORE_H
 class upc;
@@ -13,6 +12,10 @@ class brand;
 class store {
 public:
   map<upc *, pair<product *, brand *>> UpcProductBrand;
+  int getProductSize();
+  int getBrandSize();
+  void setProductSize();
+  void setBrandSize();
   void getStoreBrand();
   void setStoreBrand(string variable);
   void getStoreProducts();
@@ -21,6 +24,8 @@ public:
 private:
   set<string> Storebrands;
   set<string> StoreProducts;
+  int productSize = 0;
+  int brandSize = 0;
 };
 
 #endif

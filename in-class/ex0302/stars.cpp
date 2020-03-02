@@ -3,7 +3,7 @@
  * Exercise: Stars through Recursion
  *
  * File Name:   stars.cpp
- * Username:  	?
+ * Username:  	reklre
  * Username:  	?
  * Course:      CPTR 142
  *
@@ -12,18 +12,29 @@
 using namespace std;
 
 // function prototype
-void stars(int count);
+int stars(int count);
 
 int main() {
-	// test recursive function
-    stars(3);
-    cout << endl;
-    stars(7);
+  // test recursive function
+   cout << stars(3);
+  cout << endl;
 
-    return 0;
+
+  return 0;
 }
 
 // print count stars on one line, then one less on the next line
-void stars(int count) {
-	
+int stars(int count) {
+    int letter;
+  if (count == 0) {
+    cout << "Beautiful Stars" << endl;
+  } else {
+    for (int i = 0; i < count; i++) {
+      cout << '*';
+    }
+    cout << endl;
+    letter = count;
+    stars(count - 1);
+  }
+  return letter;
 }
