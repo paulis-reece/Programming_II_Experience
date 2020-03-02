@@ -2,7 +2,7 @@
 using namespace std;
 void store::getStoreBrand() {
   cout << "Brand Amount : " << this->Storebrands.size() << endl;
-  cout << "--------------";
+  cout << "--------------" << endl;
   for (auto set : Storebrands) {
     cout << set << endl;
   }
@@ -14,7 +14,7 @@ void store::setStoreBrand(string variable) {
 }
 void store::getStoreProducts() {
   cout << "Product Amount : " << this->StoreProducts.size() << endl;
-  cout << "--------------";
+  cout << "--------------" << endl;
   for (auto set : StoreProducts) {
     cout << set << endl;
   }
