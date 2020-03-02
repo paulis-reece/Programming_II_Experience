@@ -12,13 +12,11 @@ class product;
 class brand;
 class store {
 public:
-  void setVariable(string variable);
   map<upc *, pair<product *, brand *>> UpcProductBrand;
   void getStoreBrand();
-  void setStoreBrand();
+  void setStoreBrand(string variable);
 
 private:
-  string tempVal;
   set<string> Storebrands;
 };
 

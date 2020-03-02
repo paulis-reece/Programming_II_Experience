@@ -18,11 +18,10 @@ int main() {
   string UpcCode;
   string userBrand = "Usda Produce";
   string userUpc = "208220500007";
-  string *pointerSetBrand;
   upc *pointerUpc = nullptr;
   brand *pointerBrand = nullptr;
   product *pointerProduct = nullptr;
-  map<upc *, pair<product *, brand *>>::iterator iter;
+  map<upc *, pair<product *, brand *>>::iterator loopMap;
   file.open("test.txt");
   if (!file.is_open()) {
     cout << "Could not be open" << endl;
@@ -43,12 +42,11 @@ int main() {
     }
   }
   fout.close();
-  for (iter = Store.UpcProductBrand.begin();
-       iter != Store.UpcProductBrand.end(); ++iter) {
-    Store.setVariable(iter->second.second->getBrand());
-    Store.setStoreBrand();
-    if (iter->second.second->getBrand() == userBrand) {
-      Product.productsToBrands.push_back(iter->second.first);
+  for (loopMap = Store.UpcProductBrand.begin();
+       loopMap != Store.UpcProductBrand.end(); ++loopMap) {
+    Store.setStoreBrand(loopMap->second.second->getBrand());
+    if (loopMap->second.second->getBrand() == userBrand) {
+      Product.productsToBrands.push_back(loopMap->second.first);
     }
   }
   cout << "Brand Associated with Product: Usda Produce" << endl;
@@ -61,31 +59,30 @@ int main() {
   cout << "_________________________" << endl;
   cout << "Give Upc Code then what is brand and product name? (208220500007)"
        << endl;
-  for (iter = Store.UpcProductBrand.begin();
-       iter != Store.UpcProductBrand.end(); ++iter) {
-    if (iter->first->getUpcCode() == userUpc) {
-      cout << iter->second.second->getBrand() << "--------"
-           << iter->second.first->getProduct() << endl;
+  for (loopMap = Store.UpcProductBrand.begin();
+       loopMap != Store.UpcProductBrand.end(); ++loopMap) {
+    if (loopMap->first->getUpcCode() == userUpc) {
+      cout << loopMap->second.second->getBrand() << "--------"
+           << loopMap->second.first->getProduct() << endl;
     }
   }
   cout << "____________________________" << endl;
   cout << "Given a product name, what are its UPC codes? Organic Cranberries"
        << endl;
-  for (iter = Store.UpcProductBrand.begin();
-       iter != Store.UpcProductBrand.end(); ++iter) {
-    if (iter->second.first->getProduct() == "Organic Cranberries") {
-      cout << iter->first->getUpcCode() << endl;
+  for (loopMap = Store.UpcProductBrand.begin();
+       loopMap != Store.UpcProductBrand.end(); ++loopMap) {
+    if (loopMap->second.first->getProduct() == "Organic Cranberries") {
+      cout << loopMap->first->getUpcCode() << endl;
     }
   }
   cout << "____________________________" << endl;
   cout << "Given a product name, what are its brand names? Organic Cranberries"
        << endl;
-  for (iter = Store.UpcProductBrand.begin();
-       iter != Store.UpcProductBrand.end(); ++iter) {
-    if (iter->second.first->getProduct() == "Organic Cranberries") {
-      cout << iter->second.second->getBrand() << endl;
+  for (loopMap = Store.UpcProductBrand.begin();
+       loopMap != Store.UpcProductBrand.end(); ++loopMap) {
+    if (loopMap->second.first->getProduct() == "Organic Cranberries") {
+      cout << loopMap->second.second->getBrand() << endl;
     }
   }
-  cout << endl;
   return 0;
 }
