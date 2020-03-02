@@ -22,7 +22,7 @@ int main() {
   brand *pointerBrand = nullptr;
   product *pointerProduct = nullptr;
   map<upc *, pair<product *, brand *>>::iterator loopMap;
-  file.open("test.txt");
+  file.open("Inventory.txt");
   if (!file.is_open()) {
     cout << "Could not be open" << endl;
   } else {
@@ -42,9 +42,13 @@ int main() {
     }
   }
   fout.close();
+  cout << "Welcome to your Inventory" << endl;
+  cout << "SideNote: Your inventory already contain items" << endl;
+  cout << "(1) Do you want to add more into your inventory?" << endl;
   for (loopMap = Store.UpcProductBrand.begin();
        loopMap != Store.UpcProductBrand.end(); ++loopMap) {
     Store.setStoreBrand(loopMap->second.second->getBrand());
+    Store.setStoreProducts(loopMap->second.first->getProduct());
     if (loopMap->second.second->getBrand() == userBrand) {
       Product.productsToBrands.push_back(loopMap->second.first);
     }
@@ -56,6 +60,9 @@ int main() {
   cout << "_________________________" << endl;
   cout << "Brands in Store: " << endl;
   Store.getStoreBrand();
+  cout << "_________________________" << endl;
+  cout << "Products in Store: " << endl;
+  Store.getStoreProducts();
   cout << "_________________________" << endl;
   cout << "Give Upc Code then what is brand and product name? (208220500007)"
        << endl;
