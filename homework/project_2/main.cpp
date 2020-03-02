@@ -84,5 +84,14 @@ int main() {
       cout << loopMap->second.second->getBrand() << endl;
     }
   }
+  for (loopMap = Store.UpcProductBrand.begin();
+       loopMap != Store.UpcProductBrand.end(); ++loopMap) {
+    delete loopMap->first;
+    delete loopMap->second.first;
+    delete loopMap->second.second;
+  };
+  pointerUpc = nullptr;
+  pointerBrand = nullptr;
+  pointerProduct = nullptr;
   return 0;
 }
