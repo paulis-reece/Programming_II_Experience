@@ -22,7 +22,7 @@ int main() {
   brand *pointerBrand = nullptr;
   product *pointerProduct = nullptr;
   map<upc *, pair<product *, brand *>>::iterator loopMap;
-  file.open("Inventory.txt");
+  file.open("test.txt");
   if (!file.is_open()) {
     cout << "Could not be open" << endl;
   } else {

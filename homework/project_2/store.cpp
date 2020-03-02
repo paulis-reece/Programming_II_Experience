@@ -1,11 +1,8 @@
 #include "store.h"
 using namespace std;
-int store::getProductSize() { return this->productSize; }
-int store::getBrandSize() { return this->getBrandSize(); };
-void store::setProductSize() { productSize = this->StoreProducts.size(); };
-void store::setBrandSize() { brandSize = this->Storebrands.size(); };
-
 void store::getStoreBrand() {
+  cout << "Brand Amount : " << this->Storebrands.size() << endl;
+  cout << "--------------";
   for (auto set : Storebrands) {
     cout << set << endl;
   }
@@ -16,6 +13,8 @@ void store::setStoreBrand(string variable) {
   }
 }
 void store::getStoreProducts() {
+  cout << "Product Amount : " << this->StoreProducts.size() << endl;
+  cout << "--------------";
   for (auto set : StoreProducts) {
     cout << set << endl;
   }
