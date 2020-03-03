@@ -37,7 +37,7 @@ int main() {
   file.open(
       "Inventory.txt"); // Side Note: You can change to inventory text file if
                         // you wish, its currently on inventory file to make it
-                        // easier for you to confirm it works
+                        // but can be changed to my test file
   if (!file.is_open()) {
     cout << "Could not be open" << endl;
   } else {
