@@ -15,51 +15,68 @@ using namespace std;
 void testAccount() {
   double value;
   Account account(1000);
-
-  cout << "Test 1: account.getBalance() == ";
-  value = account.getBalance();
-  cout << value << endl;
-
-  cout << "Test 2: account.deposit(-1) == ";
-  value = account.deposit(-1);
-  if (value == -1) {
-    cout << "ERROR" << endl;
-  } else {
+  try {
+    cout << "Test 1: account.getBalance() == ";
+    value = account.getBalance();
     cout << value << endl;
+  } catch (runtime_error &exception) {
+    cerr << exception.what() << endl;
   }
-
-  cout << "Test 3: account.deposit(500) == ";
-  value = account.deposit(500);
-  if (value == -1) {
-    cout << "ERROR" << endl;
-  } else {
-    cout << value << endl;
+  try {
+    cout << "Test 2: account.deposit(-1) == ";
+    value = account.deposit(-1);
+    if (value == -1) {
+      cout << "ERROR" << endl;
+    } else {
+      cout << value << endl;
+    }
+  } catch (runtime_error &exception) {
+    cerr << exception.what() << endl;
   }
-
-  cout << "Test 4: account.withdraw(-1) == ";
-  value = account.withdraw(-1);
-  if (value == -1) {
-    cout << "ERROR" << endl;
-  } else {
-    cout << value << endl;
+  try {
+    cout << "Test 3: account.deposit(500) == ";
+    value = account.deposit(500);
+    if (value == -1) {
+      cout << "ERROR" << endl;
+    } else {
+      cout << value << endl;
+    }
+  } catch (runtime_error &exception) {
+    cerr << exception.what() << endl;
   }
-
-  cout << "Test 5: account.withdraw(750) == ";
-  value = account.withdraw(750);
-  if (value == -1) {
-    cout << "ERROR" << endl;
-  } else {
-    cout << value << endl;
+  try {
+    cout << "Test 4: account.withdraw(-1) == ";
+    value = account.withdraw(-1);
+    if (value == -1) {
+      cout << "ERROR" << endl;
+    } else {
+      cout << value << endl;
+    }
+  } catch (runtime_error &exception) {
+    cerr << exception.what() << endl;
   }
-
-  cout << "Test 6: account.withdraw(1750) == ";
-  value = account.withdraw(1750);
-  if (value == -1) {
-    cout << "ERROR" << endl;
-  } else {
-    cout << value << endl;
+  try {
+    cout << "Test 5: account.withdraw(750) == ";
+    value = account.withdraw(750);
+    if (value == -1) {
+      cout << "ERROR" << endl;
+    } else {
+      cout << value << endl;
+    }
+  } catch (runtime_error &exception) {
+    cerr << exception.what() << endl;
   }
-
+  try {
+    cout << "Test 6: account.withdraw(1750) == ";
+    value = account.withdraw(1750);
+    if (value == -1) {
+      cout << "ERROR" << endl;
+    } else {
+      cout << value << endl;
+    }
+  } catch (runtime_error &exception) {
+    cerr << exception.what() << endl;
+  }
   cout << "Test 7: account.getBalance() == ";
   value = account.getBalance();
   cout << value << endl;
