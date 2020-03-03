@@ -20,7 +20,7 @@ void testAccount() {
     value = account.getBalance();
     cout << value << endl;
   } catch (runtime_error &exception) {
-    cerr << exception.what() << endl;
+    cout << exception.what() << endl;
   }
   try {
     cout << "Test 2: account.deposit(-1) == ";
@@ -31,7 +31,7 @@ void testAccount() {
       cout << value << endl;
     }
   } catch (runtime_error &exception) {
-    cerr << exception.what() << endl;
+    cout << exception.what() << endl;
   }
   try {
     cout << "Test 3: account.deposit(500) == ";
@@ -42,7 +42,7 @@ void testAccount() {
       cout << value << endl;
     }
   } catch (runtime_error &exception) {
-    cerr << exception.what() << endl;
+    cout << exception.what() << endl;
   }
   try {
     cout << "Test 4: account.withdraw(-1) == ";
@@ -53,7 +53,7 @@ void testAccount() {
       cout << value << endl;
     }
   } catch (runtime_error &exception) {
-    cerr << exception.what() << endl;
+    cout << exception.what() << endl;
   }
   try {
     cout << "Test 5: account.withdraw(750) == ";
@@ -64,7 +64,7 @@ void testAccount() {
       cout << value << endl;
     }
   } catch (runtime_error &exception) {
-    cerr << exception.what() << endl;
+    cout << exception.what() << endl;
   }
   try {
     cout << "Test 6: account.withdraw(1750) == ";
@@ -75,7 +75,7 @@ void testAccount() {
       cout << value << endl;
     }
   } catch (runtime_error &exception) {
-    cerr << exception.what() << endl;
+    cout << exception.what() << endl;
   }
   cout << "Test 7: account.getBalance() == ";
   value = account.getBalance();
