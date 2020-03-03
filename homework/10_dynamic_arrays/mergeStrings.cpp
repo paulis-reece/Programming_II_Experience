@@ -11,58 +11,36 @@
 
 // TODO Add code here.
 #include "mergeStrings.h"
+#include <cstring>
 #include <iostream>
 #include <string>
 #include <vector>
 string mergeStrings(int argc, char *argv[], string userEntry) {
-  char letter;
-  string WORDS;
-  int largestSize = 0;
-  int argcMirror = 0;
-  int index = 0;
-  int counter = 0;
-  string resultSTR;
-  string *word;
-  vector<string> nullWords;
-  word = new string;
-  while(argcMirror < argc){
-
+  string result;
+  int currentSize[argc];
+  int largestSize = userEntry.size();
+  if (largestSize < strlen(*argv)) {
+    largestSize = strlen(*argv);
   }
- while (argcMirror < argc) {
-    if ((*argv)[index] == '\0') {
-      argcMirror++;
-      nullWords.push_back(*word);
-      delete word;
-      if (argcMirror < argc) {
-        word = new string;
-      }
-    }
-    if ((*argv)[index] != '\0') {
-      *word += (*argv)[index];
-    }
-    index++;
-  }
-  for (auto words : nullWords) {
-    if (words.size() > largestSize) {
-      largestSize = words.size();
+  for (int i = 0; i < argc; i++) {
+    currentSize[i] = strlen(argv[i]);
+    if (currentSize[i] > largestSize) {
+      largestSize = currentSize[i];
     }
   }
-  while (counter < largestSize) {
-    if (counter < userEntry.length()) {
-      resultSTR += userEntry.at(counter);
+  for (int i = 0; i < largestSize; i++) {
+    if (i < userEntry.size()) {
+      result.push_back(userEntry[i]);
     } else {
-      resultSTR += " ";
+      result.push_back(' ');
     }
-    for (int i = 0; i < argc; i++) {
-      WORDS = nullWords.at(i);
-      if (counter < WORDS.length()) {
-        letter = WORDS.at(counter);
-        resultSTR += letter;
+    for (int j = 0; j < argc; j++) {
+      if (i < currentSize[j]) {
+        result.push_back(argv[j][i]);
       } else {
-        resultSTR += " ";
+        result.push_back(' ');
       }
     }
-    counter++;
   }
-  return resultSTR;
+  return result;
 }
