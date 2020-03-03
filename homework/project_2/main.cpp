@@ -18,12 +18,15 @@ int main() {
   product Product;
   // Get a specific line from text file
   string lineCode;
+  // Decisions for User
+  char choice;
   // Test Variables
   // Side Note: You can change this variables to other brand, upc, and products
   // if you wish
-  string userBrand = "Usda Produce";
-  string userUpc = "048419063957";
-  string userProduct = "Snack Pack Tapioca Pudding - 4 Pk";
+  string userBrand = "Usda Meat";
+  string userUpc = "307667630039";
+  string userProduct =
+      "Purina Friskies Rise & Shine Cat Food Sunny Chicken & Egg Scramble";
   // Class pointers
   upc *pointerUpc = nullptr;
   brand *pointerBrand = nullptr;
@@ -31,9 +34,10 @@ int main() {
   // Iliterator for my map
   map<upc *, pair<product *, brand *>>::iterator loopMap;
   // File text access and input into Class map held in store
-  file.open("test.txt"); // Side Note: You can change to inventory text file if
-                         // you wish, its currently on test file to make it
-                         // easier for you to confirm it works
+  file.open(
+      "Inventory.txt"); // Side Note: You can change to inventory text file if
+                        // you wish, its currently on inventory file to make it
+                        // easier for you to confirm it works
   if (!file.is_open()) {
     cout << "Could not be open" << endl;
   } else {
@@ -74,17 +78,10 @@ int main() {
   }
   // Displays Brand Associated with a product
   cout << "Brand Associated with Product: " << userBrand << endl;
+  cout << "-------------------------------" << endl;
   for (auto vecArray : Product.productsToBrands) {
     cout << vecArray->getProduct() << endl;
   }
-  cout << "_________________________" << endl;
-  // Displays brands in store
-  cout << "Brands in Store: " << endl;
-  Store.getStoreBrand();
-  cout << "_________________________" << endl;
-  // Displays Products in store
-  cout << "Products in Store: " << endl;
-  Store.getStoreProducts();
   cout << "_________________________" << endl;
   // Displays brand and product associated with UPC code
   cout << "Give Upc Code then what is brand and product name? " << userUpc
@@ -92,31 +89,65 @@ int main() {
   for (loopMap = Store.UpcProductBrand.begin();
        loopMap != Store.UpcProductBrand.end(); ++loopMap) {
     if (loopMap->first->getUpcCode() == userUpc) {
-      cout << loopMap->second.second->getBrand() << "--------"
-           << loopMap->second.first->getProduct() << endl;
+      cout << "Brand : " << loopMap->second.second->getBrand() << "--------"
+           << "Product : " << loopMap->second.first->getProduct() << endl;
     }
   }
   cout << "____________________________" << endl;
   // Displays Upc Code for product name
-  cout << "Given a product name, what are its UPC codes? " << userProduct
-       << endl;
+  cout << "Given a product name, what is its UPC code? " << userProduct << endl;
+  cout << "-------------------------------" << endl;
   for (loopMap = Store.UpcProductBrand.begin();
        loopMap != Store.UpcProductBrand.end(); ++loopMap) {
     if (loopMap->second.first->getProduct() == userProduct) {
-      cout << loopMap->first->getUpcCode() << endl;
+      cout << "Upc Code : " << loopMap->first->getUpcCode() << endl;
     }
   }
   cout << "____________________________" << endl;
   // Displays Brand associated with product name
-  cout << "Given a product name, what are its brand name? " << userProduct
+  cout << "Given a product name, what is its brand name? " << userProduct
        << endl;
+  cout << "-------------------------------" << endl;
   for (loopMap = Store.UpcProductBrand.begin();
        loopMap != Store.UpcProductBrand.end(); ++loopMap) {
     if (loopMap->second.first->getProduct() == userProduct) {
-      cout << loopMap->second.second->getBrand() << endl;
+      cout << "Brand : " << loopMap->second.second->getBrand() << endl;
     }
   }
   cout << "____________________________" << endl;
+  // Displays brands in store
+  cout << "Do you want to display brands in store?" << endl;
+  cout << "(Y) For Yes" << endl;
+  cout << "(N) For No" << endl;
+  cout << "Choice: ";
+  cin >> choice;
+  while (choice != 'Y' && choice != 'N') {
+    cout << "Please select (Y) for yes or (N) for no" << endl;
+    cout << "Choice: ";
+    cin >> choice;
+  }
+  if (choice == 'Y') {
+    cout << "Brands in Store: " << endl;
+    Store.getStoreBrand();
+    cout << "_________________________" << endl;
+  }
+
+  cout << "Do you want to display products in store?" << endl;
+  cout << "(Y) For Yes" << endl;
+  cout << "(N) For No" << endl;
+  cout << "Choice: ";
+  cin >> choice;
+  while (choice != 'Y' && choice != 'N') {
+    cout << "Please select (Y) for yes or (N) for no" << endl;
+    cout << "Choice: ";
+    cin >> choice;
+  }
+  if (choice == 'Y') {
+    // Displays Products in store
+    cout << "Products in Store: " << endl;
+    Store.getStoreProducts();
+    cout << "_________________________" << endl;
+  }
   // Deletes all allocated memory in map
   for (loopMap = Store.UpcProductBrand.begin();
        loopMap != Store.UpcProductBrand.end(); ++loopMap) {
