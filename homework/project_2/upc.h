@@ -5,6 +5,7 @@ using namespace std;
 #define UPC_H
 class upc {
 public:
+// Functions for Upc Code
   string getUpcCode() const;
   void setUpcCode(string UPCcode);
 
