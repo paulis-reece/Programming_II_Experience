@@ -3,15 +3,15 @@
  * Exercise: Ackermann Function
  *
  * File Name:   Ackermann.cpp
- * Username:  	?
+ * Username:  	reklre
  * Username:  	?
  * Course:      CPTR 142
  *
  */
 
 #include <cassert>
-#include <iomanip>      // for setw()
-#include <iostream>     // for cin and cout
+#include <iomanip>  // for setw()
+#include <iostream> // for cin and cout
 #include <vector>
 using namespace std;
 
@@ -19,13 +19,14 @@ using namespace std;
 int ackermann(int m, int n);
 
 int main() {
-    for (int m = 0; m <= 3; ++m) {
-        cout << endl;
-        for (int n = 0; n <= 7; ++n) {
-            cout << "(" << m << ", " << n << ") = " << setw(4) << ackermann(m, n) << endl;
-        }
+  for (int m = 0; m <= 3; ++m) {
+    cout << endl;
+    for (int n = 0; n <= 7; ++n) {
+      cout << "(" << m << ", " << n << ") = " << setw(4) << ackermann(m, n)
+           << endl;
     }
-    return 0;
+  }
+  return 0;
 }
 
 /*
@@ -35,6 +36,12 @@ int main() {
  */
 
 int ackermann(int m, int n) {
-	//	TODO: implement recursive function
-	return 42;
+  //	TODO: implement recursive function
+  if (m == 0) {
+    return n + 1;
+  } else if (n == 0) {
+    return ackermann(m - 1, 1);
+  } else {
+    return ackermann(m - 1, ackermann(m, n - 1));
+  }
 }
