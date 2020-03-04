@@ -36,7 +36,7 @@ void linesInMain(int &lineCount) {
   ifstream inFS; // Input file stream
   lineCount = 0;
 
-  inFS.open("main.cpp");
+  inFS.open("word.txt");
   if (!inFS.is_open()) {
     throw runtime_error("Unable to open main.cpp!");
   }
@@ -48,4 +48,5 @@ void linesInMain(int &lineCount) {
     }
   }
   inFS.close();
+  cout<<"hello"<<endl;
 }
