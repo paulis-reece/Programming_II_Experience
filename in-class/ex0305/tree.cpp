@@ -29,7 +29,7 @@ void Node::addLevels(int levels) {
   if (levels == 0) {
     return;
   }
-  int childrenCount = rand() % 4; // allow zero to three children
+  int childrenCount = rand() % 3; // allow zero to two children
   for (int i = 0; i <= childrenCount; ++i) {
     Node *child = new Node;
     child->addLevels(rand() % levels); //
@@ -44,7 +44,7 @@ void Node::print(string indent) {
 int main() {
   srand(0);
   Node *root = new Node;
-  root->addLevels(4);
+  root->addLevels(3);
   root->print("");
   return 0;
 }
