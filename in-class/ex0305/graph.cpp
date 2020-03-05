@@ -3,7 +3,7 @@
  * Exercise: Graph Structure
  *
  * File Name:   graph.cpp
- * Username:  	?
+ * Username:  	reklre
  * Username:  	?
  * Course:      CPTR 142
  *
@@ -43,6 +43,11 @@ void Node::addLinkTo(Node *node) {
 
 void Node::print() {
   // TODO: print information about this node and its links
+  cout << value << " --- ";
+  for(int i = 0; i < links.size(); ++i){
+      cout << links.at(i) ->getValue() << " ";
+  }
+  cout << endl;
 }
 
 int main() {
