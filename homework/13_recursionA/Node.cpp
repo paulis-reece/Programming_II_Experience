@@ -62,7 +62,6 @@ void Node::printPath(deque<Node *> path) {
   }
   // print a dash, then recurse to print remaining path
   cout << "-";
-  printPath(path);
 }
 
 // add to a vector of paths leading back home
