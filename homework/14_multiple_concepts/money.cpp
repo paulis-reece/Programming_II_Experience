@@ -17,7 +17,8 @@ using namespace std;
 void state4(string inputString, int indexing, int counting) {
   if (counting == 3 && inputString.at(indexing) == '\0') {
     return;
-  } else if (inputString.at(indexing) == '\0') {
+  }
+  if (inputString.at(indexing) == '\0') {
     throw runtime_error("the input string is not properly formatted");
   } else {
     if (inputString.at(indexing) == ',') {
