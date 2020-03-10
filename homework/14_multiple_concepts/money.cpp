@@ -15,7 +15,7 @@ using namespace std;
 
 // throws a runtime_error if the input string is not properly formatted
 void state4(string inputString, int indexing, int counting) {
-  if (counting == 3 && inputString.at(indexing) == '\0') {
+  if (counting == 4 && inputString.at(indexing) == '\0') {
     return;
   } else if (inputString.at(indexing) == '\0') {
     throw runtime_error("the input string is not properly formatted");
@@ -36,11 +36,11 @@ void state1(string inputString, int indexing) {
   int counter = 0;
   if (inputString.at(indexing) == ',') {
     state4(inputString, indexing++, counter);
-  } else if (inputString.at(indexing) == '\0' || indexing == 3) {
-    if (indexing != 3) {
+  } else if (inputString.at(indexing) == '\0' || indexing == 4) {
+    if (indexing != 4) {
       return;
     } else {
-      if (inputString.at(indexing) == '\0' && indexing == 3) {
+      if (inputString.at(indexing) == '\0' && indexing == 4) {
         return;
       } else {
         throw runtime_error("the input string is not properly formatted");
@@ -53,19 +53,24 @@ void state1(string inputString, int indexing) {
     throw runtime_error("the input string is not properly formatted");
   }
 }
-void state0(string inputString) {
-  int index = 0;
-  if (isdigit(inputString.at(index)) == true) {
-    state1(inputString, index++);
+void state0(string inputString, int indexing) {
+  if (indexing == 1 && inputString.at(indexing) == '0') {
+    throw runtime_error("the input string is not properly formatted");
+  }
+  if (indexing == 1 && isdigit(inputString.at(indexing)) == false) {
+    throw runtime_error("the input string is not properly formatted");
+  }
+  if (isdigit(inputString.at(indexing)) == true) {
+    state1(inputString, indexing++);
   } else {
     throw runtime_error("the input string is not properly formatted");
   }
 }
 void verifyIsMoney(string inputString) {
-  if (inputString.at(0) != '$') {
+  int index = 0;
+  if (inputString.at(index) != '$') {
     throw runtime_error("the input string is not properly formatted");
   } else {
-    inputString.erase(inputString.begin());
-    state0(inputString);
+    state0(inputString, index++);
   }
 }
