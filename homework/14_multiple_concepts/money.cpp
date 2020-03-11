@@ -56,7 +56,7 @@ void state1(string input, int index) {
 void state0(string input, int index) {
   if (index == input.length() || input.at(index) == '0') {
     throw runtime_error("Testing is NOT money");
-  } else if (ispunct(input.at(index)) == true &&
+  } else if (ispunct(input.at(index)) == true ||
              isdigit(input.at(index)) == false) {
     throw runtime_error("Testing is NOT money");
   } else {
@@ -65,9 +65,9 @@ void state0(string input, int index) {
 }
 void verifyIsMoney(string inputString) {
   int index = 0;
-  if (inputString.at(index) != '$' || index == inputString.length()) {
-    throw runtime_error("Testing is NOT money");
-  } else {
+  if (inputString.at(index) == '$') {
     state0(inputString, index++);
+  } else {
+    throw runtime_error("Testing is NOT money");
   }
 }
