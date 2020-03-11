@@ -14,4 +14,18 @@
 using namespace std;
 
 // throws a runtime_error if the input string is not properly formatted
-void verifyIsMoney(string inputString) {}
+void state4(string input, int index) {}
+
+void state1(string input, int index) {}
+
+void state0(string input, int index) {
+    
+}
+void verifyIsMoney(string inputString) {
+  int index = 0;
+  if (inputString.at(index) != '$') {
+    throw runtime_error("Testing is NOT money");
+  } else {
+    state0(inputString, index++);
+  }
+}
