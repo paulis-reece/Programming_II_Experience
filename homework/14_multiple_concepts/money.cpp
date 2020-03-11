@@ -14,7 +14,22 @@
 using namespace std;
 
 // throws a runtime_error if the input string is not properly formatted
-void state4(string input, int index, int counter) {}
+void state4(string input, int index, int counter) {
+  if (input.at(index) == ',') {
+    counter = 0;
+    state4(input, index++, counter);
+  } else if (counter == 3) {
+    if (input.at(index) != '\0') {
+      throw runtime_error("Testing is NOT money");
+    } else {
+      return;
+    }
+  } else if (input.at(index) == '\0') {
+    return;
+  } else {
+    state4(input, index++, counter++);
+  }
+}
 
 void state1(string input, int index) {
   int counter = 0;
