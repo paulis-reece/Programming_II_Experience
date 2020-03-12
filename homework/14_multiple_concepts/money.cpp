@@ -56,8 +56,7 @@ void state1(string input, int index) {
 void state0(string input, int index) {
   if (input.at(index) == '0') {
     throw runtime_error("Testing is NOT money");
-  } else if (ispunct(input.at(index)) == true ||
-             isdigit(input.at(index)) == false) {
+  } else if (ispunct(input.at(index)) == true) {
     throw runtime_error("Testing is NOT money");
   } else {
     state1(input, index++);
