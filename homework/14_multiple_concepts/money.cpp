@@ -61,7 +61,7 @@ void state0(string input, int index) {
   } else if (isdigit(input.at(index)) == true) {
     state1(input, index++);
   } else {
-    throw runtime_error("Testing is NOT money");
+    return;
   }
 }
 void verifyIsMoney(string inputString) {
