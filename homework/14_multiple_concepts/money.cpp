@@ -15,7 +15,7 @@ using namespace std;
 
 // throws a runtime_error if the input string is not properly formatted
 void state4(string input, int index, int counter) {
-  if (input.at(index) == '\0') {
+  if (index == input.length()) {
     return;
   } else if (counter == 3) {
     if (input.at(index) != ',') {
@@ -36,7 +36,7 @@ void state4(string input, int index, int counter) {
 
 void state1(string input, int index) {
   int counter = 0;
-  if (input.length() == 1) {
+  if (input.length() <= 1) {
     return;
   } else if (index == 4) {
     if (input.at(index) != ',') {
