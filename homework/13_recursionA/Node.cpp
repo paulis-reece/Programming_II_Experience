@@ -68,19 +68,18 @@ void Node::printPath(deque<Node *> path) {
 // add to a vector of paths leading back home
 void Node::findPaths(deque<Node *> currentPath, vector<deque<Node *>> &allPaths,
                      string indent) {
-  cout << indent << "findPaths() - starting at " << label << endl;
+  // cout << indent << "findPaths() - starting at " << label << endl;
 
   // BASE CASE 1: if `this` is not home but part of the current path, do nothing
   if (this->getLabel() != 'A') {
     return;
-  } else {
-    // we are visiting a new node, so add `this` to end of the current path
-    currentPath.push_back(this);
-    // BASE CASE 2: if we left home and got back, add currentPath to allPaths
-    if (currentPath.front()->getLabel() == this->getLabel()) {
-      allPaths.push_back(currentPath);
-    }
-    // RECURSION: visit each child (link) and add any discovered paths
-    this->findPaths(currentPath, allPaths, " ");
   }
+  // we are visiting a new node, so add `this` to end of the current path
+  currentPath.push_back(this);
+  // BASE CASE 2: if we left home and got back, add currentPath to allPaths
+  if (currentPath.front()->getLabel() == 'A') {
+    allPaths.push_back(currentPath);
+  }
+  // RECURSION: visit each child (link) and add any discovered paths
+  this->findPaths(currentPath, allPaths, " ");
 }
