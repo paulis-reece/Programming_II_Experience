@@ -38,8 +38,6 @@ void state1(string input, int index) {
   int counter = 0;
   if (input.length() <= 2) {
     return;
-  } else if (input.length() <= 3) {
-    return;
   } else if (index == 4) {
     if (input.at(index) != ',') {
       throw runtime_error("Testing is NOT money");
