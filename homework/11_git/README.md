@@ -153,8 +153,8 @@ Add and commit the new file to your local repository.
 After the commit, check the git status and push your changes to your GitLab remote.
 
 ```text
-[master d2538de] styling
- 1 file changed, 2 insertions(+)
+[master 98c7cd6] Styling
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
 ### Generate a Merge Request
