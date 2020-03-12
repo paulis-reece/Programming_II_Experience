@@ -47,9 +47,9 @@ nothing to commit, working tree clean
 > git log
 
 ```text
-commit e4c909b9cd57363f5989833519f084823396ca2b (HEAD -> master)
+commit 053ba22e32e26cf092dc6200b07f42a4c2ed73a7 (HEAD -> master)
 Author: reklre <reklre@cs.wallawalla.edu>
-Date:   Tue Feb 25 03:14:14 2020 +0000
+Date:   Thu Mar 12 04:55:55 2020 +0000
 
     Initialize repository
 ```
@@ -71,41 +71,13 @@ Select the file `index.html` from the directory tree on the left and edit it to 
 
 ```text
 On branch master
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git checkout -- <file>..." to discard changes in working directory)
-
-        modified:   touch index.html
-
-no changes added to commit (use "git add" and/or "git commit -a")
+nothing to commit, working tree clean
 ```
 
 > git diff
 
 ```text
-diff --git a/touch index.html b/touch index.html
-index e69de29..af53f37 100644
---- a/touch index.html  
-+++ b/touch index.html  
-@@ -0,0 +1,8 @@
-+<html>
-+    <head>
-+        <title>CPTR 142 - Git Assignment</title>
-+    </head>
-+    <body>
-:...skipping...
-diff --git a/touch index.html b/touch index.html
-index e69de29..af53f37 100644
---- a/touch index.html  
-+++ b/touch index.html  
-@@ -0,0 +1,8 @@
-+<html>
-+    <head>
-+        <title>CPTR 142 - Git Assignment</title>
-+    </head>
-+    <body>
-+        <h1>This is our Git Assignment page!</h1>
-:
+nothing happened since im reinitializing repository
 ```
 
 Commit your changes to your local Git repository with an appropriate commit message.
@@ -143,13 +115,18 @@ git clone git@gitlab.cs.wallawalla.edu:USERID/student142_hw11.git
 If you are asked to verify the authenticity of `gitlab.cs.wallawalla.edu (192.147.173.125)`, say `yes`.
 
 ```text
+On branch master
+nothing to commit, working tree clean
+reklre@code:~/code/cpp/gitExercise$ git@gitlab.cs.wallawalla.edu:reklre/student142_hw11.git
+bash: git@gitlab.cs.wallawalla.edu:reklre/student142_hw11.git: No such file or directory
+reklre@code:~/code/cpp/gitExercise$ git clone git@gitlab.cs.wallawalla.edu:reklre/student142_hw11.git
 Cloning into 'student142_hw11'...
-remote: Enumerating objects: 104, done.
-remote: Counting objects: 100% (104/104), done.
-remote: Compressing objects: 100% (57/57), done.
-remote: Total 104 (delta 38), reused 103 (delta 38)
-Receiving objects: 100% (104/104), 11.91 KiB | 812.00 KiB/s, done.
-Resolving deltas: 100% (38/38), done.
+remote: Enumerating objects: 106, done.
+remote: Counting objects: 100% (106/106), done.
+remote: Compressing objects: 100% (59/59), done.
+remote: Total 106 (delta 39), reused 102 (delta 38)
+Receiving objects: 100% (106/106), 12.11 KiB | 729.00 KiB/s, done.
+Resolving deltas: 100% (39/39), done.
 ```
 
 * In the bash shell, enter the following to add another:
