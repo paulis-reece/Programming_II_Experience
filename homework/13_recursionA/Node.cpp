@@ -48,7 +48,7 @@ int Node::costOfPath(deque<Node *> path) {
     return 0;
   }
   // return cost to next node plus cost from there to end
-  return 42;
+  return this->linkAndCostPairs.at(path.front());
 }
 
 void Node::printPath(deque<Node *> path) {
@@ -62,6 +62,7 @@ void Node::printPath(deque<Node *> path) {
   }
   // print a dash, then recurse to print remaining path
   cout << "-";
+  printPath(path);
 }
 
 // add to a vector of paths leading back home
@@ -70,10 +71,16 @@ void Node::findPaths(deque<Node *> currentPath, vector<deque<Node *>> &allPaths,
   cout << indent << "findPaths() - starting at " << label << endl;
 
   // BASE CASE 1: if `this` is not home but part of the current path, do nothing
-
-  // we are visiting a new node, so add `this` to end of the current path
-
-  // BASE CASE 2: if we left home and got back, add currentPath to allPaths
-
-  // RECURSION: visit each child (link) and add any discovered paths
+  if (this->getLabel() != 'A') {
+    return;
+  } else {
+    // we are visiting a new node, so add `this` to end of the current path
+    currentPath.push_back(this);
+    // BASE CASE 2: if we left home and got back, add currentPath to allPaths
+    if (currentPath.front()->getLabel() == this->getLabel()) {
+      allPaths.push_back(currentPath);
+    }
+    // RECURSION: visit each child (link) and add any discovered paths
+    this->findPaths(currentPath, allPaths, " ");
+  }
 }

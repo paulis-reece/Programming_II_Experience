@@ -9,6 +9,7 @@
  *
  */
 #include "money.h"
+#include <iostream>
 #include <stdexcept>
 #include <string>
 using namespace std;
@@ -30,7 +31,7 @@ void state4(string input, int index, int counter) {
   } else if (isdigit(input.at(index)) == false) {
     throw runtime_error("Testing is NOT money");
   } else {
-    return;
+    cout << "Testing is money";
   }
 }
 
@@ -49,7 +50,7 @@ void state1(string input, int index) {
   } else if (isdigit(input.at(index)) == false) {
     throw runtime_error("Testing is NOT money");
   } else {
-    return;
+    cout << "Testing is money";
   }
 }
 
