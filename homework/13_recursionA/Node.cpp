@@ -62,7 +62,6 @@ void Node::printPath(deque<Node *> path) {
   }
   // print a dash, then recurse to print remaining path
   cout << "-";
-  printPath(path);
 }
 
 // add to a vector of paths leading back home
@@ -81,5 +80,5 @@ void Node::findPaths(deque<Node *> currentPath, vector<deque<Node *>> &allPaths,
     allPaths.push_back(currentPath);
   }
   // RECURSION: visit each child (link) and add any discovered paths
-  this->findPaths(currentPath, allPaths, " ");
+  this->printPath(currentPath);
 }
