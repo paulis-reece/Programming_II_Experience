@@ -36,7 +36,9 @@ void state4(string input, int index, int counter) {
 
 void state1(string input, int index) {
   int counter = 0;
-  if (index == input.length()) {
+  if (input.length() == 2) {
+    return;
+  } else if (input.length() == 3 && isdigit(input.at(3)) == true) {
     return;
   } else if (index == 4) {
     if (input.at(index) != ',') {
@@ -58,8 +60,6 @@ void state0(string input, int index) {
     throw runtime_error("Testing is NOT money");
   } else if (ispunct(input.at(index)) == true) {
     throw runtime_error("Testing is NOT money");
-  } else if (isdigit(input.at(index)) == true && index == input.length()) {
-    return;
   } else if (isdigit(input.at(index)) == true) {
     state1(input, index++);
   } else {
