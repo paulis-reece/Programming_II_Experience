@@ -64,9 +64,9 @@ void verifyIsMoney(string inputString) {
   int index = 0;
   if (inputString.length() <= 1) {
     throw runtime_error("Testing is NOT money");
-  } else if (inputString.at(index) == '$') {
-    state0(inputString, index++);
-  } else {
+  } else if (inputString.at(index) != '$') {
     throw runtime_error("Testing is NOT money");
+  } else {
+    state0(inputString, index++);
   }
 }
