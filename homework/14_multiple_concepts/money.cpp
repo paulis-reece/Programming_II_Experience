@@ -36,7 +36,7 @@ void state4(string input, int index, int counter) {
 
 void state1(string input, int index) {
   int counter = 0;
-  if (input.at(index) == '\0') {
+  if (input.length() == 1) {
     return;
   } else if (index == 4) {
     if (input.at(index) != ',') {
