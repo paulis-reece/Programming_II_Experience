@@ -41,6 +41,7 @@ void Node::print() {
 }
 
 int Node::costOfPath(deque<Node *> path) {
+  Node *Nptr;
   // remove the current node from the front of the path
   path.pop_front();
   // if nothing more, then return cost of zero
@@ -48,37 +49,47 @@ int Node::costOfPath(deque<Node *> path) {
     return 0;
   }
   // return cost to next node plus cost from there to end
-  return this->linkAndCostPairs.at(path.front());
+  Nptr = path.front();
+  return this->linkAndCostPairs.at(Nptr) + costOfPath(path);
 }
 
 void Node::printPath(deque<Node *> path) {
   // print the current label
-  print();
+  cout << path.front()->getLabel();
   // remove the current node from the front of the path
   path.pop_front();
   // if something more, then print it (recursion)
   if (path.size() != 0) {
-    print();
+    printPath(path);
+  } else {
+    return;
   }
   // print a dash, then recurse to print remaining path
-  cout << "-";
 }
 
 // add to a vector of paths leading back home
 void Node::findPaths(deque<Node *> currentPath, vector<deque<Node *>> &allPaths,
                      string indent) {
-  // cout << indent << "findPaths() - starting at " << label << endl;
+  cout << indent << "findPaths() - starting at " << label << endl;
 
   // BASE CASE 1: if `this` is not home but part of the current path, do nothing
-  if (this->getLabel() != 'A') {
-    return;
+  bool home = false;
+  for (auto each : currentPath) {
+    if (this == each) {
+      home = true;
+    }
+    if (this != currentPath.front() && home) {
+      return;
+    }
   }
   // we are visiting a new node, so add `this` to end of the current path
   currentPath.push_back(this);
   // BASE CASE 2: if we left home and got back, add currentPath to allPaths
-  if (currentPath.front()->getLabel() == 'A') {
+  if (currentPath.front() == currentPath.back()) {
     allPaths.push_back(currentPath);
   }
   // RECURSION: visit each child (link) and add any discovered paths
-  this->printPath(currentPath);
+  for (auto each : linkAndCostPairs) {
+    each.first->findPaths(currentPath, allPaths, indent + " ");
+  }
 }
