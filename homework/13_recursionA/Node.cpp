@@ -65,6 +65,7 @@ void Node::printPath(deque<Node *> path) {
     return;
   }
   // print a dash, then recurse to print remaining path
+  cout << "-";
 }
 
 // add to a vector of paths leading back home
@@ -74,11 +75,13 @@ void Node::findPaths(deque<Node *> currentPath, vector<deque<Node *>> &allPaths,
 
   // BASE CASE 1: if `this` is not home but part of the current path, do nothing
   bool home = false;
-  if (this == currentPath.front()) {
-    home = true;
-  }
-  if (this != currentPath.front() && home) {
-    return;
+  for (auto each : currentPath) {
+    if (this == each) {
+      home = true;
+    }
+    if (this != currentPath.front() && home) {
+      return;
+    }
   }
   // we are visiting a new node, so add `this` to end of the current path
   currentPath.push_back(this);
