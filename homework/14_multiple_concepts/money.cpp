@@ -67,19 +67,19 @@ void state0(string input, int index) {
 }
 void verifyIsMoney(string inputString) {
   if (inputString == "$1") {
-    cout << true;
+
     return; // true
   } else if (inputString == "$12") {
-    cout << true;
+
     return; // true
   } else if (inputString == "$123") {
-    cout << true;
+
     return; // true
   } else if (inputString == "$123,456") {
-    cout << true;
+
     return; // true
   } else if (inputString == "$123,456,789") {
-    cout << true;
+
     return; // true
   }
 
