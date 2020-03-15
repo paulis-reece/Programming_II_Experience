@@ -13,6 +13,7 @@
 #include <iostream>  // for cin and cout
 using namespace std;
 #include "Node.h"
+#include <map>
 
 // static variable to hold the next label
 char Node::nextLabel = 'A';
@@ -41,16 +42,27 @@ void Node::print() {
 }
 
 int Node::costOfPath(deque<Node *> path) {
-  Node *Nptr;
+  int sum = 0;
   // remove the current node from the front of the path
+  for (auto each : this->linkAndCostPairs) {
+    if (each.first->getLabel() == path.front()->getLabel()) {
+      sum += each.second;
+      break;
+    }
+  }
   path.pop_front();
   // if nothing more, then return cost of zero
   if (path.size() == 1) {
     return 0;
   }
+  for (auto each : this->linkAndCostPairs) {
+    if (each.first->getLabel() == path.front()->getLabel()) {
+      sum += each.second;
+      break;
+    }
+  }
   // return cost to next node plus cost from there to end
-  Nptr = path.front();
-  return this->linkAndCostPairs.at(Nptr) + costOfPath(path);
+  return sum;
 }
 
 void Node::printPath(deque<Node *> path) {
@@ -72,26 +84,21 @@ void Node::printPath(deque<Node *> path) {
 void Node::findPaths(deque<Node *> currentPath, vector<deque<Node *>> &allPaths,
                      string indent) {
   // cout << indent << "findPaths() - starting at " << label << endl;
-
+  map<Node *, int>::iterator loopMap;
+  char node;
   // BASE CASE 1: if `this` is not home but part of the current path, do nothing
-  bool home = false;
-  for (auto each : currentPath) {
-    if (this == each) {
-      home = true;
-    }
-    if (this != currentPath.front() && home) {
-      return;
-    }
+  if (currentPath.front()->getLabel() == 'A') {
+    return;
   }
   // we are visiting a new node, so add `this` to end of the current path
   currentPath.push_back(this);
   // BASE CASE 2: if we left home and got back, add currentPath to allPaths
-  if (currentPath.front()->getLabel() == this->getLabel()) {
+  if (currentPath.front()->getLabel() == currentPath.back()->getLabel()) {
     allPaths.push_back(currentPath);
   }
-  currentPath.pop_front();
   // RECURSION: visit each child (link) and add any discovered paths
-  for (auto each : linkAndCostPairs) {
-    each.first->findPaths(currentPath, allPaths, indent + " ");
+  for (loopMap = this->linkAndCostPairs.begin();
+       loopMap != this->linkAndCostPairs.end(); ++loopMap) {
+    loopMap->first->findPaths(currentPath, allPaths, indent);
   }
 }
