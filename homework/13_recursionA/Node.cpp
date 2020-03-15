@@ -84,7 +84,6 @@ void Node::printPath(deque<Node *> path) {
 void Node::findPaths(deque<Node *> currentPath, vector<deque<Node *>> &allPaths,
                      string indent) {
   // cout << indent << "findPaths() - starting at " << label << endl;
-  map<Node *, int>::iterator loopMap;
   // BASE CASE 1: if `this` is not home but part of the current path, do nothing
   bool home = false;
   for (auto each : currentPath) {
@@ -103,8 +102,7 @@ void Node::findPaths(deque<Node *> currentPath, vector<deque<Node *>> &allPaths,
     allPaths.push_back(currentPath);
   }
   // RECURSION: visit each child (link) and add any discovered paths
-  for (loopMap = this->linkAndCostPairs.begin();
-       loopMap != this->linkAndCostPairs.end(); ++loopMap) {
-    loopMap->first->findPaths(currentPath, allPaths, indent);
+  for (auto each : this->linkAndCostPairs) {
+    each.first->findPaths(currentPath, allPaths, indent);
   }
 }
