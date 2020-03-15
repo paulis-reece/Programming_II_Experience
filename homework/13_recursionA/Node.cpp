@@ -68,6 +68,7 @@ int Node::costOfPath(deque<Node *> path) {
 void Node::printPath(deque<Node *> path) {
   // print the current label
   cout << path.front()->getLabel();
+  cout << "-";
   // remove the current node from the front of the path
   path.pop_front();
   // if something more, then print it (recursion)
@@ -77,7 +78,6 @@ void Node::printPath(deque<Node *> path) {
     return;
   }
   // print a dash, then recurse to print remaining path
-  cout << "-";
 }
 
 // add to a vector of paths leading back home
