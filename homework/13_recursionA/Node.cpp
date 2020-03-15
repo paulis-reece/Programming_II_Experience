@@ -89,6 +89,7 @@ void Node::findPaths(deque<Node *> currentPath, vector<deque<Node *>> &allPaths,
   if (currentPath.front()->getLabel() == this->getLabel()) {
     allPaths.push_back(currentPath);
   }
+  currentPath.pop_front();
   // RECURSION: visit each child (link) and add any discovered paths
   for (auto each : linkAndCostPairs) {
     each.first->findPaths(currentPath, allPaths, indent + " ");
