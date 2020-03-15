@@ -58,7 +58,7 @@ int Node::costOfPath(deque<Node *> path) {
     sum += each.second;
   }
   // return cost to next node plus cost from there to end
-  return sum;
+  return sum + costOfPath(path);
 }
 
 void Node::printPath(deque<Node *> path) {
