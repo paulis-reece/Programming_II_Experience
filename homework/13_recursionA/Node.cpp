@@ -55,10 +55,14 @@ int Node::costOfPath(deque<Node *> path) {
     return 0;
   }
   for (auto each : this->linkAndCostPairs) {
-    sum += each.second;
+    for (auto node : path) {
+      if (node->getLabel() == each.first->getLabel()) {
+        sum += each.second;
+      }
+    }
   }
   // return cost to next node plus cost from there to end
-  return sum + costOfPath(path);
+  return sum;
 }
 
 void Node::printPath(deque<Node *> path) {
