@@ -14,6 +14,7 @@
 using namespace std;
 #include "Node.h"
 #include <map>
+#include <vector>
 
 // static variable to hold the next label
 char Node::nextLabel = 'A';
@@ -85,6 +86,7 @@ void Node::findPaths(deque<Node *> currentPath, vector<deque<Node *>> &allPaths,
                      string indent) {
   // cout << indent << "findPaths() - starting at " << label << endl;
   // BASE CASE 1: if `this` is not home but part of the current path, do nothing
+  vector<char> nodes;
   bool home = false;
   for (auto each : currentPath) {
     if (this->getLabel() == each->getLabel()) {
@@ -99,6 +101,11 @@ void Node::findPaths(deque<Node *> currentPath, vector<deque<Node *>> &allPaths,
   // BASE CASE 2: if we left home and got back, add currentPath to allPaths
   if (currentPath.front()->getLabel() == currentPath.front()->getLabel()) {
     allPaths.push_back(currentPath);
+  }
+  if (nodes.size() != currentPath.size()) {
+    nodes.push_back(currentPath.front()->getLabel());
+  } else {
+    return;
   }
   // RECURSION: visit each child (link) and add any discovered paths
   for (auto each : this->linkAndCostPairs) {
