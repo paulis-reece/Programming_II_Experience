@@ -91,6 +91,7 @@ void Node::findPaths(deque<Node *> currentPath, vector<deque<Node *>> &allPaths,
   // BASE CASE 2: if we left home and got back, add currentPath to allPaths
   if (currentPath.front()->getLabel() == currentPath.front()->getLabel()) {
     allPaths.push_back(currentPath);
+    return;
   }
   // RECURSION: visit each child (link) and add any discovered paths
   for (auto each : this->linkAndCostPairs) {
