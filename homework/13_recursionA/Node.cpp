@@ -91,7 +91,7 @@ void Node::findPaths(deque<Node *> currentPath, vector<deque<Node *>> &allPaths,
     if (this->getLabel() == each->getLabel()) {
       home = true;
     }
-    if (this == currentPath.front() && home) {
+    if (this != currentPath.front() && home) {
       return;
     }
   }
