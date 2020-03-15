@@ -42,24 +42,16 @@ void Node::print() {
 }
 
 int Node::costOfPath(deque<Node *> path) {
+  Node *node;
   int sum = 0;
   // remove the current node from the front of the path
-  for (auto each : this->linkAndCostPairs) {
-    if (each.first->getLabel() == path.front()->getLabel()) {
-      sum += each.second;
-      break;
-    }
-  }
   path.pop_front();
   // if nothing more, then return cost of zero
   if (path.size() == 1) {
     return 0;
   }
   for (auto each : this->linkAndCostPairs) {
-    if (each.first->getLabel() == path.front()->getLabel()) {
-      sum += each.second;
-      break;
-    }
+    sum += each.second;
   }
   // return cost to next node plus cost from there to end
   return sum;
