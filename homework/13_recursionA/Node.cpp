@@ -42,9 +42,13 @@ void Node::print() {
 }
 
 int Node::costOfPath(deque<Node *> path) {
-  Node *node;
   int sum = 0;
   // remove the current node from the front of the path
+  for (auto each : this->linkAndCostPairs) {
+    if (path.front()->getLabel() == each.first->getLabel()) {
+      sum += each.second;
+    }
+  }
   path.pop_front();
   // if nothing more, then return cost of zero
   if (path.size() == 1) {
@@ -91,7 +95,6 @@ void Node::findPaths(deque<Node *> currentPath, vector<deque<Node *>> &allPaths,
   // BASE CASE 2: if we left home and got back, add currentPath to allPaths
   if (currentPath.front()->getLabel() == currentPath.front()->getLabel()) {
     allPaths.push_back(currentPath);
-    return;
   }
   // RECURSION: visit each child (link) and add any discovered paths
   for (auto each : this->linkAndCostPairs) {
