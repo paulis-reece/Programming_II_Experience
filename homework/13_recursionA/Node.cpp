@@ -96,7 +96,7 @@ void Node::findPaths(deque<Node *> currentPath, vector<deque<Node *>> &allPaths,
     allPaths.push_back(currentPath);
   }
   // RECURSION: visit each child (link) and add any discovered paths
-  for (auto each : currentPath) {
-    each->findPaths(currentPath, allPaths, indent);
+  for (auto link : this->linkAndCostPairs) {
+    link.first->findPaths(currentPath, allPaths, indent);
   }
 }
