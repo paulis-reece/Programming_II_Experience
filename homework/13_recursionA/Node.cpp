@@ -44,24 +44,25 @@ void Node::print() {
 
 int Node::costOfPath(deque<Node *> path) {
   int sum = 0;
-  // remove the current node from the front of the path
-  for (auto each : this->linkAndCostPairs) {
-    if (path.front()->getLabel() == each.first->getLabel()) {
-      sum += each.second;
-      break;
-    }
+  vector<pair<Node *, Node *>> CostPair;
+  vector<Node *> Node;
+  for (auto each : path) {
+    Node.push_back(each);
   }
-  path.pop_front();
-  // if nothing more, then return cost of zero
-  if (path.size() == 1) {
-    return 0;
+  for (int i = 1; i < Node.size(); i++) {
+    CostPair.push_back(make_pair(Node.at(i - 1), Node.at(i)));
   }
-  for (auto each : this->linkAndCostPairs) {
-    for (auto node : path) {
-      if (node->getLabel() == each.first->getLabel()) {
-        sum += each.second;
+  for (auto eachPair : CostPair) {
+    for (auto linkFirst : eachPair.first->linkAndCostPairs) {
+      if (eachPair.second->getLabel() == linkFirst.first->getLabel()) {
+        sum += linkFirst.second;
       }
     }
+  }
+  // remove the current node from the front of the path
+  // if nothing more, then return cost of zero
+  if (path.size() == 0) {
+    return 0;
   }
   // return cost to next node plus cost from there to end
   return sum;
@@ -70,40 +71,37 @@ int Node::costOfPath(deque<Node *> path) {
 void Node::printPath(deque<Node *> path) {
   // print the current label
   cout << path.front()->getLabel();
-  cout << "-";
   // remove the current node from the front of the path
   path.pop_front();
   // if something more, then print it (recursion)
-  if (path.size() != 0) {
-    printPath(path);
-  } else {
+  if (path.size() == 0) {
     return;
   }
   // print a dash, then recurse to print remaining path
+  cout << "-";
+  printPath(path);
 }
 // add to a vector of paths leading back home
 void Node::findPaths(deque<Node *> currentPath, vector<deque<Node *>> &allPaths,
                      string indent) {
-  // cout << indent << "findPaths() - starting at " << label << endl;
+  cout << indent << "findPaths() - starting at " << label << endl;
   // BASE CASE 1: if `this` is not home but part of the current path, do nothing
-  bool home = false;
-  for (auto each : currentPath) {
-    if (this == each) {
-      home = true;
-    }
-    if (this != currentPath.front() && home == false) {
-      return;
-    }
+  if (this->getLabel() != currentPath.front()->getLabel()) {
+    return;
   }
+  // we are visiting a new node, so add `this` to end of the current path
   currentPath.push_back(this);
+  // BASE CASE 2: if we left home and got back, add currentPath to allPaths
   if (currentPath.front() == currentPath.back()) {
     allPaths.push_back(currentPath);
   }
-  // we are visiting a new node, so add `this` to end of the current path
-  // BASE CASE 2: if we left home and got back, add currentPath to allPaths
   // RECURSION: visit each child (link) and add any discovered paths
-  this->findPaths(currentPath, allPaths, indent);
-  for (auto each : this->linkAndCostPairs) {
-    each.first->findPaths(currentPath, allPaths, indent);
+  for (auto each : currentPath) {
+    for (auto childLink : each->linkAndCostPairs) {
+      currentPath.push_back(childLink.first);
+    }
+  }
+  for (auto each : currentPath) {
+    each->findPaths(currentPath, allPaths, indent);
   }
 }
