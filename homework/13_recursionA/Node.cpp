@@ -88,7 +88,7 @@ void Node::findPaths(deque<Node *> currentPath, vector<deque<Node *>> &allPaths,
   // BASE CASE 1: if `this` is not home but part of the current path, do nothing
   bool home = false;
   for (auto each : currentPath) {
-    if (this->getLabel() == each->getLabel()) {
+    if (this == each) {
       home = true;
     }
     if (this != currentPath.front() && home == false) {
@@ -96,7 +96,7 @@ void Node::findPaths(deque<Node *> currentPath, vector<deque<Node *>> &allPaths,
     }
   }
   currentPath.push_back(this);
-  if (currentPath.front()->getLabel() == currentPath.back()->getLabel()) {
+  if (currentPath.front() == currentPath.back()) {
     allPaths.push_back(currentPath);
   }
   // we are visiting a new node, so add `this` to end of the current path
