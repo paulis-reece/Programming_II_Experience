@@ -44,7 +44,7 @@ void Node::print() {
 
 int Node::costOfPath(deque<Node *> path) {
   int sum = 0;
-  vector<pair<Node *, Node *>> CostPair;
+  /* vector<pair<Node *, Node *>> CostPair;
   vector<Node *> Node;
   for (auto each : path) {
     Node.push_back(each);
@@ -58,7 +58,7 @@ int Node::costOfPath(deque<Node *> path) {
         sum += linkFirst.second;
       }
     }
-  }
+  }*/
   // remove the current node from the front of the path
   // if nothing more, then return cost of zero
   if (path.size() == 0) {
