@@ -112,7 +112,7 @@ void Node::findPaths(deque<Node *> currentPath, vector<deque<Node *>> &allPaths,
     }
   }
   // BASE CASE 2: if we left home and got back, add currentPath to allPaths
-  if (countA < 3 && counter < 2) {
+  if (countA < 3 && counter < 2 && currentPath.size() != 1) {
     if (currentPath.front()->getLabel() == currentPath.back()->getLabel()) {
       allPaths.push_back(currentPath);
     }
