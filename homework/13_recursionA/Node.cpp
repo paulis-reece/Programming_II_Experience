@@ -98,7 +98,6 @@ void Node::findPaths(deque<Node *> currentPath, vector<deque<Node *>> &allPaths,
   currentPath.push_back(this);
   if (currentPath.front()->getLabel() == currentPath.back()->getLabel()) {
     allPaths.push_back(currentPath);
-    return;
   }
   // we are visiting a new node, so add `this` to end of the current path
   // BASE CASE 2: if we left home and got back, add currentPath to allPaths
