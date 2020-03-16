@@ -84,7 +84,7 @@ void Node::printPath(deque<Node *> path) {
 // add to a vector of paths leading back home
 void Node::findPaths(deque<Node *> currentPath, vector<deque<Node *>> &allPaths,
                      string indent) {
-  cout << indent << "findPaths() - starting at " << label << endl;
+  // cout << indent << "findPaths() - starting at " << label << endl;
   // BASE CASE 1: if `this` is not home but part of the current path, do nothing
   bool home = false;
   for (auto each : currentPath) {
